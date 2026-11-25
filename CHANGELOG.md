@@ -4,6 +4,11 @@ All changes that a user can see are in this file. The format follows Keep a Chan
 
 ## Unreleased
 
+### Added
+
+- `lgl fidelity list`, `show`, `set` and `run`, which keep `records/fidelity.json`. F1 is computed from `records/lean.json`, and `pass` is computed from the class of the statement and its checks (spec 06.3).
+- `lgl check` reports an entry of `records/fidelity.json` that says `pass` but does not have the checks of its class.
+
 ## v0.0.2 (2026-11-25)
 
 ### Added

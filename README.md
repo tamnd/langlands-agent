@@ -24,11 +24,15 @@ lgl status                     # print the status of each node
 lgl status -only stated        # print only the stated nodes
 lgl index -lean lean.json      # copy the record of the Lean build to records/lean.json
 lgl port check -lean ../langlands-lean   # check the ported Lean files against manifests/ported.yaml
+lgl fidelity list              # the fidelity checks of each statement, from records/fidelity.json
+lgl fidelity show LGAV7YV6K6   # the checks of one statement, by node tag or Lean name
+lgl fidelity set Langlands.LocalReciprocityGL1 F4=true   # record a check that a person or a role did
+lgl fidelity run -all          # compute F1 from records/lean.json for each statement
 lgl site build -content . -out public
 lgl site serve -dir public     # serve the site at http://127.0.0.1:8080/
 ```
 
-The exit codes are 0 for success, 1 for a failed check, 2 for a usage error and 3 for a command that is not written yet. The help text gives the milestone of each command that is not written yet: `trust`, `fidelity`, `port add`, `paper` and `lab` come in S1, and `claim`, `queue` and `agent` come in S2.
+The exit codes are 0 for success, 1 for a failed check, 2 for a usage error and 3 for a command that is not written yet. The help text gives the milestone of each command that is not written yet: `trust`, `port add`, `paper` and `lab` come in S1, and `claim`, `queue` and `agent` come in S2.
 
 ## The status rules
 
@@ -70,3 +74,15 @@ MIT. See [LICENSE](LICENSE). The files in `site/assets/` come from Math 2.0. See
 - a ported Lean file that does not start with the licence header of its source;
 - a ported Lean file with no provenance line `Ported from <owner>/<repo> at commit <commit>` in its first 40 lines;
 - a Lean file of `Langlands/Ported/` that is in no entry, or in two entries.
+
+## The fidelity checks
+
+`lgl fidelity` keeps `records/fidelity.json`, the results of the checks F1 to F7 of spec 06.3. It computes `pass` from the class of the statement and its checks:
+
+| Class | Needs |
+|---|---|
+| theorem | F1 to F5. A statement that a top theorem of spec 14.2 proves also needs F6. |
+| open | F1 to F7. The two reviewers of F6 must be from two groups. |
+| claimed | F1 to F7, as for open. |
+
+F1 is computed from `records/lean.json`: the declaration is in the record, it has no `sorry`, and it uses the standard axioms only. A person or a role sets F2 to F7 with `lgl fidelity set`. F6 needs two reviewers, given with `-reviewer "name|group|YYYY-MM-DD"`. `lgl check` reports an entry that says `pass` but does not have the checks of its class.

@@ -20,6 +20,7 @@ func TestExitCodes(t *testing.T) {
 		{[]string{"lab"}, 3, ""},
 		{[]string{"agent"}, 3, ""},
 		{[]string{"trust"}, 3, ""},
+		{[]string{"fidelity"}, 2, ""},
 		{[]string{"site"}, 2, ""},
 		{[]string{"status", "-only", "done"}, 2, ""},
 		{[]string{"check", "-content", "/does/not/exist"}, 1, ""},
