@@ -1,0 +1,19 @@
+# Made by lgl eval gen from https://github.com/n-yamaguchi-0729/ClassFieldTheory. Do not edit by hand.
+id: nyll-absolute-galois-group-fixing-subgroup-of-extensi-021b88
+kind: state
+origin: nyll
+title: State RamificationTheory.Field.absoluteGaloisGroup.fixingSubgroupOfExtension_comp_le in Lean from its docstring.
+source:
+  repo: nyll
+  commit: fc644f42dade5bdc7157fc3ef2eef4dbf2d6a565
+  path: Nyll/ValuedFieldTheory/Ramification/GaloisValuation/AbsoluteGalois/FiniteExtensionCorrespondence.lean
+  decl: RamificationTheory.Field.absoluteGaloisGroup.fixingSubgroupOfExtension_comp_le
+informal: For a tower embedding `L -> M -> K^al`, the subgroup fixing `M` is contained in the subgroup fixing `L`.
+answer:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Ported/NYLL/ValuedFieldTheory/Ramification/GaloisValuation/AbsoluteGalois/FiniteExtensionCorrespondence.lean
+  decl: RamificationTheory.Field.absoluteGaloisGroup.fixingSubgroupOfExtension_comp_le
+  lines: [127, 132]
+  sha256: 7c1fd996643b2d834968baf1dae38c11476c446b2223189288f4caea29a52580
+checks: [build, equiv-reference]

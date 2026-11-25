@@ -1,0 +1,24 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-polynomial-derivative-bernoulli-0dd0df
+kind: prove
+origin: mathlib-numbertheory
+title: Prove Polynomial.derivative_bernoulli.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/BernoulliPolynomials.lean
+  decl: Polynomial.derivative_bernoulli
+statement: |
+  theorem derivative_bernoulli (k : ℕ) :
+      Polynomial.derivative (bernoulli k) = k * bernoulli (k - 1) := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/BernoulliPolynomials.lean
+  decl: Polynomial.derivative_bernoulli
+  lines: [117, 121]
+  sha256: ac08f1c03c06c069bd4c5ddc6dc7c404c17536812485da9b856cebf6c9089f64
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 4
+difficulty: medium

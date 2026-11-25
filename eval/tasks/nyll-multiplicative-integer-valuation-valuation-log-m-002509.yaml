@@ -1,0 +1,19 @@
+# Made by lgl eval gen from https://github.com/n-yamaguchi-0729/ClassFieldTheory. Do not edit by hand.
+id: nyll-multiplicative-integer-valuation-valuation-log-m-002509
+kind: state
+origin: nyll
+title: State LocalFieldTheory.DiscreteValuationField.MultiplicativeIntegerValuation.valuation_log_mul_argument_lt_one_of_lt_one in Lean from its docstring.
+source:
+  repo: nyll
+  commit: fc644f42dade5bdc7157fc3ef2eef4dbf2d6a565
+  path: Nyll/ValuedFieldTheory/LocalField/Analytic/LogExpSeries/SeriesTerms.lean
+  decl: LocalFieldTheory.DiscreteValuationField.MultiplicativeIntegerValuation.valuation_log_mul_argument_lt_one_of_lt_one
+informal: The logarithm product argument `(1+x)(1+y)-1 = x+y+xy` stays in the open unit ball of a valuation.
+answer:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Ported/NYLL/ValuedFieldTheory/LocalField/Analytic/LogExpSeries/SeriesTerms.lean
+  decl: LocalFieldTheory.DiscreteValuationField.MultiplicativeIntegerValuation.valuation_log_mul_argument_lt_one_of_lt_one
+  lines: [693, 706]
+  sha256: 0b2747420d68e467caca94bfbfde74624c0f0b629a5868f30ad1148d1c848247
+checks: [build, equiv-reference]

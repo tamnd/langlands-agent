@@ -1,0 +1,24 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: rt-continuous-cohomology-mem-const-resol0-085ff2
+kind: prove
+origin: mathlib-representationtheory
+title: Prove ContinuousCohomology.mem_const_resol₀.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Homological/ContCohomology/LowDegree.lean
+  decl: ContinuousCohomology.mem_const_resol₀
+statement: |
+  lemma mem_const_resol₀ (x : X) (hx : x ∈ X.ρ.invariants) :
+      ContinuousMap.const G x ∈ ((resolution' X).X 0).ρ.invariants := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Homological/ContCohomology/LowDegree.lean
+  decl: ContinuousCohomology.mem_const_resol₀
+  lines: [44, 46]
+  sha256: 517d1ae33038572139b2ac404edad98099875578a598bfcc56dd550bc04dc2ad
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 1
+difficulty: easy

@@ -1,0 +1,24 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: rt-subrepresentation-coe-sup-0a291b
+kind: prove
+origin: mathlib-representationtheory
+title: Prove Subrepresentation.coe_sup.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Subrepresentation.lean
+  decl: Subrepresentation.coe_sup
+statement: |
+  @[simp, norm_cast]
+  lemma coe_sup (ρ₁ ρ₂ : Subrepresentation ρ) : ↑(ρ₁ ⊔ ρ₂) = (ρ₁ : Set W) + (ρ₂ : Set W) := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Subrepresentation.lean
+  decl: Subrepresentation.coe_sup
+  lines: [83, 85]
+  sha256: 1c5771174ec2372442acd792083557fdb9731acb5d2a7bbdd32fb3fd595fa90f
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 1
+difficulty: easy

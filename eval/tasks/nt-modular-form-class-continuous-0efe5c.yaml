@@ -1,0 +1,26 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-modular-form-class-continuous-0efe5c
+kind: prove
+origin: mathlib-numbertheory
+title: Prove ModularFormClass.continuous.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/ModularForms/Basic.lean
+  decl: ModularFormClass.continuous
+statement: |
+  @[fun_prop]
+  lemma ModularFormClass.continuous {k : ℤ} {Γ : Subgroup (GL (Fin 2) ℝ)}
+      {F : Type*} [FunLike F ℍ ℂ] [ModularFormClass F Γ k] (f : F) :
+      Continuous f := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/ModularForms/Basic.lean
+  decl: ModularFormClass.continuous
+  lines: [118, 122]
+  sha256: 8bf66e364620812175664149a94c232ded8e9503eb49d179372eccf227e7cfa0
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 1
+difficulty: easy

@@ -1,0 +1,27 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: rt-fdrep-finrank-hom-simple-simple-42896c
+kind: prove
+origin: mathlib-representationtheory
+title: Prove FDRep.finrank_hom_simple_simple.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/FDRep.lean
+  decl: FDRep.finrank_hom_simple_simple
+statement: |
+  open scoped Classical in
+  /-- Schur's Lemma: the dimension of the `Hom`-space between two irreducible representation is `0` if
+  they are not isomorphic, and `1` if they are. -/
+  theorem finrank_hom_simple_simple [IsAlgClosed k] (V W : FDRep k G) [Simple V] [Simple W] :
+      finrank k (V ⟶ W) = if Nonempty (V ≅ W) then 1 else 0 := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/FDRep.lean
+  decl: FDRep.finrank_hom_simple_simple
+  lines: [155, 160]
+  sha256: deaf6236a70efbe46e6e220421294f0a7100bd5ced82db57ef47fc98717e822f
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 1
+difficulty: easy

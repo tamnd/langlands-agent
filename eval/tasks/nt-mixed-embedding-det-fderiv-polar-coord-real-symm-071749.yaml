@@ -1,0 +1,25 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-mixed-embedding-det-fderiv-polar-coord-real-symm-071749
+kind: prove
+origin: mathlib-numbertheory
+title: Prove NumberField.mixedEmbedding.det_fderivPolarCoordRealSymm.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/NumberField/CanonicalEmbedding/PolarCoord.lean
+  decl: NumberField.mixedEmbedding.det_fderivPolarCoordRealSymm
+statement: |
+  open scoped Classical in
+  theorem det_fderivPolarCoordRealSymm (x : realMixedSpace K) :
+      (FDerivPolarCoordRealSymm K x).det = ∏ w : {w // IsComplex w}, (x.2 w).1 := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/NumberField/CanonicalEmbedding/PolarCoord.lean
+  decl: NumberField.mixedEmbedding.det_fderivPolarCoordRealSymm
+  lines: [124, 130]
+  sha256: 1e0cc3240f0be7c67dbc30027ba0baae5cbf693a86542565c5be778dfa1e6a9c
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 5
+difficulty: hard

@@ -1,0 +1,19 @@
+# Made by lgl eval gen from https://github.com/n-yamaguchi-0729/ClassFieldTheory. Do not edit by hand.
+id: nyll-cyclic-cohomology-pow-mul-eq-pow-fin-rotate-01add1
+kind: state
+origin: nyll
+title: State CyclicCohomology.pow_mul_eq_pow_finRotate in Lean from its docstring.
+source:
+  repo: nyll
+  commit: fc644f42dade5bdc7157fc3ef2eef4dbf2d6a565
+  path: Nyll/GaloisCohomology/Cyclic/Herbrand/Induced.lean
+  decl: CyclicCohomology.pow_mul_eq_pow_finRotate
+informal: Multiplication by the cyclic generator advances `finRotate`, with the last coordinate wrapping to the full-period power.
+answer:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Ported/NYLL/GaloisCohomology/Cyclic/Herbrand/Induced.lean
+  decl: CyclicCohomology.pow_mul_eq_pow_finRotate
+  lines: [96, 111]
+  sha256: 1de6739750986502ef219957bc8c46e9ed92b094967743f8d3fef7a59a2bca05
+checks: [build, equiv-reference]

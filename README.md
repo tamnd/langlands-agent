@@ -44,6 +44,11 @@ lgl queue -role prover -n 20   # the work queue of a role, with the rank and the
 lgl agent run prover -dry-run  # print the run record and the prompt of the top item, and write nothing
 lgl agent run prover -node LGVAKJJD8Y -budget 5   # write records/runs/<id>/ and start the runner, if there is one
 lgl agent report -week 2026-W49   # write reports/2026-W49.md
+lgl eval list                  # the counts of the eval sets of spec 10.9 in eval/
+lgl eval check -lean ../langlands-lean   # check the sets, and the source of each task and statement in the checkouts
+lgl eval run -dry-run          # print the units of each set and write nothing
+lgl eval run -answers answers.json   # score the answers of a runner and write eval/results/<date>-<label>.json
+lgl eval compare eval/results/old.json eval/results/new.json   # exit with 1 when a pass rate drops by more than 5 points
 lgl site build -content . -out public
 lgl site serve -dir public     # serve the site at http://127.0.0.1:8080/
 ```
@@ -73,6 +78,18 @@ When `blueprint/routes.yaml` or `blueprint/milestones.yaml` is missing, `lgl que
 The command writes `records/runs/<id>/run.json` with the status `planned`, the model, the budget, the inputs and the branch, and `prompt.md` with the prompt. Then it prints the path of the record. With `-dry-run` it prints the record and the prompt and writes nothing. When the budget is zero, or when the environment variable `LGL_RUNNER` is not set, the run stops after the record and the command says why. When `LGL_RUNNER` is set, the command runs it in the content repository with the prompt on stdin and with `LGL_RUN_ID`, `LGL_ROLE`, `LGL_TARGET`, `LGL_MODEL`, `LGL_BUDGET`, `LGL_BRANCH`, `LGL_RUN_DIR` and `LGL_RECORD` in the environment. The output goes to `output.log`, and the record gets the exit status. An exit status of 0 gives the status `ran`, and the result waits for the checks of the role. Another exit status gives `failed`, and the command exits with 1. lgl calls no model itself, it makes no worktree or branch, and it opens no pull request. The runner writes the ledger.
 
 `lgl agent report -week 2026-W49` writes `reports/2026-W49.md` with the sections of spec 10.8: the status changes by tier and by route, the pull requests of the run records, the spend by role and by route from the ledger, the lab runs, the claim checks, the refuted conjectures and the five largest open nodes of each route and of the library, with what blocks them. To find the status changes, it writes the status of each node to `records/status/<week>.json` and compares it with the last snapshot of an earlier week.
+
+## The evaluation sets
+
+The sets of spec 10.9 are in `eval/`. Each model change and each prompt change is scored on them, and a change that lowers a pass rate by more than 5 points is not merged.
+
+`eval/tasks/` has 200 tasks with a known answer, one YAML file for each task. A task has an id, a kind (`prove`, `state` or `repair`), an origin, a source and an answer (each one a repository, a commit, a path and a declaration), the statement or the informal text, and the checks that an answer must pass. The prove tasks are Mathlib NumberTheory and RepresentationTheory lemmas and project lemmas with the proof replaced by `sorry`. The state tasks are NYLL declarations with a docstring: the task gives the docstring, and the answer is the declaration. The repair tasks are NYLL port files with the name of the Mathlib pin put back to the upstream name, and the answer is the ported declaration. `lgl eval gen -lean ../langlands-lean` writes these files again from the checkouts. The same commits give the same files.
+
+`eval/statements/` has 50 statements, written by hand. Each one has an informal text, the reviewed Lean with its source, and wrong Lean statements that the fidelity battery must reject. Each wrong statement has a trap (such as `normalization`, `missing-condition`, `quantifier`, `universe` or `field-class`) and a one-line reason. A wrong statement is elaborated in place of the reviewed declaration, in its file, so it states each binder that it needs. lgl does not elaborate them. The battery does.
+
+`lgl eval check` checks the files: the ids, the kinds, the checks, the traps, the commits and the text rules. With `-lean` (and `-mathlib`, by default the Mathlib package of `-lean`) it reads each source at its commit with `git show` and checks that the declaration is there and that the text is the same. A reference to a repository that has no checkout is counted and not read.
+
+lgl calls no model. A runner writes an answers file in JSON with `model`, `prompt_version` and the lists `tasks`, `statements` and `battery`. Each answer has the `id` of a unit, the `checks` that passed (for a task or a statement) or the `verdict` `accept` or `reject` (for the battery), `cost_usd` and `tokens`. A unit with no answer fails. `lgl eval key` prints the answers file that passes each unit, to test a runner. `lgl eval run -answers FILE` writes the pass rate, the cost and the failed units of each set to `eval/results/`, with the sha256 of the sets and of the answers. `lgl eval compare OLD NEW` prints the change of each set and exits with 1 when a pass rate drops by more than 5 points or a set has no result.
 
 ## The status rules
 

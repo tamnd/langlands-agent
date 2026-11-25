@@ -1,0 +1,24 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-padic-int-mem-span-pow-iff-le-valuation-087a17
+kind: prove
+origin: mathlib-numbertheory
+title: Prove PadicInt.mem_span_pow_iff_le_valuation.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/Padics/PadicIntegers.lean
+  decl: PadicInt.mem_span_pow_iff_le_valuation
+statement: |
+  theorem mem_span_pow_iff_le_valuation (x : ℤ_[p]) (hx : x ≠ 0) (n : ℕ) :
+      x ∈ (Ideal.span {(p : ℤ_[p]) ^ n} : Ideal ℤ_[p]) ↔ n ≤ x.valuation := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/Padics/PadicIntegers.lean
+  decl: PadicInt.mem_span_pow_iff_le_valuation
+  lines: [472, 483]
+  sha256: a853453bde3ba04ce100b0f85ca08e8edc1eee99da23acd597f9a455bb528f35
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 11
+difficulty: hard

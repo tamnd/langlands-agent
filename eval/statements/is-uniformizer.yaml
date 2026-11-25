@@ -1,0 +1,20 @@
+# A statement of spec 10.9, written by hand. A wrong statement is elaborated in place of the reviewed declaration, in its file, so it states each binder that it needs.
+id: is-uniformizer
+title: A uniformizer of a local field
+informal: An element x of a nonarchimedean local field K is a uniformizer if it is the image of an irreducible element of the valuation ring of K.
+reviewed:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Statements/ClassField.lean
+  decl: Langlands.IsUniformizer
+  lean: |
+    def IsUniformizer {K : Type*} [Field K] [ValuativeRel K] (x : K) : Prop :=
+      ∃ π : 𝒪[K], Irreducible π ∧ (π : K) = x
+checks: [build, equiv-reference]
+wrong:
+  - id: is-uniformizer-in-field
+    trap: vacuous
+    reason: In a field no element is irreducible, so with this definition no element is a uniformizer.
+    lean: |
+      def IsUniformizer {K : Type*} [Field K] [ValuativeRel K] (x : K) : Prop :=
+        Irreducible x

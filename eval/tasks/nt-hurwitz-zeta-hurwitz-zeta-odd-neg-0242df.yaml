@@ -1,0 +1,24 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-hurwitz-zeta-hurwitz-zeta-odd-neg-0242df
+kind: prove
+origin: mathlib-numbertheory
+title: Prove HurwitzZeta.hurwitzZetaOdd_neg.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/LSeries/HurwitzZetaOdd.lean
+  decl: HurwitzZeta.hurwitzZetaOdd_neg
+statement: |
+  lemma hurwitzZetaOdd_neg (a : UnitAddCircle) (s : ℂ) :
+      hurwitzZetaOdd (-a) s = -hurwitzZetaOdd a s := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/LSeries/HurwitzZetaOdd.lean
+  decl: HurwitzZeta.hurwitzZetaOdd_neg
+  lines: [461, 463]
+  sha256: 7c4062fff1b4b5efb3180a3d221af89350f2f6f3922ebad3279a7e3fcb658b0a
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 2
+difficulty: medium

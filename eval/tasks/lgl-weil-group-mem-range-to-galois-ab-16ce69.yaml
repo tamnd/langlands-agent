@@ -1,0 +1,24 @@
+# Made by lgl eval gen from https://github.com/tamnd/langlands-lean. Do not edit by hand.
+id: lgl-weil-group-mem-range-to-galois-ab-16ce69
+kind: prove
+origin: project
+title: Prove Langlands.WeilGroup.mem_range_toGaloisAb.
+source:
+  repo: langlands-lean
+  commit: eec9007cede3d4961a8e8a8e44952558fb4532e3
+  path: Langlands/WeilGroup/Ab.lean
+  decl: Langlands.WeilGroup.mem_range_toGaloisAb
+statement: |
+  theorem mem_range_toGaloisAb (x : Field.absoluteGaloisGroupAbelianization K) :
+      x ∈ (toGaloisAb K).range ↔ ∃ g ∈ weilSubgroup K, QuotientGroup.mk g = x := by
+    sorry
+answer:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/WeilGroup/Ab.lean
+  decl: Langlands.WeilGroup.mem_range_toGaloisAb
+  lines: [311, 318]
+  sha256: c5b41ac972ecbcdafabd9d3708a324b87efbac815e69dddf60fbc5fd65405e0b
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 7
+difficulty: hard

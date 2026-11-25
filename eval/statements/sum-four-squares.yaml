@@ -1,0 +1,18 @@
+# A statement of spec 10.9, written by hand. A wrong statement is elaborated in place of the reviewed declaration, in its file, so it states each binder that it needs.
+id: sum-four-squares
+title: The four squares theorem of Lagrange
+informal: Each natural number is a sum of four squares of natural numbers.
+reviewed:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/SumFourSquares.lean
+  decl: Nat.sum_four_squares
+  lean: |
+    theorem sum_four_squares (n : ℕ) : ∃ a b c d : ℕ, a ^ 2 + b ^ 2 + c ^ 2 + d ^ 2 = n
+checks: [build, equiv-reference]
+wrong:
+  - id: sum-four-squares-three
+    trap: constant
+    reason: The number 7 is not a sum of three squares, so the statement is false.
+    lean: |
+      theorem sum_four_squares (n : ℕ) : ∃ a b c : ℕ, a ^ 2 + b ^ 2 + c ^ 2 = n

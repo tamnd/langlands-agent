@@ -1,0 +1,24 @@
+# A statement of spec 10.9, written by hand. A wrong statement is elaborated in place of the reviewed declaration, in its file, so it states each binder that it needs.
+id: ramanujan-petersson
+title: The Ramanujan-Petersson bound for holomorphic forms
+informal: For a normalized eigenform f of weight k for Γ0(N) and a prime p that does not divide N, the absolute value of a_p is at most 2 p^((k-1)/2).
+reviewed:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Statements/Modularity.lean
+  decl: Langlands.RamanujanPeterssonHolomorphic
+  lean: |
+    def RamanujanPeterssonHolomorphic : Prop :=
+      ∀ (N : ℕ) (k : ℤ) (f : CuspForm (CongruenceSubgroup.Gamma0 N : Subgroup (GL (Fin 2) ℝ)) k),
+        0 < N → IsNormalizedEigenform f → ∀ p : ℕ, p.Prime → ¬ p ∣ N →
+          ‖qCoeff f p‖ ≤ 2 * (p : ℝ) ^ (((k : ℝ) - 1) / 2)
+checks: [build, equiv-reference]
+wrong:
+  - id: ramanujan-petersson-integer-exponent
+    trap: coercion
+    reason: The exponent (k - 1) / 2 is computed in the integers, so it rounds down, and for weight 2 the bound becomes 2, which is false.
+    lean: |
+      def RamanujanPeterssonHolomorphic : Prop :=
+        ∀ (N : ℕ) (k : ℤ) (f : CuspForm (CongruenceSubgroup.Gamma0 N : Subgroup (GL (Fin 2) ℝ)) k),
+          0 < N → IsNormalizedEigenform f → ∀ p : ℕ, p.Prime → ¬ p ∣ N →
+            ‖qCoeff f p‖ ≤ 2 * (p : ℝ) ^ ((k - 1) / 2)

@@ -1,0 +1,25 @@
+# Made by lgl eval gen from https://github.com/tamnd/langlands-lean. Do not edit by hand.
+id: lgl-fidelity-finite-abelian-of-local-reciprocity-gl1-1585e3
+kind: prove
+origin: project
+title: Prove Langlands.Fidelity.finiteAbelian_of_localReciprocityGL1.
+source:
+  repo: langlands-lean
+  commit: dc0b8b054bc0a0257e99f36b8dbeea52a5c4c70f
+  path: Langlands/Fidelity/ClassField.lean
+  decl: Langlands.Fidelity.finiteAbelian_of_localReciprocityGL1
+statement: |
+  theorem finiteAbelian_of_localReciprocityGL1 (h : LocalReciprocityGL1.{u})
+      (L : IntermediateField F (AlgebraicClosure F)) [FiniteDimensional F L] [IsAbelianGalois F L] :
+      ∃ artin : Fˣ →* Gal(L/F), Function.Surjective artin ∧ ∀ x : Fˣ, artin x = 1 ↔ x ∈ normGroup F L := by
+    sorry
+answer:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Fidelity/ClassField.lean
+  decl: Langlands.Fidelity.finiteAbelian_of_localReciprocityGL1
+  lines: [66, 70]
+  sha256: 7722dc1e211c042fee6c17bccc204468b2d858a6e1959b216f3dc5ddeea26faf
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 3
+difficulty: medium

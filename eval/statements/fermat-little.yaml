@@ -1,0 +1,13 @@
+# A statement of spec 10.9, written by hand. A wrong statement is elaborated in place of the reviewed declaration, in its file, so it states each binder that it needs.
+id: fermat-little
+title: The little theorem of Fermat
+informal: For a prime p and a nonzero element a of Z/pZ, a^(p-1) = 1.
+reviewed:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/FieldTheory/Finite/Basic.lean
+  decl: ZMod.pow_card_sub_one_eq_one
+  lean: |
+    theorem pow_card_sub_one_eq_one {a : ZMod p} (ha : a ≠ 0) :
+        a ^ (p - 1) = 1
+checks: [build, equiv-reference]

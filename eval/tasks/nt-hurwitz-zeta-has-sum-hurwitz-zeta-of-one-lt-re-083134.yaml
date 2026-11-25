@@ -1,0 +1,24 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-hurwitz-zeta-has-sum-hurwitz-zeta-of-one-lt-re-083134
+kind: prove
+origin: mathlib-numbertheory
+title: Prove HurwitzZeta.hasSum_hurwitzZeta_of_one_lt_re.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/LSeries/HurwitzZeta.lean
+  decl: HurwitzZeta.hasSum_hurwitzZeta_of_one_lt_re
+statement: |
+  lemma hasSum_hurwitzZeta_of_one_lt_re {a : ℝ} (ha : a ∈ Icc 0 1) {s : ℂ} (hs : 1 < re s) :
+      HasSum (fun n : ℕ ↦ 1 / (n + a : ℂ) ^ s) (hurwitzZeta a s) := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/LSeries/HurwitzZeta.lean
+  decl: HurwitzZeta.hasSum_hurwitzZeta_of_one_lt_re
+  lines: [73, 80]
+  sha256: 284cf2225852d8ca8c27897fcf461a83027021885585a75c8a67637adc963024
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 7
+difficulty: hard

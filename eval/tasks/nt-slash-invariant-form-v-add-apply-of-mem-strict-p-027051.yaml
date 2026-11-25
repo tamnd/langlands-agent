@@ -1,0 +1,26 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-slash-invariant-form-v-add-apply-of-mem-strict-p-027051
+kind: prove
+origin: mathlib-numbertheory
+title: Prove SlashInvariantForm.vAdd_apply_of_mem_strictPeriods.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/ModularForms/Identities.lean
+  decl: SlashInvariantForm.vAdd_apply_of_mem_strictPeriods
+statement: |
+  theorem vAdd_apply_of_mem_strictPeriods {Γ : Subgroup (GL (Fin 2) ℝ)} {k : ℤ}
+      {F : Type*} [FunLike F ℍ ℂ] [SlashInvariantFormClass F Γ k]
+      (f : F) (τ : ℍ) {h : ℝ} (hH : h ∈ Γ.strictPeriods) :
+      f (h +ᵥ τ) = f τ := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/ModularForms/Identities.lean
+  decl: SlashInvariantForm.vAdd_apply_of_mem_strictPeriods
+  lines: [23, 32]
+  sha256: e4917f525fe1d9f763aa5ae3e14b0277df9c1d8b0c13d878f4dfcfcaab39a293
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 7
+difficulty: hard

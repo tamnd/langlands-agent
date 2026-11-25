@@ -1,0 +1,31 @@
+# A statement of spec 10.9, written by hand. A wrong statement is elaborated in place of the reviewed declaration, in its file, so it states each binder that it needs.
+id: artin-conjecture
+title: The Artin conjecture
+informal: For each finite Galois extension L of a number field K and each irreducible complex representation ρ of Gal(L/K) that is not trivial, the Artin L-function of ρ extends to an entire function.
+reviewed:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Statements/Galois.lean
+  decl: Langlands.ArtinConjecture
+  lean: |
+    def ArtinConjecture : Prop :=
+      ∀ (K : Type u) [Field K] [NumberField K] (L : IntermediateField K (AlgebraicClosure K)),
+        FiniteDimensional K L → IsGalois K L →
+        ∀ (n : ℕ) (ρ : Gal(L/K) →* GL (Fin n) ℂ), IsIrreducibleRep ρ → ρ ≠ 1 →
+          ∃ F : ℂ → ℂ, Differentiable ℂ F ∧ ∀ s : ℂ, 1 < s.re → F s = artinLFunction ρ s
+checks: [build, equiv-reference]
+wrong:
+  - id: artin-conjecture-trivial
+    trap: missing-condition
+    reason: For the trivial representation the Artin L-function is the Dedekind zeta function of K, which has a pole at 1, so the statement is false.
+    lean: |
+      def ArtinConjecture : Prop :=
+        ∀ (K : Type u) [Field K] [NumberField K] (L : IntermediateField K (AlgebraicClosure K)),
+          FiniteDimensional K L → IsGalois K L →
+          ∀ (n : ℕ) (ρ : Gal(L/K) →* GL (Fin n) ℂ), IsIrreducibleRep ρ →
+            ∃ F : ℂ → ℂ, Differentiable ℂ F ∧ ∀ s : ℂ, 1 < s.re → F s = artinLFunction ρ s
+    ref:
+      repo: langlands-lean
+      commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+      path: Langlands/Fidelity/Galois.lean
+      decl: Langlands.Fidelity.artinLFunction_one

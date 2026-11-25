@@ -1,0 +1,35 @@
+# Made by lgl eval gen from https://github.com/n-yamaguchi-0729/ClassFieldTheory. Do not edit by hand.
+id: fix-lubin-tate-padic-completed-multiplicative-series-ff552a
+kind: repair
+origin: nyll-port
+title: Repair LubinTate.padicCompletedMultiplicativeSeries_order for the Mathlib of the project pin.
+source:
+  repo: nyll
+  commit: fc644f42dade5bdc7157fc3ef2eef4dbf2d6a565
+  path: Nyll/ClassFieldTheory/LubinTate/Padic/ChangedUniformizerIntertwiner/DefectCorrection.lean
+  decl: LubinTate.padicCompletedMultiplicativeSeries_order
+broken: |
+  theorem padicCompletedMultiplicativeSeries_order
+      (p : ℕ) [Fact p.Prime] :
+      (padicCompletedMultiplicativeSeries p).order = 1 := by
+    apply PowerSeries.order_eq_nat.mpr
+    constructor
+    · rw [padicCompletedMultiplicativeSeries_coeff_one]
+      exact
+        WittVector.p_ne_zero p (AlgebraicClosure (ZMod p))
+    · intro i hi
+      have hi0 : i = 0 := by omega
+      subst i
+      simpa [PowerSeries.coeff_zero_eq_constantCoeff_apply] using
+        padicCompletedMultiplicativeSeries_constantCoeff p
+error: 'The build fails at the project pin: WittVector.p_ne_zero is not a name in its Mathlib.'
+answer:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Ported/NYLL/ClassFieldTheory/LubinTate/Padic/ChangedUniformizerIntertwiner/DefectCorrection.lean
+  decl: LubinTate.padicCompletedMultiplicativeSeries_order
+  lines: [188, 200]
+  sha256: 90815d621e90d8de3e75db6836b1e6be0b7ca76e92d3154daa741e36bd16b933
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 11
+difficulty: hard

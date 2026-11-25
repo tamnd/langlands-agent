@@ -1,0 +1,19 @@
+# Made by lgl eval gen from https://github.com/n-yamaguchi-0729/ClassFieldTheory. Do not edit by hand.
+id: nyll-herbrand-right-regular-function-prod-powers-eq-o-02798f
+kind: state
+origin: nyll
+title: State CyclicCohomology.ProfiniteCohomology.Herbrand.rightRegularFunction_prod_powers_eq_one_of_mem_normKernel in Lean from its docstring.
+source:
+  repo: nyll
+  commit: fc644f42dade5bdc7157fc3ef2eef4dbf2d6a565
+  path: Nyll/GaloisCohomology/Cyclic/Herbrand/HerbrandLowDegree/Basic.lean
+  decl: CyclicCohomology.ProfiniteCohomology.Herbrand.rightRegularFunction_prod_powers_eq_one_of_mem_normKernel
+informal: A right-regular norm-kernel element has product `1` along one full cyclic enumeration by a generator.
+answer:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Ported/NYLL/GaloisCohomology/Cyclic/Herbrand/HerbrandLowDegree/Basic.lean
+  decl: CyclicCohomology.ProfiniteCohomology.Herbrand.rightRegularFunction_prod_powers_eq_one_of_mem_normKernel
+  lines: [1276, 1302]
+  sha256: f8e3008711a4aa58026411e495d976e3ac9302c6eaa3352386af503bbf7e15d8
+checks: [build, equiv-reference]

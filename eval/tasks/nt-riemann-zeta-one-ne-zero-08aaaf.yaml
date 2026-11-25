@@ -1,0 +1,23 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-riemann-zeta-one-ne-zero-08aaaf
+kind: prove
+origin: mathlib-numbertheory
+title: Prove riemannZeta_one_ne_zero.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean
+  decl: riemannZeta_one_ne_zero
+statement: |
+  lemma riemannZeta_one_ne_zero : riemannZeta 1 ≠ 0 := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/Harmonic/ZetaAsymp.lean
+  decl: riemannZeta_one_ne_zero
+  lines: [443, 452]
+  sha256: 34b389a862aea8c29ef922b54881d80f326f4359bd4fa8193ababbc3aa0cbca0
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 10
+difficulty: hard

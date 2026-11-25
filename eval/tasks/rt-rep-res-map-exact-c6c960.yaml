@@ -1,0 +1,25 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: rt-rep-res-map-exact-c6c960
+kind: prove
+origin: mathlib-representationtheory
+title: Prove Rep.res_map_exact.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Rep/Res.lean
+  decl: Rep.res_map_exact
+statement: |
+  lemma res_map_exact {k : Type u} [CommRing k]
+      (S : ShortComplex (Rep.{w} k G)) :
+      (S.map (resFunctor f)).Exact ↔ S.Exact := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Rep/Res.lean
+  decl: Rep.res_map_exact
+  lines: [116, 119]
+  sha256: baaaf8fd55302f1b11f3a0579ffc199565ebbb0e9fec2ee4f2487fc7a9b62121
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 2
+difficulty: medium

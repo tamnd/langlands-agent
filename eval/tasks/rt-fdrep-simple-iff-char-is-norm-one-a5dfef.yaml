@@ -1,0 +1,29 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: rt-fdrep-simple-iff-char-is-norm-one-a5dfef
+kind: prove
+origin: mathlib-representationtheory
+title: Prove FDRep.simple_iff_char_is_norm_one.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/FinGroupCharZero.lean
+  decl: FDRep.simple_iff_char_is_norm_one
+statement: |
+  omit [Finite G] in
+  /--
+  If `G` is finite and `k` an algebraically closed field of characteristic `0`,
+  then an object of `FDRep k G` is simple if and only if its character has norm `1`.
+  -/
+  lemma simple_iff_char_is_norm_one [CharZero k] [Fintype G] (V : FDRep k G) :
+      Simple V ↔ ∑ g : G, V.character g * V.character g⁻¹ = Nat.card G := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/FinGroupCharZero.lean
+  decl: FDRep.simple_iff_char_is_norm_one
+  lines: [116, 128]
+  sha256: c32be25a659a88b9ec31e750c8f8ec933993d411028ecacf1db9c36758086dc8
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 7
+difficulty: hard

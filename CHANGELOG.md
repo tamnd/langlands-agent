@@ -4,6 +4,12 @@ All changes that a user can see are in this file. The format follows Keep a Chan
 
 ## Unreleased
 
+### Added
+
+- The evaluation sets of spec 10.9 in `eval/`: 200 tasks with known answers in `eval/tasks/` (prove tasks from Mathlib NumberTheory and RepresentationTheory and from the project, state tasks from the NYLL port, and repair tasks from the renames of the NYLL port), and 50 statements with reviewed Lean and 50 wrong statements in `eval/statements/`.
+- `lgl eval list`, `check`, `gen`, `run`, `compare`, `key` and `decl`. `run` scores the answers file of a runner and writes the pass rate and the cost of each set to `eval/results/`. `compare` exits with 1 when a pass rate drops by more than 5 points. lgl calls no model.
+- The CI smoke job runs `lgl eval check`.
+
 ## v0.1.1 (2026-11-25)
 
 ### Added

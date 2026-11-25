@@ -1,0 +1,19 @@
+# Made by lgl eval gen from https://github.com/n-yamaguchi-0729/ClassFieldTheory. Do not edit by hand.
+id: nyll-is-nonarchimedean-local-field-valuation-map-zero-01e64a
+kind: state
+origin: nyll
+title: State LocalFieldTheory.IsNonarchimedeanLocalField.valuationMap_zero in Lean from its docstring.
+source:
+  repo: nyll
+  commit: fc644f42dade5bdc7157fc3ef2eef4dbf2d6a565
+  path: Nyll/ValuedFieldTheory/LocalField/NonarchimedeanLocalField/ValuationExactSequence.lean
+  decl: LocalFieldTheory.IsNonarchimedeanLocalField.valuationMap_zero
+informal: The additive valuation map sends the zero element of the additive unit group to zero.
+answer:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Ported/NYLL/ValuedFieldTheory/LocalField/NonarchimedeanLocalField/ValuationExactSequence.lean
+  decl: LocalFieldTheory.IsNonarchimedeanLocalField.valuationMap_zero
+  lines: [115, 119]
+  sha256: e36bd6c19aee201e4a7e68fcb542d65d1348e4b322599e4023f96a46aad4f9a3
+checks: [build, equiv-reference]

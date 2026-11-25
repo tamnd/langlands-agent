@@ -1,0 +1,19 @@
+# Made by lgl eval gen from https://github.com/n-yamaguchi-0729/ClassFieldTheory. Do not edit by hand.
+id: nyll-valued-norm-zero-quotient-modulo-residue-degree-006c5f
+kind: state
+origin: nyll
+title: State LocalFieldTheory.DiscreteValuationField.ValuedNorm.zeroQuotientModuloResidueDegreeClass_uniformizer_zpow_add_residueDegree_mul_mk_eq in Lean from its docstring.
+source:
+  repo: nyll
+  commit: fc644f42dade5bdc7157fc3ef2eef4dbf2d6a565
+  path: Nyll/ValuedFieldTheory/LocalField/DiscreteValuationField/Norm/Quotients.lean
+  decl: LocalFieldTheory.DiscreteValuationField.ValuedNorm.zeroQuotientModuloResidueDegreeClass_uniformizer_zpow_add_residueDegree_mul_mk_eq
+informal: Uniformizer powers in the residue-degree double quotient are periodic modulo the residue degree.
+answer:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Ported/NYLL/ValuedFieldTheory/LocalField/DiscreteValuationField/Norm/Quotients.lean
+  decl: LocalFieldTheory.DiscreteValuationField.ValuedNorm.zeroQuotientModuloResidueDegreeClass_uniformizer_zpow_add_residueDegree_mul_mk_eq
+  lines: [912, 920]
+  sha256: b3bb16b5ef15e43df2fed24f14cd64192a36c3c31f7796a39133515bbcf25370
+checks: [build, equiv-reference]

@@ -1,0 +1,19 @@
+# Made by lgl eval gen from https://github.com/n-yamaguchi-0729/ClassFieldTheory. Do not edit by hand.
+id: nyll-lubin-tate-standard-lubin-tate-inverse-herbrand-02519b
+kind: state
+origin: nyll
+title: State LubinTate.standardLubinTateInverseHerbrandFunction_nat_eq_pow_sub_one in Lean from its docstring.
+source:
+  repo: nyll
+  commit: fc644f42dade5bdc7157fc3ef2eef4dbf2d6a565
+  path: Nyll/ClassFieldTheory/LubinTate/FiniteLevel/HerbrandFormula.lean
+  decl: LubinTate.standardLubinTateInverseHerbrandFunction_nat_eq_pow_sub_one
+informal: At an integral upper endpoint, the inverse Herbrand function returns the lower endpoint `q ^ k - 1`.
+answer:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Ported/NYLL/ClassFieldTheory/LubinTate/FiniteLevel/HerbrandFormula.lean
+  decl: LubinTate.standardLubinTateInverseHerbrandFunction_nat_eq_pow_sub_one
+  lines: [256, 273]
+  sha256: f07d8ec5f04002fd18a13a0b82d4ab2052c323f033d616adcbf8aacd7210379b
+checks: [build, equiv-reference]

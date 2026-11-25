@@ -1,0 +1,19 @@
+# Made by lgl eval gen from https://github.com/n-yamaguchi-0729/ClassFieldTheory. Do not edit by hand.
+id: nyll-kummer-theory-mem-closed-set-fixing-subgroup-iff-02612f
+kind: state
+origin: nyll
+title: State KummerTheory.mem_closedSetFixingSubgroup_iff in Lean from its docstring.
+source:
+  repo: nyll
+  commit: fc644f42dade5bdc7157fc3ef2eef4dbf2d6a565
+  path: Nyll/GaloisCohomology/Kummer/Abstract/KummerFixedField.lean
+  decl: KummerTheory.mem_closedSetFixingSubgroup_iff
+informal: An automorphism lies in the fixing subgroup exactly when it fixes every element of the closed set.
+answer:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Ported/NYLL/GaloisCohomology/Kummer/Abstract/KummerFixedField.lean
+  decl: KummerTheory.mem_closedSetFixingSubgroup_iff
+  lines: [104, 111]
+  sha256: f6487d50784571339bad27f3df8ee041786cb0442f96ed902f9d8930ba70927d
+checks: [build, equiv-reference]

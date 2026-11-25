@@ -1,0 +1,23 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-real-is-algebraic-cos-rat-mul-pi-067fc1
+kind: prove
+origin: mathlib-numbertheory
+title: Prove Real.isAlgebraic_cos_rat_mul_pi.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/Niven.lean
+  decl: Real.isAlgebraic_cos_rat_mul_pi
+statement: |
+  theorem isAlgebraic_cos_rat_mul_pi (q : ℚ) : IsAlgebraic ℤ <| cos <| q * π := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/Niven.lean
+  decl: Real.isAlgebraic_cos_rat_mul_pi
+  lines: [93, 94]
+  sha256: eddeadf3c1e12c4861e6798c77a9b7d22919468a46282a8e40be1c06c0ba43f2
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 1
+difficulty: easy

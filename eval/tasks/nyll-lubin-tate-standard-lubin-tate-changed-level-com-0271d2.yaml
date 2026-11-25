@@ -1,0 +1,19 @@
+# Made by lgl eval gen from https://github.com/n-yamaguchi-0729/ClassFieldTheory. Do not edit by hand.
+id: nyll-lubin-tate-standard-lubin-tate-changed-level-com-0271d2
+kind: state
+origin: nyll
+title: State LubinTate.standardLubinTateChangedLevelCompositumField_finiteDimensional in Lean from its docstring.
+source:
+  repo: nyll
+  commit: fc644f42dade5bdc7157fc3ef2eef4dbf2d6a565
+  path: Nyll/ClassFieldTheory/LubinTate/FiniteLevel/ChangedLevelCompositum.lean
+  decl: LubinTate.standardLubinTateChangedLevelCompositumField_finiteDimensional
+informal: The original and changed finite levels have a finite-dimensional compositum over the base field.
+answer:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Ported/NYLL/ClassFieldTheory/LubinTate/FiniteLevel/ChangedLevelCompositum.lean
+  decl: LubinTate.standardLubinTateChangedLevelCompositumField_finiteDimensional
+  lines: [63, 77]
+  sha256: b3d8fd9b4ded5891433f2939a985da49ed8a4811c6ddf2688b00b17cf23d54fd
+checks: [build, equiv-reference]

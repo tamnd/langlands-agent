@@ -1,0 +1,23 @@
+# Made by lgl eval gen from https://github.com/tamnd/langlands-lean. Do not edit by hand.
+id: lgl-fidelity-sato-tate-total-mass-1b60b6
+kind: prove
+origin: project
+title: Prove Langlands.Fidelity.satoTate_total_mass.
+source:
+  repo: langlands-lean
+  commit: 7502d456a33ef1000dbc661d73d6e0cb056fca43
+  path: Langlands/Fidelity/Modularity.lean
+  decl: Langlands.Fidelity.satoTate_total_mass
+statement: |
+  theorem satoTate_total_mass : (2 / π) * ∫ θ in (0 : ℝ)..π, Real.sin θ ^ 2 = 1 := by
+    sorry
+answer:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Fidelity/Modularity.lean
+  decl: Langlands.Fidelity.satoTate_total_mass
+  lines: [26, 28]
+  sha256: 0ea7f91f42c3d7761539d4e59969c3a0927dca62fc50e356918062e7173efe34
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 3
+difficulty: medium

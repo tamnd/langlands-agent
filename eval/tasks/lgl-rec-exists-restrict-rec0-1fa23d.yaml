@@ -1,0 +1,24 @@
+# Made by lgl eval gen from https://github.com/tamnd/langlands-lean. Do not edit by hand.
+id: lgl-rec-exists-restrict-rec0-1fa23d
+kind: prove
+origin: project
+title: Prove Langlands.RecExists.restrict_rec₀.
+source:
+  repo: langlands-lean
+  commit: e755b4e405b66ee024ffdbc73618db6a036345cc
+  path: Langlands/Reciprocity/Exists.lean
+  decl: Langlands.RecExists.restrict_rec₀
+statement: |
+  theorem restrict_rec₀ (x : Kˣ) :
+      Ab.restrict K L (rec₀ K x) = AlgEquiv.autCongr (φ K L).symm (abelianLocalArtinMap K (L' K L) x) := by
+    sorry
+answer:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Reciprocity/Exists.lean
+  decl: Langlands.RecExists.restrict_rec₀
+  lines: [724, 730]
+  sha256: 39e15d05e0fa9afa12d4971b91802e8518ffa71a9d3994ac106b348a6e149d8f
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 6
+difficulty: hard

@@ -1,0 +1,23 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-embeddings-card-041b83
+kind: prove
+origin: mathlib-numbertheory
+title: Prove NumberField.Embeddings.card.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/NumberField/InfinitePlace/Embeddings.lean
+  decl: NumberField.Embeddings.card
+statement: |
+  theorem card : Fintype.card (K →+* A) = finrank ℚ K := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/NumberField/InfinitePlace/Embeddings.lean
+  decl: NumberField.Embeddings.card
+  lines: [61, 62]
+  sha256: afa3efcceb6c74d761545c52619a780d2f5769cde959b32535713833af3dbe87
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 2
+difficulty: medium

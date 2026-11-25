@@ -112,6 +112,12 @@ jobs:
           code=0
           "$RUNNER_TEMP/lgl" frobnicate || code=$?
           test "$code" = 2
+      # The eval sets of spec 10.9 must load and pass their checks. With no checkout of langlands-lean or Mathlib, the check does not read the references.
+      - name: the eval sets
+        run: |
+          "$RUNNER_TEMP/lgl" eval check -dir eval
+          "$RUNNER_TEMP/lgl" eval list -dir eval
+          "$RUNNER_TEMP/lgl" eval run -dir eval -dry-run
       - name: a command that is not written yet exits with code 3
         run: |
           code=0

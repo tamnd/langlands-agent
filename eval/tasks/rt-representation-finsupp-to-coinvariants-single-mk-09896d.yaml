@@ -1,0 +1,26 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: rt-representation-finsupp-to-coinvariants-single-mk-09896d
+kind: prove
+origin: mathlib-representationtheory
+title: Prove Representation.finsuppToCoinvariants_single_mk.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Coinvariants.lean
+  decl: Representation.finsuppToCoinvariants_single_mk
+statement: |
+  @[simp]
+  lemma finsuppToCoinvariants_single_mk (a : α) (x : V) :
+      finsuppToCoinvariants ρ α (single a <| Coinvariants.mk _ x) =
+        Coinvariants.mk _ (single a x) := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Coinvariants.lean
+  decl: Representation.finsuppToCoinvariants_single_mk
+  lines: [227, 231]
+  sha256: bb21efa5a7e5d4c279c99028254f29ee8d5dd29fd220787d4394da1614dcdcb2
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 2
+difficulty: medium

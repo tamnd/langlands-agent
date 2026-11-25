@@ -1,0 +1,13 @@
+# A statement of spec 10.9, written by hand. A wrong statement is elaborated in place of the reviewed declaration, in its file, so it states each binder that it needs.
+id: bertrand
+title: The postulate of Bertrand
+informal: For each positive integer n there is a prime p with n < p and p at most 2n.
+reviewed:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/Bertrand.lean
+  decl: Nat.exists_prime_lt_and_le_two_mul
+  lean: |
+    theorem exists_prime_lt_and_le_two_mul (n : ℕ) (hn0 : n ≠ 0) :
+        ∃ p, Nat.Prime p ∧ n < p ∧ p ≤ 2 * n
+checks: [build, equiv-reference]

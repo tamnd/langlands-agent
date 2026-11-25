@@ -1,0 +1,26 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: rt-rep-res-ind-adjunction-hom-equiv-apply-183dfb
+kind: prove
+origin: mathlib-representationtheory
+title: Prove Rep.resIndAdjunction_homEquiv_apply.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/FiniteIndex.lean
+  decl: Rep.resIndAdjunction_homEquiv_apply
+statement: |
+  lemma resIndAdjunction_homEquiv_apply (A : Rep.{max w u v} k S)
+      {B : Rep.{max w u v} k G} (f : res S.subtype B ⟶ A) :
+      (resIndAdjunction.{w, u, v} k S).homEquiv _ _ f =
+        resCoindHomEquiv.{max w u v} S.subtype B A f ≫ (indCoindIso.{max w u v} A).inv := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/FiniteIndex.lean
+  decl: Rep.resIndAdjunction_homEquiv_apply
+  lines: [222, 227]
+  sha256: a71411363f140586950b78590c91667c4353e359eb969d272863c023cf7a17c0
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 3
+difficulty: medium

@@ -1,0 +1,25 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-lindemann-weierstrass-has-deriv-at-cexp-mul-sum-0613a8
+kind: prove
+origin: mathlib-numbertheory
+title: Prove LindemannWeierstrass.hasDerivAt_cexp_mul_sumIDeriv.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/Transcendental/Lindemann/AnalyticalPart.lean
+  decl: LindemannWeierstrass.hasDerivAt_cexp_mul_sumIDeriv
+statement: |
+  theorem hasDerivAt_cexp_mul_sumIDeriv (p : ℂ[X]) (s : ℂ) (x : ℝ) :
+      HasDerivAt (fun x : ℝ ↦ -(cexp (-(x • s)) * p.sumIDeriv.eval (x • s)))
+        (s * (cexp (-(x • s)) * p.eval (x • s))) x := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/Transcendental/Lindemann/AnalyticalPart.lean
+  decl: LindemannWeierstrass.hasDerivAt_cexp_mul_sumIDeriv
+  lines: [31, 40]
+  sha256: 8cf6d089309f8c3761aa60852cb6026f30b8475211729edd438e5bfe58ba4ffe
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 8
+difficulty: hard

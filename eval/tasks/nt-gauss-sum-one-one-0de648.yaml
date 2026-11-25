@@ -1,0 +1,24 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-gauss-sum-one-one-0de648
+kind: prove
+origin: mathlib-numbertheory
+title: Prove gaussSum_one_one.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/GaussSum.lean
+  decl: gaussSum_one_one
+statement: |
+  @[simp]
+  theorem gaussSum_one_one : gaussSum (1 : MulChar R R') (1 : AddChar R R') = Nat.card Rˣ := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/GaussSum.lean
+  decl: gaussSum_one_one
+  lines: [107, 110]
+  sha256: 38085050620d145c43163b7c84f4a4fe4d8f9687c099dc7d7bd9b1d9a84ffb92
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 3
+difficulty: medium

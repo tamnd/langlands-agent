@@ -1,0 +1,20 @@
+# A statement of spec 10.9, written by hand. A wrong statement is elaborated in place of the reviewed declaration, in its file, so it states each binder that it needs.
+id: is-geometric-frobenius
+title: A geometric Frobenius in the Weil group
+informal: An element w of the Weil group of a local field K is a geometric Frobenius if its image in the Galois group of the residue field is the inverse of the Frobenius x to x^q.
+reviewed:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Statements/Basic.lean
+  decl: Langlands.WeilGroup.IsGeometricFrobenius
+  lean: |
+    def IsGeometricFrobenius (w : WeilGroup K) : Prop :=
+      toResidue K w = (LocalField.frobenius K)⁻¹
+checks: [build, equiv-reference]
+wrong:
+  - id: is-geometric-frobenius-arithmetic
+    trap: normalization
+    reason: This is the condition for an arithmetic Frobenius, not for its inverse.
+    lean: |
+      def IsGeometricFrobenius (w : WeilGroup K) : Prop :=
+        toResidue K w = LocalField.frobenius K

@@ -1,0 +1,23 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-jacobi-sym-at-four-08acac
+kind: prove
+origin: mathlib-numbertheory
+title: Prove jacobiSym.at_four.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/LegendreSymbol/JacobiSymbol.lean
+  decl: jacobiSym.at_four
+statement: |
+  theorem at_four {b : ℕ} (hb : Odd b) : J(4 | b) = 1 := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/LegendreSymbol/JacobiSymbol.lean
+  decl: jacobiSym.at_four
+  lines: [338, 341]
+  sha256: 2e5ae73881524fbc9a92c100925b7322598fe46823179067963362e1b74cd1fe
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 4
+difficulty: medium

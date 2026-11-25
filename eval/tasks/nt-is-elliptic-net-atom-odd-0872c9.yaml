@@ -1,0 +1,23 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-is-elliptic-net-atom-odd-0872c9
+kind: prove
+origin: mathlib-numbertheory
+title: Prove IsEllipticNet.atom_odd.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/EllipticDivisibilitySequence.lean
+  decl: IsEllipticNet.atom_odd
+statement: |
+  lemma atom_odd (a b : ℤ) : atom W (2 * a + 1) (2 * b + 1) = W (a + b + 1) * W (a - b) := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/EllipticDivisibilitySequence.lean
+  decl: IsEllipticNet.atom_odd
+  lines: [148, 150]
+  sha256: 66718a5e1276cd8dc987c49828ca0c4895e7468ca8cada4e0ee1de3a9d45933f
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 3
+difficulty: medium

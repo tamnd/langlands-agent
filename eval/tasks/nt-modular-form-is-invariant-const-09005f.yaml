@@ -1,0 +1,24 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-modular-form-is-invariant-const-09005f
+kind: prove
+origin: mathlib-numbertheory
+title: Prove ModularForm.is_invariant_const.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/ModularForms/SlashActions.lean
+  decl: ModularForm.is_invariant_const
+statement: |
+  theorem is_invariant_const (A : SL(2, ℤ)) (x : ℂ) :
+      Function.const ℍ x ∣[(0 : ℤ)] A = Function.const ℍ x := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/ModularForms/SlashActions.lean
+  decl: ModularForm.is_invariant_const
+  lines: [172, 175]
+  sha256: 896b852175391c7206a459e07956188a6021a08faaa5c1d4ac76469c1fb18966
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 3
+difficulty: medium

@@ -1,0 +1,37 @@
+# Made by lgl eval gen from https://github.com/n-yamaguchi-0729/ClassFieldTheory. Do not edit by hand.
+id: fix-finite-galois-subextension-sylow-add-subgroup-le-185fd8
+kind: repair
+origin: nyll-port
+title: Repair ClassFormation.FiniteGaloisSubextension.sylowAddSubgroup_le_nsmul_range_of_coprime for the Mathlib of the project pin.
+source:
+  repo: nyll
+  commit: fc644f42dade5bdc7157fc3ef2eef4dbf2d6a565
+  path: Nyll/ClassFieldTheory/AbstractClassFieldTheory/Reciprocity/Sylow.lean
+  decl: ClassFormation.FiniteGaloisSubextension.sylowAddSubgroup_le_nsmul_range_of_coprime
+broken: |
+  theorem sylowAddSubgroup_le_nsmul_range_of_coprime
+      {B : Type*} [AddCommGroup B]
+      {p n : ℕ} [Fact p.Prime]
+      (S : Sylow p (Multiplicative B)) (hn : Nat.Coprime n p) :
+      Subgroup.toAddSubgroup'
+          (S : Subgroup (Multiplicative B)) ≤
+        (nsmulAddMonoidHom (α := B) n).range := by
+    intro x hx
+    let xS : S := ⟨Multiplicative.ofAdd x, hx⟩
+    let e : S ≃ S := S.isPGroup.powEquiv hn.symm
+    let yS : S := e.symm xS
+    refine ⟨yS.1.toAdd, ?_⟩
+    have hy : yS ^ n = xS := e.apply_symm_apply xS
+    have hyval : yS.1 ^ n = xS.1 := congrArg Subtype.val hy
+    simpa [xS] using congrArg Multiplicative.toAdd hyval
+error: 'The build fails at the project pin: isPGroup is not a name in its Mathlib.'
+answer:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Ported/NYLL/ClassFieldTheory/AbstractClassFieldTheory/Reciprocity/Sylow.lean
+  decl: ClassFormation.FiniteGaloisSubextension.sylowAddSubgroup_le_nsmul_range_of_coprime
+  lines: [150, 164]
+  sha256: cca603fb04c0a0c52a6ba51e17eb7b7f4b4f2f0d3ea64064c07ba59caf6e8bad
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 9
+difficulty: hard

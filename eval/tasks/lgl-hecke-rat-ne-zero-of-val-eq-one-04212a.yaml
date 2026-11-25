@@ -1,0 +1,23 @@
+# Made by lgl eval gen from https://github.com/tamnd/langlands-lean. Do not edit by hand.
+id: lgl-hecke-rat-ne-zero-of-val-eq-one-04212a
+kind: prove
+origin: project
+title: Prove Langlands.HeckeRat.ne_zero_of_val_eq_one.
+source:
+  repo: langlands-lean
+  commit: 8e3e85951b8ddd6756b84144845c9b42da8bc195
+  path: Langlands/Hecke/Rational.lean
+  decl: Langlands.HeckeRat.ne_zero_of_val_eq_one
+statement: |
+  theorem ne_zero_of_val_eq_one {v : HS} {x : v.adicCompletion ℚ} (h : Valued.v x = 1) : x ≠ 0 := by
+    sorry
+answer:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Hecke/Rational.lean
+  decl: Langlands.HeckeRat.ne_zero_of_val_eq_one
+  lines: [642, 643]
+  sha256: 7d160f4927b33dec9a4a44d80952f569641381f9afa19f9b80e051752229c6b1
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 2
+difficulty: medium

@@ -1,0 +1,24 @@
+# A statement of spec 10.9, written by hand. A wrong statement is elaborated in place of the reviewed declaration, in its file, so it states each binder that it needs.
+id: is-irreducible-rep
+title: An irreducible representation
+informal: A representation ρ of a group G on F^n is irreducible if n is positive and the only subspaces of F^n that are stable under ρ are 0 and F^n.
+reviewed:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Statements/Galois.lean
+  decl: Langlands.IsIrreducibleRep
+  lean: |
+    def IsIrreducibleRep {F : Type*} [Field F] {G : Type*} [Group G] {n : ℕ}
+        (ρ : G →* GL (Fin n) F) : Prop :=
+      0 < n ∧ ∀ W : Submodule F (Fin n → F),
+        (∀ g : G, ∀ v ∈ W, (ρ g : Matrix (Fin n) (Fin n) F).mulVec v ∈ W) → W = ⊥ ∨ W = ⊤
+checks: [build, equiv-reference]
+wrong:
+  - id: is-irreducible-rep-zero
+    trap: missing-condition
+    reason: Without the condition 0 < n the representation on the zero space is irreducible, because there 0 and the whole space are the same.
+    lean: |
+      def IsIrreducibleRep {F : Type*} [Field F] {G : Type*} [Group G] {n : ℕ}
+          (ρ : G →* GL (Fin n) F) : Prop :=
+        ∀ W : Submodule F (Fin n → F),
+          (∀ g : G, ∀ v ∈ W, (ρ g : Matrix (Fin n) (Fin n) F).mulVec v ∈ W) → W = ⊥ ∨ W = ⊤

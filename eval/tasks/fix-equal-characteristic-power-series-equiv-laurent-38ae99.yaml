@@ -1,0 +1,26 @@
+# Made by lgl eval gen from https://github.com/n-yamaguchi-0729/ClassFieldTheory. Do not edit by hand.
+id: fix-equal-characteristic-power-series-equiv-laurent-38ae99
+kind: repair
+origin: nyll-port
+title: Repair LubinTate.EqualCharacteristic.powerSeriesEquivLaurentInteger_X_irreducible for the Mathlib of the project pin.
+source:
+  repo: nyll
+  commit: fc644f42dade5bdc7157fc3ef2eef4dbf2d6a565
+  path: Nyll/ClassFieldTheory/LubinTate/EqualCharacteristic/Existence/LaurentLocalField.lean
+  decl: LubinTate.EqualCharacteristic.powerSeriesEquivLaurentInteger_X_irreducible
+broken: |
+  theorem powerSeriesEquivLaurentInteger_X_irreducible :
+      Irreducible
+        (powerSeriesEquivLaurentInteger k (PowerSeries.X : k⟦X⟧)) :=
+    PowerSeries.irreducible_X.map (powerSeriesEquivLaurentInteger k)
+error: 'The build fails at the project pin: PowerSeries.irreducible_X is not a name in its Mathlib.'
+answer:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Ported/NYLL/ClassFieldTheory/LubinTate/EqualCharacteristic/Existence/LaurentLocalField.lean
+  decl: LubinTate.EqualCharacteristic.powerSeriesEquivLaurentInteger_X_irreducible
+  lines: [188, 191]
+  sha256: 51bf691d41b538339a32adae60d00583f604d6edee9bea5d30bd8f239b337a96
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 1
+difficulty: easy

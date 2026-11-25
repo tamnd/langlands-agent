@@ -1,0 +1,24 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-zmod-int-eq-if-mod-eight-00001e
+kind: prove
+origin: mathlib-numbertheory
+title: Prove ZMod.χ₈_int_eq_if_mod_eight.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/LegendreSymbol/ZModChar.lean
+  decl: ZMod.χ₈_int_eq_if_mod_eight
+statement: |
+  theorem χ₈_int_eq_if_mod_eight (n : ℤ) :
+      χ₈ n = if n % 2 = 0 then 0 else if n % 8 = 1 ∨ n % 8 = 7 then 1 else -1 := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/LegendreSymbol/ZModChar.lean
+  decl: ZMod.χ₈_int_eq_if_mod_eight
+  lines: [142, 148]
+  sha256: 1a824d6f23187cccfe590b1f8e88f18547ff9324c35d31565f097cb9bc785c80
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 6
+difficulty: hard

@@ -1,0 +1,23 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-nat-three-le-fermat-number-0151ee
+kind: prove
+origin: mathlib-numbertheory
+title: Prove Nat.three_le_fermatNumber.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/Fermat.lean
+  decl: Nat.three_le_fermatNumber
+statement: |
+  lemma three_le_fermatNumber (n : ℕ) : 3 ≤ fermatNumber n := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/Fermat.lean
+  decl: Nat.three_le_fermatNumber
+  lines: [49, 49]
+  sha256: 213bca2900f02f752604a359c9f779eeb022ae859435eae94ba59dfadc89f27c
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 1
+difficulty: easy

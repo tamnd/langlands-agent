@@ -1,0 +1,24 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-summable-bernoulli-fourier-0785ad
+kind: prove
+origin: mathlib-numbertheory
+title: Prove summable_bernoulli_fourier.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/ZetaValues.lean
+  decl: summable_bernoulli_fourier
+statement: |
+  theorem summable_bernoulli_fourier {k : ℕ} (hk : 2 ≤ k) :
+      Summable (fun n => -k ! / (2 * π * I * n) ^ k : ℤ → ℂ) := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/ZetaValues.lean
+  decl: summable_bernoulli_fourier
+  lines: [289, 300]
+  sha256: f5ee7a3f83f2e620a948d1f4beb2684f7857a4af7f781a2e6ef09f6b4bb58de9
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 11
+difficulty: hard

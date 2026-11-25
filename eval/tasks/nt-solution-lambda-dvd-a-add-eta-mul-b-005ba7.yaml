@@ -1,0 +1,23 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-solution-lambda-dvd-a-add-eta-mul-b-005ba7
+kind: prove
+origin: mathlib-numbertheory
+title: Prove FermatLastTheoremForThreeGen.Solution.lambda_dvd_a_add_eta_mul_b.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/FLT/Three.lean
+  decl: FermatLastTheoremForThreeGen.Solution.lambda_dvd_a_add_eta_mul_b
+statement: |
+  lemma lambda_dvd_a_add_eta_mul_b : λ ∣ (S.a + η * S.b) := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/FLT/Three.lean
+  decl: FermatLastTheoremForThreeGen.Solution.lambda_dvd_a_add_eta_mul_b
+  lines: [383, 384]
+  sha256: 034ac8d6d8a7d70a4d2399d1d05757294030f4aa59fbbc8c86f779b79e0ed8e5
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 1
+difficulty: easy

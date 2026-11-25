@@ -1,0 +1,24 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: rt-is-simple-module-algebra-map-end-bijective-of-is-2e1805
+kind: prove
+origin: mathlib-representationtheory
+title: Prove IsSimpleModule.algebraMap_end_bijective_of_isAlgClosed.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/AlgebraRepresentation/Basic.lean
+  decl: IsSimpleModule.algebraMap_end_bijective_of_isAlgClosed
+statement: |
+  theorem IsSimpleModule.algebraMap_end_bijective_of_isAlgClosed :
+      Function.Bijective (algebraMap k (Module.End A V)) := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/AlgebraRepresentation/Basic.lean
+  decl: IsSimpleModule.algebraMap_end_bijective_of_isAlgClosed
+  lines: [28, 32]
+  sha256: c547e9819d309543eff4c1ddff1ca5fcc30f382c9e6fd96cdb17e4d01144a7fc
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 4
+difficulty: medium

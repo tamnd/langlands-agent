@@ -1,0 +1,50 @@
+# A statement of spec 10.9, written by hand. A wrong statement is elaborated in place of the reviewed declaration, in its file, so it states each binder that it needs.
+id: hecke-functional-equation-at
+title: The functional equation of a Hecke L-function
+informal: For a Hecke character χ of a number field K with archimedean parameters, the completed L-functions Λ of χ and Λ' of the inverse of χ are meromorphic on C with Λ(s) = W (|d_K| N(f_χ))^(1/2 - s - σ) Λ'(1 - s) for some W with |W| = 1, and Λ is entire unless χ is a power of the norm, in which case it has simple poles at -s_0 and 1 - s_0.
+reviewed:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Statements/Hecke.lean
+  decl: Langlands.HeckeFunctionalEquationAt
+  lean: |
+    def HeckeFunctionalEquationAt (K : Type u) [Field K] [NumberField K] : Prop :=
+      ∀ (χ : HeckeCharacter K) (n n' : InfinitePlace K → ℤ) (t t' : InfinitePlace K → ℂ),
+        (∀ v, χ.IsArchimedeanParameter v (n v) (t v)) →
+        (∀ v, χ⁻¹.IsArchimedeanParameter v (n' v) (t' v)) →
+        ∃ σ : ℝ, (∀ x : IdeleGroup (𝓞 K) K, ‖(χ x : ℂ)‖ = ideleNorm K x ^ σ) ∧
+        ∃ (Λ Λ' : ℂ → ℂ) (W : ℂ),
+          MeromorphicOn Λ Set.univ ∧ MeromorphicOn Λ' Set.univ ∧
+          (∀ s : ℂ, 1 - σ < s.re → Λ s = χ.completedLFunction n t s) ∧
+          (∀ s : ℂ, 1 + σ < s.re → Λ' s = χ⁻¹.completedLFunction n' t' s) ∧
+          ‖W‖ = 1 ∧
+          (∀ s : ℂ, Λ s =
+            W * (((|discr K| : ℤ) : ℂ) * (Ideal.absNorm χ.conductor : ℂ)) ^ (1 / 2 - s - σ) *
+              Λ' (1 - s)) ∧
+          ((∀ s : ℂ, AnalyticAt ℂ Λ s) ∨
+            ∃ s₀ : ℂ, (∀ x : IdeleGroup (𝓞 K) K, (χ x : ℂ) = (ideleNorm K x : ℂ) ^ s₀) ∧
+              (∀ s : ℂ, s ≠ -s₀ → s ≠ 1 - s₀ → AnalyticAt ℂ Λ s) ∧
+              meromorphicOrderAt Λ (-s₀) = -1 ∧ meromorphicOrderAt Λ (1 - s₀) = -1)
+checks: [build, equiv-reference]
+wrong:
+  - id: hecke-functional-equation-at-not-inverse
+    trap: wrong-object
+    reason: The functional equation relates the L-function of χ to the L-function of the inverse character, not to the L-function of χ.
+    lean: |
+      def HeckeFunctionalEquationAt (K : Type u) [Field K] [NumberField K] : Prop :=
+        ∀ (χ : HeckeCharacter K) (n n' : InfinitePlace K → ℤ) (t t' : InfinitePlace K → ℂ),
+          (∀ v, χ.IsArchimedeanParameter v (n v) (t v)) →
+          (∀ v, χ.IsArchimedeanParameter v (n' v) (t' v)) →
+          ∃ σ : ℝ, (∀ x : IdeleGroup (𝓞 K) K, ‖(χ x : ℂ)‖ = ideleNorm K x ^ σ) ∧
+          ∃ (Λ Λ' : ℂ → ℂ) (W : ℂ),
+            MeromorphicOn Λ Set.univ ∧ MeromorphicOn Λ' Set.univ ∧
+            (∀ s : ℂ, 1 - σ < s.re → Λ s = χ.completedLFunction n t s) ∧
+            (∀ s : ℂ, 1 + σ < s.re → Λ' s = χ.completedLFunction n' t' s) ∧
+            ‖W‖ = 1 ∧
+            (∀ s : ℂ, Λ s =
+              W * (((|discr K| : ℤ) : ℂ) * (Ideal.absNorm χ.conductor : ℂ)) ^ (1 / 2 - s - σ) *
+                Λ' (1 - s)) ∧
+            ((∀ s : ℂ, AnalyticAt ℂ Λ s) ∨
+              ∃ s₀ : ℂ, (∀ x : IdeleGroup (𝓞 K) K, (χ x : ℂ) = (ideleNorm K x : ℂ) ^ s₀) ∧
+                (∀ s : ℂ, s ≠ -s₀ → s ≠ 1 - s₀ → AnalyticAt ℂ Λ s) ∧
+                meromorphicOrderAt Λ (-s₀) = -1 ∧ meromorphicOrderAt Λ (1 - s₀) = -1)

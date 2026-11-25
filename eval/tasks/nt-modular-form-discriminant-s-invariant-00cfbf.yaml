@@ -1,0 +1,26 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-modular-form-discriminant-s-invariant-00cfbf
+kind: prove
+origin: mathlib-numbertheory
+title: Prove ModularForm.discriminant_S_invariant.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/ModularForms/Discriminant.lean
+  decl: ModularForm.discriminant_S_invariant
+statement: |
+  set_option backward.isDefEq.respectTransparency.types false in
+  /-- The discriminant satisfies the modular transformation for `S : z ↦ -1 / z`:
+  we have `Δ(-1 / z) = z ^ 12 · Δ(z)`. -/
+  lemma discriminant_S_invariant : (Δ ∣[(12 : ℤ)] ModularGroup.S) = Δ := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/ModularForms/Discriminant.lean
+  decl: ModularForm.discriminant_S_invariant
+  lines: [142, 153]
+  sha256: 9a500d12246e3a5e6ad26d9b08e2d51c4637070f0701f807478c1e282aa48cf1
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 9
+difficulty: hard

@@ -1,0 +1,24 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: rt-linearize-monoidal-apply-single-0b7e70
+kind: prove
+origin: mathlib-representationtheory
+title: Prove Representation.LinearizeMonoidal.δ_apply_single.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Action.lean
+  decl: Representation.LinearizeMonoidal.δ_apply_single
+statement: |
+  lemma δ_apply_single (xy : (X ⊗ Y).V) :
+      (δ (k := k) X Y) (.single xy 1) = .single xy.1 1 ⊗ₜ .single xy.2 1 := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Action.lean
+  decl: Representation.LinearizeMonoidal.δ_apply_single
+  lines: [178, 180]
+  sha256: 4f2f8cc8fcd473d1cfcd4dff01fd9afc9e6a6b5714aadc04167955a0bd1be78e
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 2
+difficulty: medium

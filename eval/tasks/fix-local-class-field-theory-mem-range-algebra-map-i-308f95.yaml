@@ -1,0 +1,47 @@
+# Made by lgl eval gen from https://github.com/n-yamaguchi-0729/ClassFieldTheory. Do not edit by hand.
+id: fix-local-class-field-theory-mem-range-algebra-map-i-308f95
+kind: repair
+origin: nyll-port
+title: Repair LocalClassFieldTheory.mem_range_algebraMap_iff_frobenius_fixed_in for the Mathlib of the project pin.
+source:
+  repo: nyll
+  commit: fc644f42dade5bdc7157fc3ef2eef4dbf2d6a565
+  path: Nyll/SchemeTheory/RingTheory/FieldExtensions/FiniteFrobeniusFixed.lean
+  decl: LocalClassFieldTheory.mem_range_algebraMap_iff_frobenius_fixed_in
+broken: |
+  theorem mem_range_algebraMap_iff_frobenius_fixed_in
+      (k : Type u) [Field k] [Fintype k]
+      (Omega : Type v) [Field Omega] [Algebra k Omega]
+      [Algebra.IsAlgebraic k Omega] (x : Omega) :
+      x ∈ Set.range (algebraMap k Omega) ↔
+        FiniteField.frobeniusAlgEquivOfAlgebraic k Omega x = x := by
+    constructor
+    · rintro ⟨a, rfl⟩
+      simp only [FiniteField.coe_frobeniusAlgEquivOfAlgebraic]
+      rw [← map_pow, FiniteField.pow_card]
+    · intro hx
+      have hxpow : x ^ Fintype.card k = x := by
+        simpa only [FiniteField.coe_frobeniusAlgEquivOfAlgebraic] using hx
+      let p : k[X] := X ^ Fintype.card k - X
+      have hpne : p ≠ 0 :=
+        Polynomial.X_pow_sub_X_ne_zero k Fintype.one_lt_card
+      have hxroot : x ∈ p.rootSet Omega := by
+        rw [Polynomial.mem_rootSet_of_ne hpne]
+        simp only [p, map_sub, map_pow, aeval_X, hxpow, sub_self]
+      have hsplits : (p.map (algebraMap k k)).Splits := by
+        simpa only [p] using (FiniteField.isSplittingField_sub k k).splits
+      have himage := hsplits.image_rootSet (Algebra.ofId k Omega)
+      rw [← himage] at hxroot
+      rcases hxroot with ⟨a, _ha, hax⟩
+      exact ⟨a, hax⟩
+error: 'The build fails at the project pin: Polynomial.X_pow_sub_X_ne_zero is not a name in its Mathlib.'
+answer:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Ported/NYLL/SchemeTheory/RingTheory/FieldExtensions/FiniteFrobeniusFixed.lean
+  decl: LocalClassFieldTheory.mem_range_algebraMap_iff_frobenius_fixed_in
+  lines: [34, 58]
+  sha256: 51fd6cb7edf850ee75702ba991aca20e4174a6417a251e81f236de5dd896ee21
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 20
+difficulty: hard

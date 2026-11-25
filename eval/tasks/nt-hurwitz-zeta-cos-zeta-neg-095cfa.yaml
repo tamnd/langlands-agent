@@ -1,0 +1,24 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-hurwitz-zeta-cos-zeta-neg-095cfa
+kind: prove
+origin: mathlib-numbertheory
+title: Prove HurwitzZeta.cosZeta_neg.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/LSeries/HurwitzZetaEven.lean
+  decl: HurwitzZeta.cosZeta_neg
+statement: |
+  lemma cosZeta_neg (a : UnitAddCircle) (s : ℂ) :
+      cosZeta (-a) s = cosZeta a s := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/LSeries/HurwitzZetaEven.lean
+  decl: HurwitzZeta.cosZeta_neg
+  lines: [705, 707]
+  sha256: d2154c87872b25b8543e754a800cea6bf3821d1095fb5afe5247202450e9317c
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 2
+difficulty: medium

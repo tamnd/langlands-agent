@@ -1,0 +1,24 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: rt-top-rep-comp-smul-prime-099484
+kind: prove
+origin: mathlib-representationtheory
+title: Prove TopRep.comp_smul'.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Continuous/TopRep.lean
+  decl: TopRep.comp_smul'
+statement: |
+  variable (A B C) in
+  lemma comp_smul' (f : A ⟶ B) (r : k) (g : B ⟶ C) : f ≫ (r • g) = r • (f ≫ g) := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Continuous/TopRep.lean
+  decl: TopRep.comp_smul'
+  lines: [173, 175]
+  sha256: eb9afa72a8f5a56cfa95573fcf32f398677f58e61e3422d441ba2e33b1e84d27
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 2
+difficulty: medium

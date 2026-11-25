@@ -1,0 +1,24 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-differentiable-at-jacobi-theta2-snd-01ab3f
+kind: prove
+origin: mathlib-numbertheory
+title: Prove differentiableAt_jacobiTheta₂_snd.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/ModularForms/JacobiTheta/TwoVariable.lean
+  decl: differentiableAt_jacobiTheta₂_snd
+statement: |
+  lemma differentiableAt_jacobiTheta₂_snd (z : ℂ) {τ : ℂ} (hτ : 0 < im τ) :
+      DifferentiableAt ℂ (jacobiTheta₂ z) τ := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/ModularForms/JacobiTheta/TwoVariable.lean
+  decl: differentiableAt_jacobiTheta₂_snd
+  lines: [333, 335]
+  sha256: 10a9bf06324a14dc4e3d8f4a1eccdefc1a1ea918da27bade1be6f7bf778c2f85
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 1
+difficulty: easy

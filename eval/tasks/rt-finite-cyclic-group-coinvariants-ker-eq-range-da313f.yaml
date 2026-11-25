@@ -1,0 +1,25 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: rt-finite-cyclic-group-coinvariants-ker-eq-range-da313f
+kind: prove
+origin: mathlib-representationtheory
+title: Prove Representation.FiniteCyclicGroup.coinvariantsKer_eq_range.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Homological/FiniteCyclic.lean
+  decl: Representation.FiniteCyclicGroup.coinvariantsKer_eq_range
+statement: |
+  variable [Finite G] in
+  lemma coinvariantsKer_eq_range (hg : ∀ x, x ∈ Subgroup.zpowers g) :
+      Coinvariants.ker ρ = LinearMap.range (ρ g - LinearMap.id) := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Homological/FiniteCyclic.lean
+  decl: Representation.FiniteCyclicGroup.coinvariantsKer_eq_range
+  lines: [54, 64]
+  sha256: b77057e190167a1db26b0dfff81e3ac3dccc1a74032d100b5c12f42637b2c39e
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 9
+difficulty: hard

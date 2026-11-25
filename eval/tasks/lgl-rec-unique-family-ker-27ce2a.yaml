@@ -1,0 +1,25 @@
+# Made by lgl eval gen from https://github.com/tamnd/langlands-lean. Do not edit by hand.
+id: lgl-rec-unique-family-ker-27ce2a
+kind: prove
+origin: project
+title: Prove Langlands.RecUnique.family_ker.
+source:
+  repo: langlands-lean
+  commit: e755b4e405b66ee024ffdbc73618db6a036345cc
+  path: Langlands/Reciprocity/Unique.lean
+  decl: Langlands.RecUnique.family_ker
+statement: |
+  theorem family_ker (rec : Kˣ ≃ₜ* Ab K) (h : IsLocalArtinMap K rec)
+      (E : FiniteAbelianLocalExtension K) :
+      (family K rec E).toMonoidHom.ker = E.normSubgroup := by
+    sorry
+answer:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Reciprocity/Unique.lean
+  decl: Langlands.RecUnique.family_ker
+  lines: [186, 192]
+  sha256: dd76ca2f7a7194f37b857f00abf4ddf772fb8a9d40cbfdb7acf223d5284de6f5
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 5
+difficulty: hard

@@ -1,0 +1,35 @@
+# A statement of spec 10.9, written by hand. A wrong statement is elaborated in place of the reviewed declaration, in its file, so it states each binder that it needs.
+id: local-existence
+title: The local existence theorem
+informal: For each nonarchimedean local field K, each open subgroup of finite index of the units of K is the norm group of a finite abelian extension of K.
+reviewed:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Statements/ClassField.lean
+  decl: Langlands.LocalExistence
+  lean: |
+    def LocalExistence : Prop :=
+      ∀ (K : Type u) [Field K] [ValuativeRel K] [TopologicalSpace K] [IsNonarchimedeanLocalField K]
+        (U : Subgroup Kˣ), IsOpen (U : Set Kˣ) → U.FiniteIndex →
+          ∃ L : IntermediateField K (AlgebraicClosure K),
+            FiniteDimensional K L ∧ IsAbelianGalois K L ∧ normGroup K L = U
+checks: [build, equiv-reference]
+wrong:
+  - id: local-existence-not-open
+    trap: missing-condition
+    reason: In positive characteristic the units of K have subgroups of finite index that are not open, and a norm group is always open, so the statement is false.
+    lean: |
+      def LocalExistence : Prop :=
+        ∀ (K : Type u) [Field K] [ValuativeRel K] [TopologicalSpace K] [IsNonarchimedeanLocalField K]
+          (U : Subgroup Kˣ), U.FiniteIndex →
+            ∃ L : IntermediateField K (AlgebraicClosure K),
+              FiniteDimensional K L ∧ IsAbelianGalois K L ∧ normGroup K L = U
+  - id: local-existence-universe
+    trap: universe
+    reason: With Type in place of Type u the statement is only about the fields in the lowest universe, so it is weaker.
+    lean: |
+      def LocalExistence : Prop :=
+        ∀ (K : Type) [Field K] [ValuativeRel K] [TopologicalSpace K] [IsNonarchimedeanLocalField K]
+          (U : Subgroup Kˣ), IsOpen (U : Set Kˣ) → U.FiniteIndex →
+            ∃ L : IntermediateField K (AlgebraicClosure K),
+              FiniteDimensional K L ∧ IsAbelianGalois K L ∧ normGroup K L = U

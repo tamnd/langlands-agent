@@ -1,0 +1,24 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-liouville-with-neg-iff-019797
+kind: prove
+origin: mathlib-numbertheory
+title: Prove LiouvilleWith.neg_iff.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/Transcendental/Liouville/LiouvilleWith.lean
+  decl: LiouvilleWith.neg_iff
+statement: |
+  @[simp]
+  theorem neg_iff : LiouvilleWith p (-x) ↔ LiouvilleWith p x := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/Transcendental/Liouville/LiouvilleWith.lean
+  decl: LiouvilleWith.neg_iff
+  lines: [227, 229]
+  sha256: aa6c9b2a96fad70d7f476559e377bf7eb6f439948d8e02e0cf8ed365d1bcd040
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 1
+difficulty: easy

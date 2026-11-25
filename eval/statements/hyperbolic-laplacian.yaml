@@ -1,0 +1,20 @@
+# A statement of spec 10.9, written by hand. A wrong statement is elaborated in place of the reviewed declaration, in its file, so it states each binder that it needs.
+id: hyperbolic-laplacian
+title: The hyperbolic Laplacian
+informal: The hyperbolic Laplacian of a function f on the upper half plane is -y^2 times the Euclidean Laplacian of f at τ = x + iy.
+reviewed:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Statements/Maass.lean
+  decl: Langlands.hyperbolicLaplacian
+  lean: |
+    noncomputable def hyperbolicLaplacian (f : ℍ → ℂ) (τ : ℍ) : ℂ :=
+      -((τ.im : ℂ) ^ 2) * Δ (onPlane f) (τ : ℂ)
+checks: [build, equiv-reference]
+wrong:
+  - id: hyperbolic-laplacian-sign
+    trap: sign
+    reason: Without the minus sign the operator is negative, and the eigenvalues of the Maass forms change their sign.
+    lean: |
+      noncomputable def hyperbolicLaplacian (f : ℍ → ℂ) (τ : ℍ) : ℂ :=
+        ((τ.im : ℂ) ^ 2) * Δ (onPlane f) (τ : ℂ)

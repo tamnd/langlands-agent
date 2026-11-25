@@ -1,0 +1,26 @@
+# A statement of spec 10.9, written by hand. A wrong statement is elaborated in place of the reviewed declaration, in its file, so it states each binder that it needs.
+id: torus-correspond
+title: The correspondence for a split torus
+informal: A character χ of (K^×)^n and a parameter φ from the Weil group of K to (C^×)^n correspond if χ(x) is the product over i of the i-th component of φ(w_i), for each x and w such that the class of w_i in the abelianized Weil group is rec(x_i).
+reviewed:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Statements/Torus.lean
+  decl: Langlands.TorusCorrespond
+  lean: |
+    def TorusCorrespond {n : ℕ} (rec : Kˣ ≃ₜ* WeilGroup.Ab K)
+        (χ : ContinuousMonoidHom (Fin n → Kˣ) ℂˣ)
+        (φ : ContinuousMonoidHom (WeilGroup K) (Fin n → ℂˣ)) : Prop :=
+      ∀ (x : Fin n → Kˣ) (w : Fin n → WeilGroup K),
+        (∀ i, (QuotientGroup.mk (w i) : WeilGroup.Ab K) = rec (x i)) → χ x = ∏ i, φ (w i) i
+checks: [build, equiv-reference]
+wrong:
+  - id: torus-correspond-inverse
+    trap: sign
+    reason: It matches χ with the inverse of φ, so each character goes to the dual parameter.
+    lean: |
+      def TorusCorrespond {n : ℕ} (rec : Kˣ ≃ₜ* WeilGroup.Ab K)
+          (χ : ContinuousMonoidHom (Fin n → Kˣ) ℂˣ)
+          (φ : ContinuousMonoidHom (WeilGroup K) (Fin n → ℂˣ)) : Prop :=
+        ∀ (x : Fin n → Kˣ) (w : Fin n → WeilGroup K),
+          (∀ i, (QuotientGroup.mk (w i) : WeilGroup.Ab K) = rec (x i)) → χ x = (∏ i, φ (w i) i)⁻¹

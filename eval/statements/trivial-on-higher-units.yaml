@@ -1,0 +1,24 @@
+# A statement of spec 10.9, written by hand. A wrong statement is elaborated in place of the reviewed declaration, in its file, so it states each binder that it needs.
+id: trivial-on-higher-units
+title: A Hecke character trivial on the higher units
+informal: A Hecke character χ is trivial on the higher units of level m at a finite place v if χ_v(x) = 1 for each unit x of K_v with v(x - 1) at most exp(-m), that is, for each x that is 1 modulo the m-th power of the prime of v.
+reviewed:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Statements/Hecke.lean
+  decl: Langlands.HeckeCharacter.IsTrivialOnHigherUnits
+  lean: |
+    def IsTrivialOnHigherUnits (v : HeightOneSpectrum (𝓞 K)) (m : ℕ) : Prop :=
+      ∀ x : (v.adicCompletion K)ˣ, Valued.v (x : v.adicCompletion K) = 1 →
+        Valued.v ((x : v.adicCompletion K) - 1) ≤ WithZero.exp (-(m : ℤ)) →
+          χ.finiteComponent v x = 1
+checks: [build, equiv-reference]
+wrong:
+  - id: trivial-on-higher-units-strict
+    trap: constant
+    reason: The strict inequality gives the units that are 1 modulo the (m + 1)-th power of the prime, so the level is off by one.
+    lean: |
+      def IsTrivialOnHigherUnits (v : HeightOneSpectrum (𝓞 K)) (m : ℕ) : Prop :=
+        ∀ x : (v.adicCompletion K)ˣ, Valued.v (x : v.adicCompletion K) = 1 →
+          Valued.v ((x : v.adicCompletion K) - 1) < WithZero.exp (-(m : ℤ)) →
+            χ.finiteComponent v x = 1

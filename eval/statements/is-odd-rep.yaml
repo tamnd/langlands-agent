@@ -1,0 +1,20 @@
+# A statement of spec 10.9, written by hand. A wrong statement is elaborated in place of the reviewed declaration, in its file, so it states each binder that it needs.
+id: is-odd-rep
+title: An odd Galois representation
+informal: A two-dimensional representation ρ of the absolute Galois group of the rationals is odd if the determinant of ρ(c) is -1 for each complex conjugation c.
+reviewed:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Statements/Galois.lean
+  decl: Langlands.IsOddRep
+  lean: |
+    def IsOddRep {F : Type*} [Field F] (ρ : Field.absoluteGaloisGroup ℚ →* GL (Fin 2) F) : Prop :=
+      ∀ c, IsComplexConjugation c → (ρ c : Matrix (Fin 2) (Fin 2) F).det = -1
+checks: [build, equiv-reference]
+wrong:
+  - id: is-odd-rep-sign
+    trap: sign
+    reason: Determinant 1 at each complex conjugation is the condition for an even representation.
+    lean: |
+      def IsOddRep {F : Type*} [Field F] (ρ : Field.absoluteGaloisGroup ℚ →* GL (Fin 2) F) : Prop :=
+        ∀ c, IsComplexConjugation c → (ρ c : Matrix (Fin 2) (Fin 2) F).det = 1

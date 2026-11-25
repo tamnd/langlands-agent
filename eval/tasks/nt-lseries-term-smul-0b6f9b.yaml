@@ -1,0 +1,23 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-lseries-term-smul-0b6f9b
+kind: prove
+origin: mathlib-numbertheory
+title: Prove LSeries.term_smul.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/LSeries/Linearity.lean
+  decl: LSeries.term_smul
+statement: |
+  lemma LSeries.term_smul (f : ℕ → ℂ) (c s : ℂ) : term (c • f) s = c • term f s := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/LSeries/Linearity.lean
+  decl: LSeries.term_smul
+  lines: [108, 110]
+  sha256: d41dfb70b0652892be8c8b4fb394f4e487c2b90cf8183d43689fc46033c91a76
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 3
+difficulty: medium

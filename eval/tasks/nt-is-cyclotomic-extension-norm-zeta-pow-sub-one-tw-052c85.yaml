@@ -1,0 +1,25 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-is-cyclotomic-extension-norm-zeta-pow-sub-one-tw-052c85
+kind: prove
+origin: mathlib-numbertheory
+title: Prove IsCyclotomicExtension.norm_zeta_pow_sub_one_two.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/Cyclotomic/PrimitiveRoots.lean
+  decl: IsCyclotomicExtension.norm_zeta_pow_sub_one_two
+statement: |
+  theorem norm_zeta_pow_sub_one_two {k : ℕ} (hk : 2 ≤ k)
+      [IsCyclotomicExtension {2 ^ k} K L] (hirr : Irreducible (cyclotomic (2 ^ k) K)) :
+      norm K (zeta (2 ^ k) K L - 1) = 2 := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/Cyclotomic/PrimitiveRoots.lean
+  decl: IsCyclotomicExtension.norm_zeta_pow_sub_one_two
+  lines: [569, 572]
+  sha256: e8fdaaa3a12b03ac4d91486bc743cef811dd7f8ed960b3dca332038eaeb357ed
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 1
+difficulty: easy

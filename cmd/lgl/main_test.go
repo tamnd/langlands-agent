@@ -24,6 +24,7 @@ func TestExitCodes(t *testing.T) {
 		{[]string{"queue", "-role", "nobody"}, 2, ""},
 		{[]string{"trust", "-frob"}, 2, ""},
 		{[]string{"fidelity"}, 2, ""},
+		{[]string{"eval"}, 2, ""},
 		{[]string{"paper"}, 2, ""},
 		{[]string{"site"}, 2, ""},
 		{[]string{"status", "-only", "done"}, 2, ""},

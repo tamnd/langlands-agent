@@ -1,0 +1,19 @@
+# Made by lgl eval gen from https://github.com/n-yamaguchi-0729/ClassFieldTheory. Do not edit by hand.
+id: nyll-kummer-theory-nth-roots-of-unity-in-base-of-prim-02568d
+kind: state
+origin: nyll
+title: State KummerTheory.nthRootsOfUnityInBase_of_primitiveRoots in Lean from its docstring.
+source:
+  repo: nyll
+  commit: fc644f42dade5bdc7157fc3ef2eef4dbf2d6a565
+  path: Nyll/GaloisCohomology/Kummer/Concrete/FiniteGeneration.lean
+  decl: KummerTheory.nthRootsOfUnityInBase_of_primitiveRoots
+informal: A primitive `n`-th root in `K` implies the field-level hypothesis that all `n`-th roots of unity occurring in `L` come from `K`.
+answer:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Ported/NYLL/GaloisCohomology/Kummer/Concrete/FiniteGeneration.lean
+  decl: KummerTheory.nthRootsOfUnityInBase_of_primitiveRoots
+  lines: [49, 60]
+  sha256: 7f275f8fafa064ef7d9626180ea3ba4cf6983f29b5a6afdbdef3c8e231550722
+checks: [build, equiv-reference]

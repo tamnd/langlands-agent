@@ -1,0 +1,24 @@
+# Made by lgl eval gen from https://github.com/tamnd/langlands-lean. Do not edit by hand.
+id: lgl-weil-group-degree-eq-one-iff-06dab4
+kind: prove
+origin: project
+title: Prove Langlands.WeilGroup.degree_eq_one_iff.
+source:
+  repo: langlands-lean
+  commit: 5c905c318e5ec25a39090659914a9ae43307acb5
+  path: Langlands/WeilGroup/Degree.lean
+  decl: Langlands.WeilGroup.degree_eq_one_iff
+statement: |
+  theorem degree_eq_one_iff (w : WeilGroup K) :
+      degree K w = Multiplicative.ofAdd 1 ↔ IsGeometricFrobenius K w := by
+    sorry
+answer:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/WeilGroup/Degree.lean
+  decl: Langlands.WeilGroup.degree_eq_one_iff
+  lines: [103, 111]
+  sha256: 9f4506bc5653c7c5c78090c67574a6f1467c1838acc8771c9a93b317d22595f1
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 8
+difficulty: hard

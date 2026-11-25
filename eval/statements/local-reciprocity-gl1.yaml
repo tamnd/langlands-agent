@@ -1,0 +1,52 @@
+# A statement of spec 10.9, written by hand. A wrong statement is elaborated in place of the reviewed declaration, in its file, so it states each binder that it needs.
+id: local-reciprocity-gl1
+title: Local class field theory for GL1
+informal: For each nonarchimedean local field K there is exactly one topological isomorphism rec from the units of K to the abelianized Weil group of K such that rec sends each uniformizer to the class of a geometric Frobenius and, for each finite abelian extension L of K, the map to Gal(L/K) is surjective with the norm group of L as its kernel.
+reviewed:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Statements/ClassField.lean
+  decl: Langlands.LocalReciprocityGL1
+  lean: |
+    def LocalReciprocityGL1 : Prop :=
+      ∀ (K : Type u) [Field K] [ValuativeRel K] [TopologicalSpace K] [IsNonarchimedeanLocalField K],
+        ∃! rec : Kˣ ≃ₜ* WeilGroup.Ab K, IsLocalArtinMap K rec
+checks: [build, equiv-reference]
+wrong:
+  - id: local-reciprocity-gl1-unnormalized
+    trap: missing-condition
+    reason: Without the condition at a uniformizer the map is not unique, because the inverse map is a second solution, so the statement is false.
+    lean: |
+      def LocalReciprocityGL1 : Prop :=
+        ∀ (K : Type u) [Field K] [ValuativeRel K] [TopologicalSpace K] [IsNonarchimedeanLocalField K],
+          ∃! rec : Kˣ ≃ₜ* WeilGroup.Ab K,
+            (∀ (L : IntermediateField K (AlgebraicClosure K)) [FiniteDimensional K L]
+              [IsAbelianGalois K L], Function.Surjective (WeilGroup.Ab.restrict K L ∘ rec)) ∧
+            ∀ (L : IntermediateField K (AlgebraicClosure K)) [FiniteDimensional K L]
+              [IsAbelianGalois K L] (x : Kˣ), WeilGroup.Ab.restrict K L (rec x) = 1 ↔ x ∈ normGroup K L
+    ref:
+      repo: langlands-lean
+      commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+      path: Langlands/Fidelity/ClassField.lean
+      decl: Langlands.Fidelity.not_existsUnique_unnormalized
+  - id: local-reciprocity-gl1-arithmetic
+    trap: normalization
+    reason: It sends a uniformizer to the class of an arithmetic Frobenius, but the project fixes the geometric normalization.
+    lean: |
+      def LocalReciprocityGL1 : Prop :=
+        ∀ (K : Type u) [Field K] [ValuativeRel K] [TopologicalSpace K] [IsNonarchimedeanLocalField K],
+          ∃! rec : Kˣ ≃ₜ* WeilGroup.Ab K,
+            (∀ ϖ : Kˣ, IsUniformizer (ϖ : K) →
+              ∃ Φ : WeilGroup K, WeilGroup.toResidue K Φ = LocalField.frobenius K ∧
+                rec ϖ = (Φ : WeilGroup.Ab K)) ∧
+            (∀ (L : IntermediateField K (AlgebraicClosure K)) [FiniteDimensional K L]
+              [IsAbelianGalois K L], Function.Surjective (WeilGroup.Ab.restrict K L ∘ rec)) ∧
+            ∀ (L : IntermediateField K (AlgebraicClosure K)) [FiniteDimensional K L]
+              [IsAbelianGalois K L] (x : Kˣ), WeilGroup.Ab.restrict K L (rec x) = 1 ↔ x ∈ normGroup K L
+  - id: local-reciprocity-gl1-exists
+    trap: quantifier
+    reason: It asks for some reciprocity map and not for exactly one, so it is a weaker statement.
+    lean: |
+      def LocalReciprocityGL1 : Prop :=
+        ∀ (K : Type u) [Field K] [ValuativeRel K] [TopologicalSpace K] [IsNonarchimedeanLocalField K],
+          ∃ rec : Kˣ ≃ₜ* WeilGroup.Ab K, IsLocalArtinMap K rec

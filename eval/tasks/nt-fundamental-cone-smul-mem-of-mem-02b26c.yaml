@@ -1,0 +1,24 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-fundamental-cone-smul-mem-of-mem-02b26c
+kind: prove
+origin: mathlib-numbertheory
+title: Prove NumberField.mixedEmbedding.fundamentalCone.smul_mem_of_mem.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/NumberField/CanonicalEmbedding/FundamentalCone.lean
+  decl: NumberField.mixedEmbedding.fundamentalCone.smul_mem_of_mem
+statement: |
+  theorem smul_mem_of_mem (hx : x ∈ fundamentalCone K) (hc : c ≠ 0) :
+      c • x ∈ fundamentalCone K := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/NumberField/CanonicalEmbedding/FundamentalCone.lean
+  decl: NumberField.mixedEmbedding.fundamentalCone.smul_mem_of_mem
+  lines: [214, 220]
+  sha256: 86bdc546ccb4956c4af4a7b491a17d9113859a69dbeb5ebad4b8c16958268512
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 6
+difficulty: hard

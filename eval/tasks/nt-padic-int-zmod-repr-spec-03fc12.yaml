@@ -1,0 +1,23 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-padic-int-zmod-repr-spec-03fc12
+kind: prove
+origin: mathlib-numbertheory
+title: Prove PadicInt.zmodRepr_spec.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/Padics/RingHoms.lean
+  decl: PadicInt.zmodRepr_spec
+statement: |
+  theorem zmodRepr_spec : zmodRepr x < p ∧ x - zmodRepr x ∈ maximalIdeal ℤ_[p] := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/Padics/RingHoms.lean
+  decl: PadicInt.zmodRepr_spec
+  lines: [181, 182]
+  sha256: d87aa88a2c09d8ecad8401bb7f03cfba08e9b4f45174ef14939f343b5a050fe2
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 1
+difficulty: easy

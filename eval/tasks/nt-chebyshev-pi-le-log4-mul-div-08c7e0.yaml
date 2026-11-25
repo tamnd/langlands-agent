@@ -1,0 +1,23 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-chebyshev-pi-le-log4-mul-div-08c7e0
+kind: prove
+origin: mathlib-numbertheory
+title: Prove Chebyshev.pi_le_log4_mul_div.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/Chebyshev.lean
+  decl: Chebyshev.pi_le_log4_mul_div
+statement: |
+  theorem pi_le_log4_mul_div {x : ℝ} (hx : 1 < x) : π ⌊x⌋₊ ≤ log 4 * x / log √x + √x := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/Chebyshev.lean
+  decl: Chebyshev.pi_le_log4_mul_div
+  lines: [846, 849]
+  sha256: 0089138864e04238c628a5bff240cd8332c61c9ff4c617d0bb8a1ac5463a4fe3
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 4
+difficulty: medium

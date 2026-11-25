@@ -1,0 +1,24 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-infinite-place-inertia-deg-eq-two-08fa57
+kind: prove
+origin: mathlib-numbertheory
+title: Prove NumberField.InfinitePlace.inertiaDeg_eq_two.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/NumberField/Completion/Ramification.lean
+  decl: NumberField.InfinitePlace.inertiaDeg_eq_two
+statement: |
+  variable {v w} in
+  theorem inertiaDeg_eq_two (hw : w ∈ ramifiedPlacesOver L v) : v.inertiaDeg w = 2 := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/NumberField/Completion/Ramification.lean
+  decl: NumberField.InfinitePlace.inertiaDeg_eq_two
+  lines: [117, 119]
+  sha256: 73995adb3b9c0c8f73a3a498da60503265c81da4c395d752d6169267ea5cb60b
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 1
+difficulty: easy

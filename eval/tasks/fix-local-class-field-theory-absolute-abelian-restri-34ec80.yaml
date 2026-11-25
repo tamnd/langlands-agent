@@ -1,0 +1,49 @@
+# Made by lgl eval gen from https://github.com/n-yamaguchi-0729/ClassFieldTheory. Do not edit by hand.
+id: fix-local-class-field-theory-absolute-abelian-restri-34ec80
+kind: repair
+origin: nyll-port
+title: Repair LocalClassFieldTheory.absoluteAbelianRestriction for the Mathlib of the project pin.
+source:
+  repo: nyll
+  commit: fc644f42dade5bdc7157fc3ef2eef4dbf2d6a565
+  path: Nyll/ClassFieldTheory/LocalClassFieldTheory/Infinite/FiniteAbelianQuotientKernels.lean
+  decl: LocalClassFieldTheory.absoluteAbelianRestriction
+broken: |
+  noncomputable def absoluteAbelianRestriction
+      (E : IntermediateField K (SeparableClosure K))
+      [FiniteDimensional K E] [IsAbelianGalois K E] :
+      localAbsoluteAbelianProfinite K →ₜ* Gal(E / K) := by
+    let r : intrinsicAbsoluteGalois K →* Gal(E / K) :=
+      AlgEquiv.restrictNormalHom E
+    have hcomm : commutator (intrinsicAbsoluteGalois K) ≤ r.ker :=
+      Group.Abelianization.commutator_le_ker r
+    have hkerClosed : IsClosed (r.ker : Set (intrinsicAbsoluteGalois K)) := by
+      rw [IntermediateField.restrictNormalHom_ker]
+      exact IntermediateField.fixingSubgroup_isClosed E
+    have hclosure :
+        (commutator (intrinsicAbsoluteGalois K)).topologicalClosure ≤ r.ker :=
+      (commutator (intrinsicAbsoluteGalois K)).topologicalClosure_minimal
+        hcomm hkerClosed
+    let q : localAbsoluteAbelianProfinite K →* Gal(E / K) :=
+      QuotientGroup.lift
+        (commutator (intrinsicAbsoluteGalois K)).topologicalClosure r
+        (fun σ hσ ↦ MonoidHom.mem_ker.mp (hclosure hσ))
+    exact
+      { q with
+        continuous_toFun := by
+          apply (QuotientGroup.isQuotientMap_mk
+            (commutator (intrinsicAbsoluteGalois K)).topologicalClosure).continuous_iff.2
+          refine (InfiniteGalois.restrictNormalHom_continuous E).congr ?_
+          intro σ
+          rfl }
+error: 'The build fails at the project pin: Group.Abelianization.commutator_le_ker is not a name in its Mathlib.'
+answer:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Ported/NYLL/ClassFieldTheory/LocalClassFieldTheory/Infinite/FiniteAbelianQuotientKernels.lean
+  decl: LocalClassFieldTheory.absoluteAbelianRestriction
+  lines: [48, 74]
+  sha256: be7d45bc156a92a073fe23976c2686156eac426f0a0f8db862958de5d2bc894e
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 24
+difficulty: hard

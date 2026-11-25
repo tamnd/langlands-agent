@@ -1,0 +1,20 @@
+# A statement of spec 10.9, written by hand. A wrong statement is elaborated in place of the reviewed declaration, in its file, so it states each binder that it needs.
+id: sato-tate-angle
+title: The Sato-Tate angle
+informal: The Sato-Tate angle of an elliptic curve E at a prime p is the angle θ_p in [0, π] with a_p = 2 sqrt(p) cos θ_p.
+reviewed:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Statements/Modularity.lean
+  decl: Langlands.satoTateAngle
+  lean: |
+    noncomputable def satoTateAngle (E : WeierstrassCurve ℚ) (p : ℕ) : ℝ :=
+      Real.arccos ((E.LFunction p : ℝ) / (2 * Real.sqrt p))
+checks: [build, equiv-reference]
+wrong:
+  - id: sato-tate-angle-no-two
+    trap: constant
+    reason: Without the factor 2 the argument of arccos can be larger than 1, and the result is not the Sato-Tate angle.
+    lean: |
+      noncomputable def satoTateAngle (E : WeierstrassCurve ℚ) (p : ℕ) : ℝ :=
+        Real.arccos ((E.LFunction p : ℝ) / Real.sqrt p)

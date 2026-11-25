@@ -1,0 +1,24 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-completion-subfield-ne-real-of-is-complex-03269c
+kind: prove
+origin: mathlib-numbertheory
+title: Prove NumberField.InfinitePlace.Completion.subfield_ne_real_of_isComplex.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/NumberField/Completion/InfinitePlace.lean
+  decl: NumberField.InfinitePlace.Completion.subfield_ne_real_of_isComplex
+statement: |
+  theorem subfield_ne_real_of_isComplex {v : InfinitePlace K} (hv : IsComplex v) :
+      (extensionEmbedding v).fieldRange ≠ Complex.ofRealHom.fieldRange := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/NumberField/Completion/InfinitePlace.lean
+  decl: NumberField.InfinitePlace.Completion.subfield_ne_real_of_isComplex
+  lines: [282, 289]
+  sha256: e3f0241bdb7561b6ec1b25bafaa2e6da78ed8e18ee7a7948cf97521c389b4cf1
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 7
+difficulty: hard

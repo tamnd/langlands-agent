@@ -1,0 +1,20 @@
+# A statement of spec 10.9, written by hand. A wrong statement is elaborated in place of the reviewed declaration, in its file, so it states each binder that it needs.
+id: pell-exists
+title: The Pell equation has a nontrivial solution
+informal: For a positive integer d that is not a square, the equation x^2 - d y^2 = 1 has an integer solution with y not 0.
+reviewed:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/Pell.lean
+  decl: Pell.exists_of_not_isSquare
+  lean: |
+    theorem exists_of_not_isSquare (h₀ : 0 < d) (hd : ¬IsSquare d) :
+        ∃ x y : ℤ, x ^ 2 - d * y ^ 2 = 1 ∧ y ≠ 0
+checks: [build, equiv-reference]
+wrong:
+  - id: pell-exists-square
+    trap: missing-condition
+    reason: For d = 4 the equation x^2 - 4 y^2 = 1 has no solution with y not 0, so without the condition that d is not a square the statement is false.
+    lean: |
+      theorem exists_of_not_isSquare (h₀ : 0 < d) :
+          ∃ x y : ℤ, x ^ 2 - d * y ^ 2 = 1 ∧ y ≠ 0

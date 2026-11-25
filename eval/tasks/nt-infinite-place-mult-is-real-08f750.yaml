@@ -1,0 +1,25 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-infinite-place-mult-is-real-08f750
+kind: prove
+origin: mathlib-numbertheory
+title: Prove NumberField.InfinitePlace.mult_isReal.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean
+  decl: NumberField.InfinitePlace.mult_isReal
+statement: |
+  @[simp]
+  theorem mult_isReal (w : {w : InfinitePlace K // IsReal w}) :
+      mult w.1 = 1 := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean
+  decl: NumberField.InfinitePlace.mult_isReal
+  lines: [282, 285]
+  sha256: e45e89816626b2e1e352eaf8dc94c2f7cfecde4afc1e9866cf830690aa924f5b
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 1
+difficulty: easy

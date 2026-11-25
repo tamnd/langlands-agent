@@ -40,6 +40,7 @@ func commands() []command {
 		{name: "paper", summary: "add, list or show a paper record of papers/", run: runPaper},
 		{name: "claim", summary: "add, list, show or plan a fresh claim of route R1 in claims/", run: runClaim},
 		{name: "lab", summary: "list, run or show the experiments of the computation lab", run: runLab},
+		{name: "eval", summary: "list, check, make or score the evaluation sets of spec 10.9 in eval/", run: runEval},
 		{name: "queue", summary: "print the work queue of a role, with the reason for each rank", run: runQueue},
 		{name: "agent", summary: "plan and run one role of the agent within the budget, or write the weekly report", run: runAgent},
 	}

@@ -1,0 +1,23 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-padic-complex-nnnorm-extends-prime-04ce08
+kind: prove
+origin: mathlib-numbertheory
+title: Prove PadicComplex.nnnorm_extends'.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/Padics/Complex.lean
+  decl: PadicComplex.nnnorm_extends'
+statement: |
+  theorem nnnorm_extends' (x : ℚ_[p]) : ‖(x : ℂ_[p])‖₊ = ‖x‖₊ := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/Padics/Complex.lean
+  decl: PadicComplex.nnnorm_extends'
+  lines: [228, 230]
+  sha256: 2448fd330fb29810e7a13828088a5375369cd42603ccb7819c19ea53a999df45
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 3
+difficulty: medium

@@ -1,0 +1,25 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-derivative-normalized-deriv-of-complex-mul-0595d3
+kind: prove
+origin: mathlib-numbertheory
+title: Prove Derivative.normalizedDerivOfComplex_mul.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/ModularForms/Derivative.lean
+  decl: Derivative.normalizedDerivOfComplex_mul
+statement: |
+  @[simp]
+  theorem normalizedDerivOfComplex_mul (F G : ℍ → ℂ) (hF : MDiff F) (hG : MDiff G) :
+      D (F * G) = D F * G + F * D G := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/ModularForms/Derivative.lean
+  decl: Derivative.normalizedDerivOfComplex_mul
+  lines: [102, 112]
+  sha256: a15880f31a8077a5483e2d0e704b013dd2f45cc78189dc815219401d3d559516
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 9
+difficulty: hard

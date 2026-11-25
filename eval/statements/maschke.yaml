@@ -1,0 +1,12 @@
+# A statement of spec 10.9, written by hand. A wrong statement is elaborated in place of the reviewed declaration, in its file, so it states each binder that it needs.
+id: maschke
+title: The theorem of Maschke
+informal: For a finite group G and a field k whose characteristic does not divide the order of G, each submodule of a k[G]-module has a complement that is also a submodule.
+reviewed:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Maschke.lean
+  decl: MonoidAlgebra.Submodule.exists_isCompl
+  lean: |
+    theorem exists_isCompl (p : Submodule k[G] V) : ∃ q : Submodule k[G] V, IsCompl p q
+checks: [build, equiv-reference]

@@ -1,0 +1,23 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-modular-group-re-t-inv-smul-030998
+kind: prove
+origin: mathlib-numbertheory
+title: Prove ModularGroup.re_T_inv_smul.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/Modular.lean
+  decl: ModularGroup.re_T_inv_smul
+statement: |
+  theorem re_T_inv_smul : (T⁻¹ • z).re = z.re - 1 := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/Modular.lean
+  decl: ModularGroup.re_T_inv_smul
+  lines: [322, 322]
+  sha256: 33a5bec57438c636a0e6c9415d5b3d956fdf8101840fc676a363acb695803d99
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 1
+difficulty: easy

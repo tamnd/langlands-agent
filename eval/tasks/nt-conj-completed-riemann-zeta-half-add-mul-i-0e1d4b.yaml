@@ -1,0 +1,24 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-conj-completed-riemann-zeta-half-add-mul-i-0e1d4b
+kind: prove
+origin: mathlib-numbertheory
+title: Prove conj_completedRiemannZeta_half_add_mul_I.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/LSeries/HardyZ.lean
+  decl: conj_completedRiemannZeta_half_add_mul_I
+statement: |
+  theorem conj_completedRiemannZeta_half_add_mul_I (t : ℝ) :
+      conj (completedRiemannZeta (1 / 2 + t * I)) = completedRiemannZeta (1 / 2 + t * I) := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/LSeries/HardyZ.lean
+  decl: conj_completedRiemannZeta_half_add_mul_I
+  lines: [55, 60]
+  sha256: 24daa7b6371c2d31148495341d1ca70bc0d0270b8664d9e9d09be031d8fa7c47
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 4
+difficulty: medium

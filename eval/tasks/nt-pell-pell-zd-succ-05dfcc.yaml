@@ -1,0 +1,24 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-pell-pell-zd-succ-05dfcc
+kind: prove
+origin: mathlib-numbertheory
+title: Prove Pell.pellZd_succ.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/PellMatiyasevic.lean
+  decl: Pell.pellZd_succ
+statement: |
+  @[simp]
+  theorem pellZd_succ (n : ℕ) : pellZd a1 (n + 1) = pellZd a1 n * ⟨a, 1⟩ := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/PellMatiyasevic.lean
+  decl: Pell.pellZd_succ
+  lines: [206, 207]
+  sha256: 41d9ac2c662dbb2c6fb35b65a48d15ae29f5fbcc10829b15f9cda435652db391
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 1
+difficulty: easy

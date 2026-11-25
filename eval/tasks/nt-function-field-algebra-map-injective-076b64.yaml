@@ -1,0 +1,24 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-function-field-algebra-map-injective-076b64
+kind: prove
+origin: mathlib-numbertheory
+title: Prove FunctionField.algebraMap_injective.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/FunctionField.lean
+  decl: FunctionField.algebraMap_injective
+statement: |
+  theorem algebraMap_injective [Algebra F[X] K] [Algebra F⟮X⟯ K]
+      [IsScalarTower F[X] F⟮X⟯ K] : Function.Injective (algebraMap F[X] K) := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/FunctionField.lean
+  decl: FunctionField.algebraMap_injective
+  lines: [84, 87]
+  sha256: 0644626fe89797856d52cb0faf39a4dfba5ea6a403bee3b7d8f179cb0e1e5c08
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 3
+difficulty: medium

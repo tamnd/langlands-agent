@@ -1,0 +1,25 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: rt-homogeneous-cochains-d-apply-5753bc
+kind: prove
+origin: mathlib-representationtheory
+title: Prove TopRep.homogeneousCochains.d_apply.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Homological/ContCohomology/Basic.lean
+  decl: TopRep.homogeneousCochains.d_apply
+statement: |
+  lemma homogeneousCochains.d_apply (X : TopRep k G) (i : ℕ)
+      (σ : (homogeneousCochains X).X i) :
+      ((homogeneousCochains X).d i (i + 1)).hom σ = (d X (i + 1)).hom σ := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Homological/ContCohomology/Basic.lean
+  decl: TopRep.homogeneousCochains.d_apply
+  lines: [123, 127]
+  sha256: 8ae5fd2543854d0d2bc439999f625e7cd00656dd437a2bf80c06dd772abe2334
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 3
+difficulty: medium

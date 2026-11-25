@@ -1,0 +1,23 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-special-linear-group-is-closed-embedding-map-gli-0ceb65
+kind: prove
+origin: mathlib-numbertheory
+title: Prove Matrix.SpecialLinearGroup.isClosedEmbedding_mapGLInt.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/ModularForms/ArithmeticSubgroups.lean
+  decl: Matrix.SpecialLinearGroup.isClosedEmbedding_mapGLInt
+statement: |
+  lemma isClosedEmbedding_mapGLInt : Topology.IsClosedEmbedding (mapGL ℝ : SL n ℤ → GL n ℝ) := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/ModularForms/ArithmeticSubgroups.lean
+  decl: Matrix.SpecialLinearGroup.isClosedEmbedding_mapGLInt
+  lines: [155, 156]
+  sha256: 0a3c62ac35537a4edb0c117f5825216ed043b108fce6b2145566e38467147d80
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 1
+difficulty: easy

@@ -1,0 +1,25 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-arithmetic-function-lseries-positive-0b1fd7
+kind: prove
+origin: mathlib-numbertheory
+title: Prove ArithmeticFunction.LSeries_positive.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/LSeries/Positivity.lean
+  decl: ArithmeticFunction.LSeries_positive
+statement: |
+  lemma LSeries_positive {a : ℕ → ℂ} (ha₀ : 0 ≤ a) (ha₁ : 0 < a 1) {x : ℝ}
+      (hx : LSeries.abscissaOfAbsConv a < x) :
+      0 < LSeries a x := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/LSeries/Positivity.lean
+  decl: ArithmeticFunction.LSeries_positive
+  lines: [100, 103]
+  sha256: be0b3310952efd8931e0dca570586c83da09f91d46333ccf9e17c4ef15035ba2
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 1
+difficulty: easy

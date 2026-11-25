@@ -1,0 +1,27 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-rat-log-height-eq-max-abs-of-gcd-eq-one-0cc139
+kind: prove
+origin: mathlib-numbertheory
+title: Prove Rat.logHeight_eq_max_abs_of_gcd_eq_one.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/Height/NumberField.lean
+  decl: Rat.logHeight_eq_max_abs_of_gcd_eq_one
+statement: |
+  open Real in
+  /-- The logarithmic height of a tuple of rational numbers that consists of coprime integers
+  is the logarithm of the maximum of the absolute values of the entries. -/
+  lemma logHeight_eq_max_abs_of_gcd_eq_one (hx : Finset.univ.gcd x = 1) :
+      logHeight (((↑) : ℤ →  ℚ) ∘ x) = log ↑(⨆ i, |x i|) := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/Height/NumberField.lean
+  decl: Rat.logHeight_eq_max_abs_of_gcd_eq_one
+  lines: [513, 518]
+  sha256: d5bd1b6f52f5b973ce587120c7f29769dbf93c41b2532df58a5c31501974e2aa
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 2
+difficulty: medium

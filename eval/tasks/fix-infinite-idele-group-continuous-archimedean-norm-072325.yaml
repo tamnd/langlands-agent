@@ -1,0 +1,36 @@
+# Made by lgl eval gen from https://github.com/n-yamaguchi-0729/ClassFieldTheory. Do not edit by hand.
+id: fix-infinite-idele-group-continuous-archimedean-norm-072325
+kind: repair
+origin: nyll-port
+title: Repair InfiniteIdeleGroup.continuous_archimedeanNorm for the Mathlib of the project pin.
+source:
+  repo: nyll
+  commit: fc644f42dade5bdc7157fc3ef2eef4dbf2d6a565
+  path: Nyll/ClassFieldTheory/AlgebraicNumberTheory/Idele/NormOneCompact.lean
+  decl: InfiniteIdeleGroup.continuous_archimedeanNorm
+broken: |
+  theorem continuous_archimedeanNorm :
+      Continuous (NumberField.InfiniteAdeleRing.absoluteNorm (K := K)) := by
+    classical
+    rw [show (NumberField.InfiniteAdeleRing.absoluteNorm (K := K) :
+        InfiniteIdeleGroup K → ℝ≥0ˣ) =
+        fun a ↦ ∏ w : InfinitePlace K,
+          nnnormUnitHom w.Completion (component w a) ^ w.mult by
+      rfl]
+    apply continuous_finsetProd
+    intro w _
+    apply Continuous.pow
+    exact (continuous_nnNorm.units_map _).comp
+      ((continuous_apply w).comp
+        ContinuousMulEquiv.piUnits.continuous)
+error: 'The build fails at the project pin: continuous_nnNorm is not a name in its Mathlib.'
+answer:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Ported/NYLL/ClassFieldTheory/AlgebraicNumberTheory/Idele/NormOneCompact.lean
+  decl: InfiniteIdeleGroup.continuous_archimedeanNorm
+  lines: [193, 206]
+  sha256: 0a84ed212f22d12dacc0bf186f4c31e9b149feb725fae5229fc200589afab931
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 13
+difficulty: hard

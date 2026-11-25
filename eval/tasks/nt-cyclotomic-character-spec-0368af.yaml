@@ -1,0 +1,25 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-cyclotomic-character-spec-0368af
+kind: prove
+origin: mathlib-numbertheory
+title: Prove cyclotomicCharacter.spec.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/Cyclotomic/CyclotomicCharacter.lean
+  decl: cyclotomicCharacter.spec
+statement: |
+  theorem cyclotomicCharacter.spec (p : ℕ) [Fact p.Prime] {n : ℕ}
+      [∀ i, HasEnoughRootsOfUnity L (p ^ i)] (g : L ≃+* L) (t : L) (ht : t ^ p ^ n = 1) :
+      g t = t ^ ((cyclotomicCharacter L p g).val.toZModPow n).val := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/Cyclotomic/CyclotomicCharacter.lean
+  decl: cyclotomicCharacter.spec
+  lines: [324, 327]
+  sha256: 3179de53b2266dc30d063e858d960d47b9b0a4faeecbae6a4b96ecb16353b790
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 1
+difficulty: easy

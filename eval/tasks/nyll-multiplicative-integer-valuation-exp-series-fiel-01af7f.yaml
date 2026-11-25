@@ -1,0 +1,19 @@
+# Made by lgl eval gen from https://github.com/n-yamaguchi-0729/ClassFieldTheory. Do not edit by hand.
+id: nyll-multiplicative-integer-valuation-exp-series-fiel-01af7f
+kind: state
+origin: nyll
+title: State LocalFieldTheory.DiscreteValuationField.MultiplicativeIntegerValuation.expSeriesField_eq_one_add_tsum_succ_of_summable in Lean from its docstring.
+source:
+  repo: nyll
+  commit: fc644f42dade5bdc7157fc3ef2eef4dbf2d6a565
+  path: Nyll/ValuedFieldTheory/LocalField/Analytic/LogExpSeries/LogConvergence.lean
+  decl: LocalFieldTheory.DiscreteValuationField.MultiplicativeIntegerValuation.expSeriesField_eq_one_add_tsum_succ_of_summable
+informal: A summable exponential series splits into the constant term `1` and the positive-degree tail.
+answer:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Ported/NYLL/ValuedFieldTheory/LocalField/Analytic/LogExpSeries/LogConvergence.lean
+  decl: LocalFieldTheory.DiscreteValuationField.MultiplicativeIntegerValuation.expSeriesField_eq_one_add_tsum_succ_of_summable
+  lines: [66, 85]
+  sha256: 7a42098b35a3ef6ff4aae9db6e69da14886d48772a6ddaab7d6b97a071792384
+checks: [build, equiv-reference]

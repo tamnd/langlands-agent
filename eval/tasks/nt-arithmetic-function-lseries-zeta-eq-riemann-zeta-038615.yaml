@@ -1,0 +1,23 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-arithmetic-function-lseries-zeta-eq-riemann-zeta-038615
+kind: prove
+origin: mathlib-numbertheory
+title: Prove ArithmeticFunction.LSeries_zeta_eq_riemannZeta.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/LSeries/Dirichlet.lean
+  decl: ArithmeticFunction.LSeries_zeta_eq_riemannZeta
+statement: |
+  lemma LSeries_zeta_eq_riemannZeta {s : ℂ} (hs : 1 < s.re) : L ↗ζ s = riemannZeta s := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/LSeries/Dirichlet.lean
+  decl: ArithmeticFunction.LSeries_zeta_eq_riemannZeta
+  lines: [279, 284]
+  sha256: 1e087303ae5528f5e8abffd1693a4e2865bdad09cc80972716d697ade10e5041
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 6
+difficulty: hard

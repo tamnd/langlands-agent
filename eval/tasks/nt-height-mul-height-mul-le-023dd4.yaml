@@ -1,0 +1,23 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-height-mul-height-mul-le-023dd4
+kind: prove
+origin: mathlib-numbertheory
+title: Prove Height.mulHeight_mul_le.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/Height/Basic.lean
+  decl: Height.mulHeight_mul_le
+statement: |
+  lemma mulHeight_mul_le (x y : ι → K) : mulHeight (x * y) ≤ mulHeight x * mulHeight y := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/Height/Basic.lean
+  decl: Height.mulHeight_mul_le
+  lines: [749, 758]
+  sha256: 81e06ec3efcd9744b75b3c49b61428fc884dc0ecdde8bc3917e97dc4539d0185
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 10
+difficulty: hard

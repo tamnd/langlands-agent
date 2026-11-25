@@ -1,0 +1,26 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: rt-is-irreducible-finrank-eq-one-of-is-mul-commutat-239689
+kind: prove
+origin: mathlib-representationtheory
+title: Prove Representation.IsIrreducible.finrank_eq_one_of_isMulCommutative.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Irreducible.lean
+  decl: Representation.IsIrreducible.finrank_eq_one_of_isMulCommutative
+statement: |
+  open scoped IsMulCommutative in
+  include ρ in
+  variable (ρ) in
+  theorem finrank_eq_one_of_isMulCommutative [IsMulCommutative G] : Module.finrank k V = 1 := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Irreducible.lean
+  decl: Representation.IsIrreducible.finrank_eq_one_of_isMulCommutative
+  lines: [82, 86]
+  sha256: 5dc16b4fec53b952354c372a529d92d9d0d7b9671826e16b5a841290f96ec297
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 2
+difficulty: medium

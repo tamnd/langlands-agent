@@ -1,0 +1,24 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-real-convergent-of-zero-04e9c0
+kind: prove
+origin: mathlib-numbertheory
+title: Prove Real.convergent_of_zero.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/DiophantineApproximation/Basic.lean
+  decl: Real.convergent_of_zero
+statement: |
+  @[simp]
+  theorem convergent_of_zero (n : ℕ) : convergent 0 n = 0 := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/DiophantineApproximation/Basic.lean
+  decl: Real.convergent_of_zero
+  lines: [338, 343]
+  sha256: edafa9a10fc90e6d2d933552c8cfc2ffef7277f0c750ab3a99c6575fec143eb8
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 5
+difficulty: hard

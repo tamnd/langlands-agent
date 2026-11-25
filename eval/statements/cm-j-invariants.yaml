@@ -1,0 +1,22 @@
+# A statement of spec 10.9, written by hand. A wrong statement is elaborated in place of the reviewed declaration, in its file, so it states each binder that it needs.
+id: cm-j-invariants
+title: The j-invariants with complex multiplication
+informal: The j-invariants of the elliptic curves over the rationals with complex multiplication are the 13 values 0, 1728, -3375, 8000, -32768, 54000, 287496, -884736, -12288000, 16581375, -884736000, -147197952000 and -262537412640768000.
+reviewed:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Statements/Modularity.lean
+  decl: Langlands.cmJInvariants
+  lean: |
+    def cmJInvariants : Set ℚ :=
+      {0, 1728, -3375, 8000, -32768, 54000, 287496, -884736, -12288000, 16581375, -884736000,
+        -147197952000, -262537412640768000}
+checks: [build, equiv-reference]
+wrong:
+  - id: cm-j-invariants-missing
+    trap: constant
+    reason: It leaves out the value -262537412640768000 of the discriminant -163, so it has only 12 values.
+    lean: |
+      def cmJInvariants : Set ℚ :=
+        {0, 1728, -3375, 8000, -32768, 54000, 287496, -884736, -12288000, 16581375, -884736000,
+          -147197952000}

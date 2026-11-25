@@ -1,0 +1,21 @@
+# A statement of spec 10.9, written by hand. A wrong statement is elaborated in place of the reviewed declaration, in its file, so it states each binder that it needs.
+id: is-frobenius-at
+title: An arithmetic Frobenius at a prime
+informal: An element σ of the absolute Galois group of the rationals is an arithmetic Frobenius at p if there is a maximal ideal Q of the algebraic integers above p such that σ acts on the residue field of Q as x to x^p.
+reviewed:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Statements/Galois.lean
+  decl: Langlands.IsFrobeniusAt
+  lean: |
+    def IsFrobeniusAt (p : ℕ) (σ : Field.absoluteGaloisGroup ℚ) : Prop :=
+      ∃ Q : Ideal AlgebraicIntegers, Q.IsMaximal ∧ Q.LiesOver (Ideal.span {(p : ℤ)}) ∧
+        IsArithFrobAt ℤ σ Q
+checks: [build, equiv-reference]
+wrong:
+  - id: is-frobenius-at-no-lies-over
+    trap: missing-condition
+    reason: Without the condition that Q lies over p, the ideal Q can be above any prime, so the statement does not depend on p.
+    lean: |
+      def IsFrobeniusAt (p : ℕ) (σ : Field.absoluteGaloisGroup ℚ) : Prop :=
+        ∃ Q : Ideal AlgebraicIntegers, Q.IsMaximal ∧ IsArithFrobAt ℤ σ Q

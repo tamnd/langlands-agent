@@ -1,0 +1,24 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-height-one-spectrum-embedding-mul-abs-norm-052670
+kind: prove
+origin: mathlib-numbertheory
+title: Prove NumberField.HeightOneSpectrum.embedding_mul_absNorm.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/NumberField/Completion/FinitePlace.lean
+  decl: NumberField.HeightOneSpectrum.embedding_mul_absNorm
+statement: |
+  lemma HeightOneSpectrum.embedding_mul_absNorm {x : R} (h_x_nezero : x ≠ 0) :
+      ‖embedding v (algebraMap _ K x)‖ * absNorm (v.maxPowDividing (span {x})) = 1 := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/NumberField/Completion/FinitePlace.lean
+  decl: NumberField.HeightOneSpectrum.embedding_mul_absNorm
+  lines: [241, 250]
+  sha256: 0cbabc1ee595988a4e21be10509dda5236410a89290ffb7545e39cdbc1e766db
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 9
+difficulty: hard

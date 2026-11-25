@@ -1,0 +1,30 @@
+# A statement of spec 10.9, written by hand. A wrong statement is elaborated in place of the reviewed declaration, in its file, so it states each binder that it needs.
+id: is-l2-eigenfunction
+title: A square integrable eigenfunction of the Laplacian
+informal: A function f on the upper half plane is an L^2 eigenfunction for Γ with eigenvalue λ if it is smooth, invariant under Γ, satisfies Δf = λf for the hyperbolic Laplacian, and is square integrable on each translate of the fundamental domain for the measure dx dy / y^2.
+reviewed:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Statements/Maass.lean
+  decl: Langlands.IsL2Eigenfunction
+  lean: |
+    structure IsL2Eigenfunction (Γ : Subgroup SL(2, ℤ)) (f : ℍ → ℂ) (ev : ℝ) : Prop where
+      smooth : ContDiffOn ℝ ∞ (onPlane f) {z : ℂ | 0 < z.im}
+      invariant : ∀ γ ∈ Γ, ∀ τ : ℍ, f (γ • τ) = f τ
+      eigen : ∀ τ : ℍ, hyperbolicLaplacian f τ = ev * f τ
+      squareIntegrable : ∀ g : SL(2, ℤ),
+        IntegrableOn (fun z : ℂ => ‖f (g • ofComplex z)‖ ^ 2 / z.im ^ 2)
+          ((↑) '' ModularGroup.fd)
+checks: [build, equiv-reference]
+wrong:
+  - id: is-l2-eigenfunction-lebesgue
+    trap: wrong-object
+    reason: It uses the Lebesgue measure in place of the hyperbolic measure dx dy / y^2, so the constant functions are not square integrable.
+    lean: |
+      structure IsL2Eigenfunction (Γ : Subgroup SL(2, ℤ)) (f : ℍ → ℂ) (ev : ℝ) : Prop where
+        smooth : ContDiffOn ℝ ∞ (onPlane f) {z : ℂ | 0 < z.im}
+        invariant : ∀ γ ∈ Γ, ∀ τ : ℍ, f (γ • τ) = f τ
+        eigen : ∀ τ : ℍ, hyperbolicLaplacian f τ = ev * f τ
+        squareIntegrable : ∀ g : SL(2, ℤ),
+          IntegrableOn (fun z : ℂ => ‖f (g • ofComplex z)‖ ^ 2)
+            ((↑) '' ModularGroup.fd)

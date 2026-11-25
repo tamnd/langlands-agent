@@ -1,0 +1,31 @@
+# A statement of spec 10.9, written by hand. A wrong statement is elaborated in place of the reviewed declaration, in its file, so it states each binder that it needs.
+id: global-existence
+title: The global existence theorem
+informal: For each number field K, each open subgroup U of finite index of the idele class group of K is the kernel of an Artin map for some finite abelian extension L of K.
+reviewed:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Statements/ClassField.lean
+  decl: Langlands.GlobalExistence
+  lean: |
+    def GlobalExistence : Prop :=
+      ∀ (K : Type u) [Field K] [NumberField K] (U : Subgroup (IdeleClassGroup (𝓞 K) K)),
+        IsOpen (U : Set (IdeleClassGroup (𝓞 K) K)) → U.FiniteIndex →
+          ∃ (L : IntermediateField K (AlgebraicClosure K)) (art : IdeleClassGroup (𝓞 K) K →* Gal(L/K)),
+            FiniteDimensional K L ∧ IsAbelianGalois K L ∧ IsArtinMap K L art ∧ art.ker = U
+checks: [build, equiv-reference]
+wrong:
+  - id: global-existence-le
+    trap: vacuous
+    reason: The trivial extension with the trivial map has the whole group as its kernel, so the inclusion holds for each U and the statement is true for a trivial reason.
+    lean: |
+      def GlobalExistence : Prop :=
+        ∀ (K : Type u) [Field K] [NumberField K] (U : Subgroup (IdeleClassGroup (𝓞 K) K)),
+          IsOpen (U : Set (IdeleClassGroup (𝓞 K) K)) → U.FiniteIndex →
+            ∃ (L : IntermediateField K (AlgebraicClosure K)) (art : IdeleClassGroup (𝓞 K) K →* Gal(L/K)),
+              FiniteDimensional K L ∧ IsAbelianGalois K L ∧ IsArtinMap K L art ∧ U ≤ art.ker
+    ref:
+      repo: langlands-lean
+      commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+      path: Langlands/Fidelity/ClassField.lean
+      decl: Langlands.Fidelity.isArtinMap_bot

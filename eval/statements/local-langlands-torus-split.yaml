@@ -1,0 +1,24 @@
+# A statement of spec 10.9, written by hand. A wrong statement is elaborated in place of the reviewed declaration, in its file, so it states each binder that it needs.
+id: local-langlands-torus-split
+title: Local Langlands for a split torus
+informal: For each nonarchimedean local field K and each reciprocity map rec with the conditions of local class field theory, each continuous character of (K^×)^n corresponds to exactly one continuous homomorphism from the Weil group of K to (C^×)^n, and each such homomorphism corresponds to some character.
+reviewed:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Statements/Torus.lean
+  decl: Langlands.LocalLanglandsTorusSplit
+  lean: |
+    def LocalLanglandsTorusSplit (n : ℕ) : Prop :=
+      ∀ (K : Type u) [Field K] [ValuativeRel K] [TopologicalSpace K] [IsNonarchimedeanLocalField K]
+        (rec : Kˣ ≃ₜ* WeilGroup.Ab K), IsLocalArtinMap K rec →
+          (∀ χ : ContinuousMonoidHom (Fin n → Kˣ) ℂˣ, ∃! φ, TorusCorrespond K rec χ φ) ∧
+            ∀ φ : ContinuousMonoidHom (WeilGroup K) (Fin n → ℂˣ), ∃ χ, TorusCorrespond K rec χ φ
+checks: [build, equiv-reference]
+wrong:
+  - id: local-langlands-torus-split-bijection
+    trap: wrong-object
+    reason: It only says that a bijection exists between the characters and the parameters, and this says nothing about which character goes to which parameter.
+    lean: |
+      def LocalLanglandsTorusSplit (n : ℕ) : Prop :=
+        ∀ (K : Type u) [Field K] [ValuativeRel K] [TopologicalSpace K] [IsNonarchimedeanLocalField K],
+          Nonempty (ContinuousMonoidHom (Fin n → Kˣ) ℂˣ ≃ ContinuousMonoidHom (WeilGroup K) (Fin n → ℂˣ))

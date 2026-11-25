@@ -1,0 +1,19 @@
+# Made by lgl eval gen from https://github.com/n-yamaguchi-0729/ClassFieldTheory. Do not edit by hand.
+id: nyll-valuation-is-adic-complete-021602
+kind: state
+origin: nyll
+title: State ValuationTheory.DiscreteValuationField.Valuation.isAdicComplete in Lean from its docstring.
+source:
+  repo: nyll
+  commit: fc644f42dade5bdc7157fc3ef2eef4dbf2d6a565
+  path: Nyll/ValuedFieldTheory/Valuation/DiscreteValuationField/Complete.lean
+  decl: ValuationTheory.DiscreteValuationField.Valuation.isAdicComplete
+informal: Completeness of the valued field implies adic completeness of its valuation subring.
+answer:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Ported/NYLL/ValuedFieldTheory/Valuation/DiscreteValuationField/Complete.lean
+  decl: ValuationTheory.DiscreteValuationField.Valuation.isAdicComplete
+  lines: [45, 47]
+  sha256: 714fef6526dc34e243a4624d101fdd3615bc1d1476042873d26599f71abbc780
+checks: [build, equiv-reference]

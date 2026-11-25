@@ -1,0 +1,23 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: rt-finite-group-equiv-hom-surjective-35a6ee
+kind: prove
+origin: mathlib-representationtheory
+title: Prove TannakaDuality.FiniteGroup.equivHom_surjective.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Tannaka.lean
+  decl: TannakaDuality.FiniteGroup.equivHom_surjective
+statement: |
+  lemma equivHom_surjective [IsDomain k] : Function.Surjective (equivHom k G) := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Tannaka.lean
+  decl: TannakaDuality.FiniteGroup.equivHom_surjective
+  lines: [219, 222]
+  sha256: 4c7de6b2135544eec023f862c52d16c2898c30d8a0dcb118eaee370c73db305c
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 4
+difficulty: medium

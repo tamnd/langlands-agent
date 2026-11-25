@@ -1,0 +1,24 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: rt-representation-is-semisimple-representation-iff-91466c
+kind: prove
+origin: mathlib-representationtheory
+title: Prove Representation.isSemisimpleRepresentation_iff_isSemisimpleModule_asModule.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Semisimple.lean
+  decl: Representation.isSemisimpleRepresentation_iff_isSemisimpleModule_asModule
+statement: |
+  theorem isSemisimpleRepresentation_iff_isSemisimpleModule_asModule :
+      IsSemisimpleRepresentation ρ ↔ IsSemisimpleModule k[G] ρ.asModule := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Semisimple.lean
+  decl: Representation.isSemisimpleRepresentation_iff_isSemisimpleModule_asModule
+  lines: [37, 40]
+  sha256: f71d4175a9e04c3ff527c7f53962d5af279a6b677bc365d22d5ad4d44144c7f5
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 3
+difficulty: medium

@@ -1,0 +1,23 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-legendre-sym-eq-neg-one-iff-02a7f5
+kind: prove
+origin: mathlib-numbertheory
+title: Prove legendreSym.eq_neg_one_iff.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/LegendreSymbol/Basic.lean
+  decl: legendreSym.eq_neg_one_iff
+statement: |
+  theorem eq_neg_one_iff {a : ℤ} : legendreSym p a = -1 ↔ ¬IsSquare (a : ZMod p) := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/LegendreSymbol/Basic.lean
+  decl: legendreSym.eq_neg_one_iff
+  lines: [190, 191]
+  sha256: e4da856cd2a07054f47fa689d6a6a3e4056a7408298cd3aa5375343bd2922b80
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 1
+difficulty: easy

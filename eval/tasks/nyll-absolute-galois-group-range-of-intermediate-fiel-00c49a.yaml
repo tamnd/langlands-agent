@@ -1,0 +1,19 @@
+# Made by lgl eval gen from https://github.com/n-yamaguchi-0729/ClassFieldTheory. Do not edit by hand.
+id: nyll-absolute-galois-group-range-of-intermediate-fiel-00c49a
+kind: state
+origin: nyll
+title: State RamificationTheory.Field.absoluteGaloisGroup.range_ofIntermediateField_index_eq_finrank in Lean from its docstring.
+source:
+  repo: nyll
+  commit: fc644f42dade5bdc7157fc3ef2eef4dbf2d6a565
+  path: Nyll/ValuedFieldTheory/Ramification/GaloisValuation/AbsoluteGalois/InfiniteGaloisCorrespondence.lean
+  decl: RamificationTheory.Field.absoluteGaloisGroup.range_ofIntermediateField_index_eq_finrank
+informal: 'If the chosen algebraic closure is Galois over `K`, the image of `Gal(K^al/E) → G_K` has index `[E : K]`.'
+answer:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Ported/NYLL/ValuedFieldTheory/Ramification/GaloisValuation/AbsoluteGalois/InfiniteGaloisCorrespondence.lean
+  decl: RamificationTheory.Field.absoluteGaloisGroup.range_ofIntermediateField_index_eq_finrank
+  lines: [986, 991]
+  sha256: c7a6014ae029648c110e08e04aacaadf736e45593f9ec2940b16ddcc9b826e9b
+checks: [build, equiv-reference]

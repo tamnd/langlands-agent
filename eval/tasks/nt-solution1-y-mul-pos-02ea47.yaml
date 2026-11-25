@@ -1,0 +1,24 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-solution1-y-mul-pos-02ea47
+kind: prove
+origin: mathlib-numbertheory
+title: Prove Pell.Solution₁.y_mul_pos.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/Pell.lean
+  decl: Pell.Solution₁.y_mul_pos
+statement: |
+  theorem y_mul_pos {a b : Solution₁ d} (hax : 0 < a.x) (hay : 0 < a.y) (hbx : 0 < b.x)
+      (hby : 0 < b.y) : 0 < (a * b).y := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/Pell.lean
+  decl: Pell.Solution₁.y_mul_pos
+  lines: [247, 250]
+  sha256: 010d01ff5d4dd60c2fd8c015f8089c3481ccf92b1fb1126fe9a57e01ce9168c9
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 3
+difficulty: medium
