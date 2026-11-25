@@ -18,26 +18,26 @@ import (
 	"go.yaml.in/yaml/v3"
 )
 
-// The kinds of a node.
+// Kinds are the kinds of a node.
 var Kinds = []string{"definition", "theorem", "lemma", "conjecture", "example", "counterexample", "hypothesis", "check", "claim"}
 
-// The tiers of the corpus, spec 07.
+// Tiers are the tiers of the corpus, spec 07.
 var Tiers = []string{"T0", "T1", "T2", "T3", "T4", "T5", "T6", "T7", "T8", "T9", "T10", "S"}
 
 // TierNames are the titles of the tiers. S is the tier of the statements of the program.
 var TierNames = map[string]string{
 	"S":   "The statements of the program",
 	"T0":  "Foundations and references",
-	"T1":  "Local fields and number fields",
-	"T2":  "Algebraic groups and root data",
-	"T3":  "Class field theory",
-	"T4":  "Modular forms and the arithmetic of GL(2)",
-	"T5":  "Smooth representations of p-adic groups",
-	"T6":  "Galois representations and modularity",
-	"T7":  "The trace formula and automorphic forms",
-	"T8":  "Shimura varieties and the global correspondence",
-	"T9":  "The p-adic and categorical programs",
-	"T10": "Geometric Langlands",
+	"T1":  "Number fields, local fields and adeles",
+	"T2":  "Algebraic and reductive groups, root data and L-groups",
+	"T3":  "Class field theory and GL(1)",
+	"T4":  "Modular and automorphic forms of GL(2)",
+	"T5":  "Smooth representations and local Langlands",
+	"T6":  "L-functions, converse theorems and functoriality",
+	"T7":  "Trace formula, endoscopy and Arthur's classification",
+	"T8":  "Shimura varieties, Galois representations and modularity",
+	"T9":  "p-adic Hodge theory, p-adic and mod p Langlands, Fargues-Scholze",
+	"T10": "Function fields and geometric Langlands",
 }
 
 // Status values, spec 08.3.

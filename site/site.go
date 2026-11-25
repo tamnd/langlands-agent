@@ -903,15 +903,15 @@ func (w *writer) json(name string, v any) {
 // DefaultTrust is the trust report before any check runs. The rows are those of spec 14.
 func DefaultTrust() Trust {
 	return Trust{Checks: []TrustCheck{
-		{ID: "Q0", Question: "Is the statement the one in the pinned statement file?", State: "not run"},
-		{ID: "Q1", Question: "Does the project build with the pinned Lean and Mathlib?", State: "not run"},
+		{ID: "Q0", Question: "Is the source the one that the site describes?", State: "not run"},
+		{ID: "Q1", Question: "Does it build?", State: "not run"},
 		{ID: "Q2", Question: "Which axioms do the top theorems use?", State: "not run"},
-		{ID: "Q3", Question: "Does a second kernel accept the proofs?", State: "not run"},
-		{ID: "Q4", Question: "Does lake comparator match each proof to the pinned statement?", State: "not run"},
-		{ID: "Q5", Question: "Did the statements pass the fidelity battery F1 to F7?", State: "not run"},
-		{ID: "Q6", Question: "Is each hypothesis of a proved-mod result named and listed?", State: "not run"},
-		{ID: "Q7", Question: "Have two outside experts read the statements?", State: "not run"},
-		{ID: "Q8", Question: "Have two outside experts read the written proof of the open case?", State: "not run"},
+		{ID: "Q3", Question: "Does a second kernel accept it?", State: "not run"},
+		{ID: "Q4", Question: "Do the proved theorems have the pinned statements?", State: "not run"},
+		{ID: "Q5", Question: "Do the statements mean what the docstrings say?", State: "not run"},
+		{ID: "Q6", Question: "Which published theorems are still hypotheses?", State: "not run"},
+		{ID: "Q7", Question: "Has a person read the proof?", State: "not run"},
+		{ID: "Q8", Question: "Has someone outside the project reproduced Q1 to Q4?", State: "not run"},
 	}}
 }
 
