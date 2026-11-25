@@ -88,7 +88,7 @@ jobs:
       # govulncheck reports only the vulnerabilities that the code can reach.
       - run: go run golang.org/x/vuln/cmd/govulncheck@v1.9.0 ./...
 
-  # The commands that exist must work. The commands that are not written yet must exit with code 3 and name their milestone.
+  # The commands must work. A command with no subcommand or with a wrong flag must exit with code 2.
   smoke:
     name: smoke
     runs-on: ubuntu-latest
@@ -118,11 +118,11 @@ jobs:
           "$RUNNER_TEMP/lgl" eval check -dir eval
           "$RUNNER_TEMP/lgl" eval list -dir eval
           "$RUNNER_TEMP/lgl" eval run -dir eval -dry-run
-      - name: a command that is not written yet exits with code 3
+      - name: a command with no subcommand exits with code 2
         run: |
           code=0
           "$RUNNER_TEMP/lgl" agent || code=$?
-          test "$code" = 3
+          test "$code" = 2
 
   workflows:
     name: workflow lint
