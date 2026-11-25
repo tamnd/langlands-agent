@@ -211,11 +211,101 @@ func (d Decl) Clean() bool {
 	return true
 }
 
-// Fidelity is one entry of records/fidelity.json: the result of the fidelity checks F1 to F5 of spec 06.3 for one Lean statement.
+// Fidelity is one entry of records/fidelity.json: the result of the fidelity checks F1 to F7 of spec 06.3 for one Lean statement.
 type Fidelity struct {
-	Class  string          `json:"class"`  // the class of the statement, which sets the checks it needs
-	Checks map[string]bool `json:"checks"` // the result of each check, for example "F1": true
-	Pass   bool            `json:"pass"`   // all the checks of the class passed
+	Class     string          `json:"class"`               // the class of the statement, which sets the checks it needs
+	Checks    map[string]bool `json:"checks"`              // the result of each check, for example "F1": true
+	Pass      bool            `json:"pass"`                // all the checks of the class passed
+	Reviewers []Reviewer      `json:"reviewers,omitempty"` // the people who signed check F6
+}
+
+// Reviewer is a person who signed check F6 of a statement: the Lean statement means the docstring.
+type Reviewer struct {
+	Name  string `json:"name"`
+	Group string `json:"group"` // the research group, spec 06.3; F6 of an open statement needs two groups
+	Date  string `json:"date"`
+}
+
+// FidelityChecks are the checks of the fidelity battery, spec 06.3.
+var FidelityChecks = []string{"F1", "F2", "F3", "F4", "F5", "F6", "F7"}
+
+// FidelityClasses are the classes of a statement, spec 06.2. A theorem has a published proof that experts accept, an open statement is a conjecture, and a claimed statement is a fresh claim of route R1.
+var FidelityClasses = []string{"theorem", "open", "claimed"}
+
+// TopTheorem is a theorem of the trust report, spec 14.2, with the statement that it proves.
+type TopTheorem struct {
+	Theorem   string // the Lean name of the theorem
+	Statement string // the Lean name of the statement in Langlands/Statements, spec 06.2; empty when the spec does not fix it yet
+	Milestone string
+}
+
+// TopTheorems are the theorems of the trust report, spec 14.2.
+var TopTheorems = []TopTheorem{
+	{"Langlands.localReciprocityGL1", "Langlands.LocalReciprocityGL1", "S1"},
+	{"Langlands.localLanglandsTorus", "Langlands.LocalLanglandsTorus", "S1"},
+	{"Langlands.globalReciprocity", "Langlands.GlobalReciprocity", "S2"},
+	{"Langlands.globalExistence", "Langlands.GlobalExistence", "S2"},
+	{"Langlands.heckeFunctionalEquation", "Langlands.HeckeFunctionalEquation", "S2"},
+	{"Langlands.kroneckerWeber", "Langlands.KroneckerWeber", "S2"},
+	{"Langlands.modularitySemistableQ", "Langlands.ModularitySemistableQ", "S4"},
+	{"Langlands.eichlerShimura", "Langlands.EichlerShimuraDeligne", "S4"},
+	{"Langlands.localLanglandsGL2_odd", "", "S5"},
+	{"Langlands.localLanglandsGL2", "Langlands.LocalLanglandsGL2", "S6"},
+	{"Langlands.jacquetLanglandsGL2", "Langlands.JacquetLanglandsGL2", "S6"},
+	{"Langlands.localLanglandsGL", "Langlands.LocalLanglandsGL", "S8"},
+}
+
+// IsTopStatement reports whether a top theorem of spec 14.2 proves the statement.
+func IsTopStatement(name string) bool {
+	for _, t := range TopTheorems {
+		if t.Statement != "" && t.Statement == name {
+			return true
+		}
+	}
+	return false
+}
+
+// RequiredChecks returns the checks that a statement of the class needs, spec 06.3. A theorem needs F1 to F5, and F6 too when a top theorem of spec 14.2 proves it. An open or a claimed statement needs all seven. An unknown class gives nil.
+func RequiredChecks(class string, top bool) []string {
+	switch class {
+	case "theorem":
+		if top {
+			return FidelityChecks[:6]
+		}
+		return FidelityChecks[:5]
+	case "open", "claimed":
+		return FidelityChecks
+	}
+	return nil
+}
+
+// Missing returns the reasons why the entry does not pass the checks of its class. The entry of the statement name passes when the list is empty. F6 counts only with two reviewers, and for an open or a claimed statement the two reviewers must be from two groups.
+func (f Fidelity) Missing(name string) []string {
+	req := RequiredChecks(f.Class, IsTopStatement(name))
+	if req == nil {
+		return []string{fmt.Sprintf("the class %q is not one of %s", f.Class, strings.Join(FidelityClasses, ", "))}
+	}
+	var out []string
+	for _, c := range req {
+		if !f.Checks[c] {
+			out = append(out, c+" is not passed")
+			continue
+		}
+		if c != "F6" {
+			continue
+		}
+		groups := map[string]bool{}
+		for _, r := range f.Reviewers {
+			groups[r.Group] = true
+		}
+		switch {
+		case len(f.Reviewers) < 2:
+			out = append(out, "F6 needs two reviewers")
+		case f.Class != "theorem" && len(groups) < 2:
+			out = append(out, "F6 of an open or a claimed statement needs reviewers from two groups")
+		}
+	}
+	return out
 }
 
 // LeanRecord is records/lean.json: what the build of langlands-lean found.
@@ -544,6 +634,21 @@ func (p *Project) Check() []string {
 					bad(pp.File, "names the paper %q, which is not a corpus id of spec 07", id)
 				}
 			}
+		}
+	}
+	var names []string
+	for name := range p.Fidelity {
+		names = append(names, name)
+	}
+	sort.Strings(names)
+	for _, name := range names {
+		f := p.Fidelity[name]
+		if RequiredChecks(f.Class, false) == nil {
+			out = append(out, fmt.Sprintf("records/fidelity.json: %s: the class %q is not one of %s", name, f.Class, strings.Join(FidelityClasses, ", ")))
+			continue
+		}
+		if m := f.Missing(name); f.Pass && len(m) > 0 {
+			out = append(out, fmt.Sprintf("records/fidelity.json: %s: pass is true, but %s", name, strings.Join(m, "; ")))
 		}
 	}
 	ids := map[string]bool{}
