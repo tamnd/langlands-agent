@@ -28,11 +28,12 @@ lgl fidelity list              # the fidelity checks of each statement, from rec
 lgl fidelity show LGAV7YV6K6   # the checks of one statement, by node tag or Lean name
 lgl fidelity set Langlands.LocalReciprocityGL1 F4=true   # record a check that a person or a role did
 lgl fidelity run -all          # compute F1 from records/lean.json for each statement
+lgl trust -lean ../langlands-lean   # write records/trust.json and print the answers Q0 to Q8
 lgl site build -content . -out public
 lgl site serve -dir public     # serve the site at http://127.0.0.1:8080/
 ```
 
-The exit codes are 0 for success, 1 for a failed check, 2 for a usage error and 3 for a command that is not written yet. The help text gives the milestone of each command that is not written yet: `trust`, `port add`, `paper` and `lab` come in S1, and `claim`, `queue` and `agent` come in S2.
+The exit codes are 0 for success, 1 for a failed check, 2 for a usage error and 3 for a command that is not written yet. The help text gives the milestone of each command that is not written yet: `port add`, `paper` and `lab` come in S1, and `claim`, `queue` and `agent` come in S2.
 
 ## The status rules
 
@@ -86,3 +87,20 @@ MIT. See [LICENSE](LICENSE). The files in `site/assets/` come from Math 2.0. See
 | claimed | F1 to F7, as for open. |
 
 F1 is computed from `records/lean.json`: the declaration is in the record, it has no `sorry`, and it uses the standard axioms only. A person or a role sets F2 to F7 with `lgl fidelity set`. F6 needs two reviewers, given with `-reviewer "name|group|YYYY-MM-DD"`. `lgl check` reports an entry that says `pass` but does not have the checks of its class.
+
+## The trust report
+
+`lgl trust` writes `records/trust.json`, the answers to the questions Q0 to Q8 of spec 14, and prints them as text. It does not build Lean and it does not run a checker. It reads `records/lean.json`, `records/fidelity.json`, the map and, if they exist, a checkout of langlands-lean and the record of the kernel replay. A row that needs a person, a build or a replay that lgl did not see is `not run` or `open`, never `yes`. The command exits with 1 when a row is `no`.
+
+| Row | How `lgl trust` answers it |
+|---|---|
+| Q0 | With `-lean`, it compares the commit of the checkout with the commit of `records/lean.json`. |
+| Q1 | It reports the commit, the toolchain and the date of the build in `records/lean.json`. |
+| Q2 | It checks each declaration that a node names for `sorry` and for an axiom other than `propext`, `Classical.choice` and `Quot.sound`. |
+| Q3 | It reads the replay record (`records/replay.json`, or the file of `-replay`). `yes` needs a checker other than the Lean kernel. With no record, or with `-quick`, the row says that the replay was not run. |
+| Q4 | With `-lean`, it checks `manifests/statements.sha256`. The comparator result of the replay record gives `yes` or `no`. |
+| Q5 | It counts the statements that pass the fidelity checks of their class. |
+| Q6 | It lists the hypotheses of the proved-mod nodes and the expert status of their papers. |
+| Q7, Q8 | A person answers them, so they are `not run`. |
+
+The replay record is JSON: `{"commit": "...", "date": "YYYY-MM-DD", "run": "<link>", "checkers": [{"name": "lean4lean", "independent": true, "ok": true}], "comparator": {"ok": true}}`. The trust workflow of langlands-lean writes it, and the comparator part is optional.
