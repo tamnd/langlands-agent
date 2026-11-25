@@ -4,6 +4,18 @@ All changes that a user can see are in this file. The format follows Keep a Chan
 
 ## Unreleased
 
+### Added
+
+- `lgl claim add`, `list`, `show` and `plan` for the claim records of route R1 in `claims/`. `add` writes a fresh record with a stable key, the source and the date, and it fetches nothing. `plan` checks the record and prints each part with its statement, its cost and whether it is self-contained.
+- `lgl check` checks the claim records: the key, the source, the dates, the statuses, the parts and the letters, and two records with the same key or the same source.
+- `lgl queue`, which ranks the nodes that a role can act on with the formula of spec 10.4 and prints the reason for each rank. When `blueprint/routes.yaml` or `blueprint/milestones.yaml` is missing, it writes the file with the default weights.
+- `lgl agent run`, which builds the prompt of a role for the top item of its queue or for a given node, and writes a run record with the status `planned` to `records/runs/`. It starts the command of `LGL_RUNNER` only when the budget of `agent.yaml` is more than zero, and it records the exit status and the output. With no runner the run stops after the record.
+- `lgl agent report`, which writes the weekly report `reports/<week>.md` of spec 10.8 from the run records, the ledger, the lab runs, the claim records and the map, and a status snapshot `records/status/<week>.json` for the next report.
+
+### Changed
+
+- `lgl claim`, `lgl queue` and `lgl agent` are written, so they no longer exit with 3. `lgl agent` with no subcommand is a usage error.
+
 ## v0.1.0 (2026-11-25)
 
 ### Added

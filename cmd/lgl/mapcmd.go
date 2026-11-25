@@ -27,14 +27,18 @@ func runCheck(args []string, stdout, stderr io.Writer) error {
 	if err != nil {
 		return err
 	}
-	probs := p.Check()
+	claims, err := loadClaims(*content)
+	if err != nil {
+		return err
+	}
+	probs := append(p.Check(), allClaimProblems(p, claims)...)
 	for _, s := range probs {
 		fmt.Fprintln(stdout, "problem:", s)
 	}
 	if len(probs) > 0 {
 		return fmt.Errorf("the map has %d problems", len(probs))
 	}
-	fmt.Fprintf(stdout, "the map is good: %d nodes, %d papers, %d routes\n", len(p.Nodes), len(p.Papers), len(p.Routes))
+	fmt.Fprintf(stdout, "the map is good: %d nodes, %d papers, %d routes, %s\n", len(p.Nodes), len(p.Papers), len(p.Routes), plural(len(claims), "claim"))
 	return nil
 }
 
