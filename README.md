@@ -36,11 +36,43 @@ lgl lab list                   # the experiments of spec 13.3, the specs of lab/
 lgl lab spec E1 > lab/specs/e1-local-reciprocity-small.yaml   # the spec of E1
 lgl lab run E1                 # run the spec of E1 and write lab/runs/<id>/
 lgl lab show <run id>          # the record and the summary of a run
+lgl claim add -date 2026-11-25 arXiv:2611.31396   # write a fresh claim record claims/arXiv-2611-31396.yaml
+lgl claim list                 # the claim records of claims/, with their status and parts
+lgl claim show arXiv-2611-31396   # one claim record
+lgl claim plan arXiv-2611-31396   # check the record and print its parts, with the statements and the cost
+lgl queue -role prover -n 20   # the work queue of a role, with the rank and the reason of each item
+lgl agent run prover -dry-run  # print the run record and the prompt of the top item, and write nothing
+lgl agent run prover -node LGVAKJJD8Y -budget 5   # write records/runs/<id>/ and start the runner, if there is one
+lgl agent report -week 2026-W49   # write reports/2026-W49.md
 lgl site build -content . -out public
 lgl site serve -dir public     # serve the site at http://127.0.0.1:8080/
 ```
 
-The exit codes are 0 for success, 1 for a failed check, 2 for a usage error and 3 for a command that is not written yet. The help text gives the milestone of each command that is not written yet: `port add` comes in S1, and `claim`, `queue` and `agent` come in S2.
+The exit codes are 0 for success, 1 for a failed check or a failed run, 2 for a usage error and 3 for a command that is not written yet. The help text gives the milestone of each part that is not written yet: `port add` and `port diff` come in S1.
+
+## The claim records
+
+`lgl claim add` writes a new `claims/<key>.yaml` for a fresh claim of route R1. The argument is an arXiv id, `arXiv:` and an id, an arXiv address, or another http or https address. The key is stable: all versions of an arXiv preprint give the same key, for example `arXiv-2611-31396`, and another address gives `url-` and the first 10 hex digits of its sha256. You can set the key with `-key`. The record has the source, the date (`-date`, default today), the status `fresh` and no parts. The command does not fetch the preprint, and it never overwrites a file. The reader role proposes the self-contained parts of a claim, and a person accepts each one. A part has an id, a title, the place in the preprint, a statement, the parts and nodes that it uses, the named hypotheses, a cost from 1 to 5 and a status. `lgl claim plan` checks the record and prints each part with its statement and cost, and it says whether the part is self-contained: each part or node that it uses is another part, or a node that is proved or defined. `lgl check` checks the claim records too.
+
+## The work queue
+
+`lgl queue` ranks the nodes that a role can act on with the formula of spec 10.4: rank = weight x (1 + unblocks) x (1 + level bonus) / (1 + failed runs) x age factor. The terms are these:
+
+- The weight of a route node is the weight of its route in `blueprint/routes.yaml`. The weight of a library node is the weight of the first milestone that needs it, from `blueprint/milestones.yaml`. A node that no milestone needs has the weight `other`.
+- `unblocks` is the number of the nodes that use the node and wait only on it.
+- The level bonus is 1 for a node on the path to a top theorem of the current milestone. The current milestone is the first milestone of spec 14.2 with a top theorem that is not proved, or the milestone of `-milestone`.
+- The failed runs are the run records of the role on the node with the status `failed`.
+- The age factor is 2 when the role has no run on the node. Otherwise it is 1 plus the days since the last run, up to 28, divided by 28.
+
+When `blueprint/routes.yaml` or `blueprint/milestones.yaml` is missing, `lgl queue` writes it with the default weights: the weights of spec 04.1 for the routes, and 1 for S0 to S2, 0.8 for S3, 0.6 for S4, 0.5 for S5, 0.4 for S6, 0.3 for S7, 0.2 for S8, 0.1 for S9 and 0.1 for `other`. The milestone weights are a guess of the project, because spec 10.4 gives no numbers. People set the weights. The roles reader (claims), stater, prover, refuter, explorer, explainer and linker (nodes) have a queue. The output is the same for the same files and the same `-date`.
+
+## The agent
+
+`lgl agent run <role>` takes the top item of the queue of the role, or the node of `-node`, or the claim of `-claim`. It builds the prompt from the role table of spec 10.3, the node, the nodes that it uses, its papers, the Lean declarations of the same file and the output of the failed runs. Text from the map, the papers, a claim or an earlier run goes in a marked data block, and the prompt says that instructions in a data block are ignored (spec 10.7). The model comes from `agent.yaml`, or from the model table of spec 10.6 when there is no `agent.yaml`. The budget is the value of `-budget`, lowered to the run limit, to what is left of the day limit and to what is left of the day limit of the role, from `agent/ledger.jsonl`. With no `agent.yaml` the budget is zero.
+
+The command writes `records/runs/<id>/run.json` with the status `planned`, the model, the budget, the inputs and the branch, and `prompt.md` with the prompt. Then it prints the path of the record. With `-dry-run` it prints the record and the prompt and writes nothing. When the budget is zero, or when the environment variable `LGL_RUNNER` is not set, the run stops after the record and the command says why. When `LGL_RUNNER` is set, the command runs it in the content repository with the prompt on stdin and with `LGL_RUN_ID`, `LGL_ROLE`, `LGL_TARGET`, `LGL_MODEL`, `LGL_BUDGET`, `LGL_BRANCH`, `LGL_RUN_DIR` and `LGL_RECORD` in the environment. The output goes to `output.log`, and the record gets the exit status. An exit status of 0 gives the status `ran`, and the result waits for the checks of the role. Another exit status gives `failed`, and the command exits with 1. lgl calls no model itself, it makes no worktree or branch, and it opens no pull request. The runner writes the ledger.
+
+`lgl agent report -week 2026-W49` writes `reports/2026-W49.md` with the sections of spec 10.8: the status changes by tier and by route, the pull requests of the run records, the spend by role and by route from the ledger, the lab runs, the claim checks, the refuted conjectures and the five largest open nodes of each route and of the library, with what blocks them. To find the status changes, it writes the status of each node to `records/status/<week>.json` and compares it with the last snapshot of an earlier week.
 
 ## The status rules
 
