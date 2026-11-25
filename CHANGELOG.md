@@ -9,6 +9,7 @@ All changes that a user can see are in this file. The format follows Keep a Chan
 - `lgl fidelity list`, `show`, `set` and `run`, which keep `records/fidelity.json`. F1 is computed from `records/lean.json`, and `pass` is computed from the class of the statement and its checks (spec 06.3).
 - `lgl check` reports an entry of `records/fidelity.json` that says `pass` but does not have the checks of its class.
 - `lgl trust`, which writes `records/trust.json` with the answers Q0 to Q8 of spec 14. It checks the axioms of each declaration that a node names, reads the record of the kernel replay if there is one, and marks a row that it cannot check as `not run`.
+- `lgl paper add`, `list` and `show` for the paper records of spec 07.13. `add` checks the new record as `lgl check` does, and it does not overwrite a file.
 
 ## v0.0.2 (2026-11-25)
 

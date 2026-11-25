@@ -29,11 +29,14 @@ lgl fidelity show LGAV7YV6K6   # the checks of one statement, by node tag or Lea
 lgl fidelity set Langlands.LocalReciprocityGL1 F4=true   # record a check that a person or a role did
 lgl fidelity run -all          # compute F1 from records/lean.json for each statement
 lgl trust -lean ../langlands-lean   # write records/trust.json and print the answers Q0 to Q8
+lgl paper list -tier T3        # the paper records of papers/, with their tier and status
+lgl paper show Ser67           # one paper record, with the status of its results from the map
+lgl paper add -key Kut80 -id T5-10 -title "..." -tier T5 -why "..." -expert-status accepted 10.2307/1971151
 lgl site build -content . -out public
 lgl site serve -dir public     # serve the site at http://127.0.0.1:8080/
 ```
 
-The exit codes are 0 for success, 1 for a failed check, 2 for a usage error and 3 for a command that is not written yet. The help text gives the milestone of each command that is not written yet: `port add`, `paper` and `lab` come in S1, and `claim`, `queue` and `agent` come in S2.
+The exit codes are 0 for success, 1 for a failed check, 2 for a usage error and 3 for a command that is not written yet. The help text gives the milestone of each command that is not written yet: `port add` and `lab` come in S1, and `claim`, `queue` and `agent` come in S2.
 
 ## The status rules
 
@@ -104,3 +107,7 @@ F1 is computed from `records/lean.json`: the declaration is in the record, it ha
 | Q7, Q8 | A person answers them, so they are `not run`. |
 
 The replay record is JSON: `{"commit": "...", "date": "YYYY-MM-DD", "run": "<link>", "checkers": [{"name": "lean4lean", "independent": true, "ok": true}], "comparator": {"ok": true}}`. The trust workflow of langlands-lean writes it, and the comparator part is optional.
+
+## The paper records
+
+`lgl paper add` writes a new `papers/<key>.yaml` in the schema of spec 07.13. It does not fetch the metadata from arXiv or from the DOI yet, so the flags give the key, the corpus id, the title, the tier, the reason and the expert status. An arXiv id or a DOI after the flags goes into `arxiv` or `doi`, and the version of an arXiv id becomes the version that was read. A field with no value is `null`. A reading with the tag P or S needs `-read-by` and `-read-date`. The command runs the checks of `lgl check` on the new record and writes nothing if they fail. It never overwrites a file. `lgl paper show` prints the status of each result from the map, and it reports a status in the record that is old.
