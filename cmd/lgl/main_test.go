@@ -17,7 +17,7 @@ func TestExitCodes(t *testing.T) {
 		{[]string{"--version"}, 0, "lgl dev"},
 		{[]string{"version", "x"}, 2, ""},
 		{[]string{"nothing"}, 2, ""},
-		{[]string{"lab"}, 3, ""},
+		{[]string{"lab"}, 2, ""},
 		{[]string{"agent"}, 3, ""},
 		{[]string{"trust", "-frob"}, 2, ""},
 		{[]string{"fidelity"}, 2, ""},

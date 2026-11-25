@@ -10,6 +10,8 @@ All changes that a user can see are in this file. The format follows Keep a Chan
 - `lgl check` reports an entry of `records/fidelity.json` that says `pass` but does not have the checks of its class.
 - `lgl trust`, which writes `records/trust.json` with the answers Q0 to Q8 of spec 14. It checks the axioms of each declaration that a node names, reads the record of the kernel replay if there is one, and marks a row that it cannot check as `not run`.
 - `lgl paper add`, `list` and `show` for the paper records of spec 07.13. `add` checks the new record as `lgl check` does, and it does not overwrite a file.
+- `lgl lab list`, `run`, `spec` and `show` for the computation lab of spec 13. A run writes `lab/runs/<id>/` with `record.json` in the form that the site reads, `summary.md` and the outputs.
+- A small version of experiment E1 in Go: it checks the norm groups of the quadratic and cyclotomic extensions of Q_p for p <= 7 against the Artin map of Lubin-Tate theory. It uses no container and no network, and it writes no Lean certificate.
 
 ## v0.0.2 (2026-11-25)
 
