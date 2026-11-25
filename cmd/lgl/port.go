@@ -161,7 +161,7 @@ func checkPortedFile(path, rel, repo, commit string) []string {
 	} else {
 		text := strings.Join(head, "\n")
 		end := strings.Index(text, "-/")
-		if end < 0 || !(strings.Contains(text[:end], "Copyright") || strings.Contains(text[:end], "License")) {
+		if end < 0 || (!strings.Contains(text[:end], "Copyright") && !strings.Contains(text[:end], "License")) {
 			probs = append(probs, rel+": the first comment is not a licence header")
 		}
 	}

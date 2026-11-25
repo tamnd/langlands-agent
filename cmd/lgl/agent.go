@@ -609,7 +609,7 @@ func startRunner(runner string, timeout time.Duration, content, dir, recPath str
 	}
 	ctx, cancel := context.WithTimeout(context.Background(), timeout)
 	defer cancel()
-	cmd := exec.CommandContext(ctx, runner) // #nosec G204 -- the runner is a command that the user names in LGL_RUNNER
+	cmd := exec.CommandContext(ctx, runner) // #nosec G204 G702 -- the runner is a command that the user names in LGL_RUNNER
 	cmd.Dir = content
 	cmd.Stdin = strings.NewReader(prompt)
 	cmd.Stdout, cmd.Stderr = logf, logf
