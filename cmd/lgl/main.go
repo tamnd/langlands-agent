@@ -39,7 +39,7 @@ func commands() []command {
 		{name: "port", summary: "check the ported Lean files against manifests/ported.yaml (add and diff come in milestone S1)", run: runPort},
 		{name: "paper", summary: "add, list or show a paper record of papers/", run: runPaper},
 		{name: "claim", summary: "add, list, show or plan a fresh claim of route R1", milestone: "S2"},
-		{name: "lab", summary: "run an experiment of the computation lab", milestone: "S1"},
+		{name: "lab", summary: "list, run or show the experiments of the computation lab", run: runLab},
 		{name: "queue", summary: "print the work queue of a role, with the reason for each rank", milestone: "S2"},
 		{name: "agent", summary: "run one role of the agent within the budget, or write the weekly report", milestone: "S2"},
 	}

@@ -32,11 +32,15 @@ lgl trust -lean ../langlands-lean   # write records/trust.json and print the ans
 lgl paper list -tier T3        # the paper records of papers/, with their tier and status
 lgl paper show Ser67           # one paper record, with the status of its results from the map
 lgl paper add -key Kut80 -id T5-10 -title "..." -tier T5 -why "..." -expert-status accepted 10.2307/1971151
+lgl lab list                   # the experiments of spec 13.3, the specs of lab/specs and the runs of lab/runs
+lgl lab spec E1 > lab/specs/e1-local-reciprocity-small.yaml   # the spec of E1
+lgl lab run E1                 # run the spec of E1 and write lab/runs/<id>/
+lgl lab show <run id>          # the record and the summary of a run
 lgl site build -content . -out public
 lgl site serve -dir public     # serve the site at http://127.0.0.1:8080/
 ```
 
-The exit codes are 0 for success, 1 for a failed check, 2 for a usage error and 3 for a command that is not written yet. The help text gives the milestone of each command that is not written yet: `port add` and `lab` come in S1, and `claim`, `queue` and `agent` come in S2.
+The exit codes are 0 for success, 1 for a failed check, 2 for a usage error and 3 for a command that is not written yet. The help text gives the milestone of each command that is not written yet: `port add` comes in S1, and `claim`, `queue` and `agent` come in S2.
 
 ## The status rules
 
@@ -111,3 +115,13 @@ The replay record is JSON: `{"commit": "...", "date": "YYYY-MM-DD", "run": "<lin
 ## The paper records
 
 `lgl paper add` writes a new `papers/<key>.yaml` in the schema of spec 07.13. It does not fetch the metadata from arXiv or from the DOI yet, so the flags give the key, the corpus id, the title, the tier, the reason and the expert status. An arXiv id or a DOI after the flags goes into `arxiv` or `doi`, and the version of an arXiv id becomes the version that was read. A field with no value is `null`. A reading with the tag P or S needs `-read-by` and `-read-date`. The command runs the checks of `lgl check` on the new record and writes nothing if they fail. It never overwrites a file. `lgl paper show` prints the status of each result from the map, and it reports a status in the record that is old.
+
+## The lab
+
+`lgl lab run` runs a spec of `lab/specs/` and writes `lab/runs/<id>/` with `record.json`, `summary.md` and the outputs. The id is the date, the name of the spec and the first 8 characters of the sha256 of the spec. The record has the hash of each file, the commit of lgl, the seed and the wall time, so a run is reproducible. The command does not replace a run unless you give `-force`, and it exits with 1 when the outputs contradict the prediction.
+
+Only E1 has code yet. It is a small version that runs in the lgl binary, in Go, with no container and no network. For each quadratic extension of Q_p and each field Q_p(zeta_{p^n}) of the spec, it computes norms and checks that each one is in the kernel of the Artin map that Lubin-Tate theory with the uniformizer p predicts. It also checks that each class of that kernel has a norm. What it does not do yet:
+
+- It runs no PARI/GP, Sage or other tool of spec 13.1, and it uses no container with pinned images.
+- It checks the norm groups, which are the kernels of the Artin maps. For a cyclotomic field of degree more than 2 it does not check the map element by element.
+- It is a search, not a proof. It writes no certificate for Lean (spec 13.4).
