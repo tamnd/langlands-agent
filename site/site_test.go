@@ -33,7 +33,7 @@ func content(t *testing.T) string {
 	}
 	put(t, root, "blueprint/routes.yaml", "- id: R1\n  title: Polyhedra\n  weight: 0.25\n  idea: i\n  obstruction: o\n  known: k\n  first: f\n")
 	put(t, root, "blueprint/nodes/LG00000001.yaml", "tag: LG00000001\nkind: conjecture\ntitle: Local Langlands for GL(n)\nstatement: The local Langlands correspondence for $GL_n$ over a $p$-adic field.\ntier: S\nroute: [R1]\nsources:\n  - paper: Ser67\n    loc: Main theorem\nlean:\n  statement: Langlands.LocalLanglandsGL\n")
-	put(t, root, "papers/Ser67.yaml", "key: Ser67\ntitle: Local class field theory\nauthors: [J.-P. Serre]\nyear: 1967\ntag: P\ntier: T3\nwhy: Local reciprocity.\nuse: [read]\n")
+	put(t, root, "papers/Ser67.yaml", "id: T0-04\nkey: Ser67\ntitle: Local class field theory\nauthors: [J.-P. Serre]\nyear: 1967\nread: {version: book, by: owner, date: 2026-11-25, tag: S}\ntier: T3\nwhy: Local reciprocity.\nexpert_status: accepted\nlean_status: port-available\nresults:\n  - {id: \"Chapter VI, Theorem 2\", statement: LocalReciprocityGL1, node: null, kind: theorem, status: unstated}\n")
 	put(t, root, "records/lean.json", `{"commit":"0123456789abcdef","toolchain":"leanprover/lean4:v4.35.0","decls":{"Langlands.LocalLanglandsGL":{"kind":"def","file":"Langlands/Statements/Main.lean","line":12,"axioms":[]}}}`)
 	return root
 }

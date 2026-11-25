@@ -8,6 +8,11 @@ All changes that a user can see are in this file. The format follows Keep a Chan
 
 - `lgl port check`, which checks the licence header and the provenance line of each ported Lean file against `manifests/ported.yaml` of langlands-lean.
 - The status `faithful` of spec 08.3, for a statement that passed the fidelity checks of its class in `records/fidelity.json`.
+- The paper page shows the reader, the Lean status, the other formalizations and the results that the project needs.
+
+### Fixed
+
+- `lgl check` reads the paper records in the schema of spec 07.13: `id`, `read`, `results`, `lean_elsewhere`, `lean_status`, `code_licence` and `handbook`. Before this change it read an older schema and rejected the records of tamnd/langlands, so the deploy workflow failed.
 
 ## v0.0.1 (2026-11-25)
 
