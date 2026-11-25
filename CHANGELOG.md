@@ -4,6 +4,8 @@ All changes that a user can see are in this file. The format follows Keep a Chan
 
 ## Unreleased
 
+## v0.1.1 (2026-11-25)
+
 ### Added
 
 - `lgl claim add`, `list`, `show` and `plan` for the claim records of route R1 in `claims/`. `add` writes a fresh record with a stable key, the source and the date, and it fetches nothing. `plan` checks the record and prints each part with its statement, its cost and whether it is self-contained.
