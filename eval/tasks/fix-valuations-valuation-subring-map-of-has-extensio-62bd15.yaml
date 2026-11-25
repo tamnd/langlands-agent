@@ -1,0 +1,38 @@
+# Made by lgl eval gen from https://github.com/n-yamaguchi-0729/ClassFieldTheory. Do not edit by hand.
+id: fix-valuations-valuation-subring-map-of-has-extensio-62bd15
+kind: repair
+origin: nyll-port
+title: Repair ValuationTheory.Valuations.valuationSubringMapOfHasExtension_isLocalHom for the Mathlib of the project pin.
+source:
+  repo: nyll
+  commit: fc644f42dade5bdc7157fc3ef2eef4dbf2d6a565
+  path: Nyll/ValuedFieldTheory/Valuation/UniqueRing.lean
+  decl: ValuationTheory.Valuations.valuationSubringMapOfHasExtension_isLocalHom
+broken: |
+  theorem valuationSubringMapOfHasExtension_isLocalHom
+      {K L : Type*} [Field K] [Field L] [Algebra K L]
+      (V : ValuationSubring K) (W : ValuationSubring L)
+      (hW : V.valuation.HasExtension W.valuation) :
+      IsLocalHom (valuationSubringMapOfHasExtension V W hW) := by
+    let : V.valuation.HasExtension W.valuation := hW
+    apply ((IsLocalRing.local_hom_tfae
+      (valuationSubringMapOfHasExtension V W hW)).out 5 1).mp
+    ext x
+    rw [Ideal.mem_comap, W.valuation_lt_one_iff, V.valuation_lt_one_iff]
+    change
+      W.valuation (algebraMap K L (x : K)) < 1 ↔
+        V.valuation (x : K) < 1
+    exact
+      _root_.Valuation.HasExtension.val_map_lt_one_iff
+        V.valuation W.valuation (x : K)
+error: 'The build fails at the project pin: IsLocalRing.local_hom_tfae is not a name in its Mathlib.'
+answer:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Ported/NYLL/ValuedFieldTheory/Valuation/UniqueRing.lean
+  decl: ValuationTheory.Valuations.valuationSubringMapOfHasExtension_isLocalHom
+  lines: [189, 204]
+  sha256: 0834284d0ccc208a3a87039668933ff1938e7283f568ca291d97796c1a8aae5a
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 12
+difficulty: hard

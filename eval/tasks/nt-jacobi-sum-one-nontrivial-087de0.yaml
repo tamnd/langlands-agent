@@ -1,0 +1,23 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-jacobi-sum-one-nontrivial-087de0
+kind: prove
+origin: mathlib-numbertheory
+title: Prove jacobiSum_one_nontrivial.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/JacobiSum/Basic.lean
+  decl: jacobiSum_one_nontrivial
+statement: |
+  theorem jacobiSum_one_nontrivial {χ : MulChar F R} (hχ : χ ≠ 1) : jacobiSum 1 χ = -1 := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/JacobiSum/Basic.lean
+  decl: jacobiSum_one_nontrivial
+  lines: [127, 136]
+  sha256: 4fc1b6f4dacac865d35f523bdf541759cfe04dec1365fa15eaa74feddac7df52
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 10
+difficulty: hard

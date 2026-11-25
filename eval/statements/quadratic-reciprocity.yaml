@@ -1,0 +1,20 @@
+# A statement of spec 10.9, written by hand. A wrong statement is elaborated in place of the reviewed declaration, in its file, so it states each binder that it needs.
+id: quadratic-reciprocity
+title: Quadratic reciprocity
+informal: For two different odd primes p and q, the product of the Legendre symbols (q/p) and (p/q) is (-1)^((p-1)/2 (q-1)/2).
+reviewed:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/LegendreSymbol/QuadraticReciprocity.lean
+  decl: legendreSym.quadratic_reciprocity
+  lean: |
+    theorem quadratic_reciprocity (hp : p ≠ 2) (hq : q ≠ 2) (hpq : p ≠ q) :
+        legendreSym q p * legendreSym p q = (-1) ^ (p / 2 * (q / 2))
+checks: [build, equiv-reference]
+wrong:
+  - id: quadratic-reciprocity-two
+    trap: missing-condition
+    reason: For p = 2 and q = 5 the left side is -1 and the right side is 1, so the statement needs odd primes.
+    lean: |
+      theorem quadratic_reciprocity (hpq : p ≠ q) :
+          legendreSym q p * legendreSym p q = (-1) ^ (p / 2 * (q / 2))

@@ -1,0 +1,24 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: rt-group-algebra-mul-average-left-1d4667
+kind: prove
+origin: mathlib-representationtheory
+title: Prove GroupAlgebra.mul_average_left.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Invariants.lean
+  decl: GroupAlgebra.mul_average_left
+statement: |
+  @[simp]
+  theorem mul_average_left (g : G) : .single g 1 * average k G = average k G := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Invariants.lean
+  decl: GroupAlgebra.mul_average_left
+  lines: [41, 47]
+  sha256: 93da44b636b9d1c2e370acb618cd13893478c8e6d506cc51c76d35ca26bfcca2
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 6
+difficulty: hard

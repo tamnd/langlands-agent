@@ -1,0 +1,23 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-mixed-embedding-convex-body-lt-primefactor-ne-ze-00b0a4
+kind: prove
+origin: mathlib-numbertheory
+title: Prove NumberField.mixedEmbedding.convexBodyLT'Factor_ne_zero.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/NumberField/CanonicalEmbedding/ConvexBody.lean
+  decl: NumberField.mixedEmbedding.convexBodyLT'Factor_ne_zero
+statement: |
+  theorem convexBodyLT'Factor_ne_zero : convexBodyLT'Factor K ≠ 0 := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/NumberField/CanonicalEmbedding/ConvexBody.lean
+  decl: NumberField.mixedEmbedding.convexBodyLT'Factor_ne_zero
+  lines: [203, 204]
+  sha256: 56b4274beda481403637bb9bf69ea31ac3ff174207b4b3568402b03c092ccac5
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 1
+difficulty: easy

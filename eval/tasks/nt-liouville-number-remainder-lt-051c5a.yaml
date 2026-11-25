@@ -1,0 +1,23 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-liouville-number-remainder-lt-051c5a
+kind: prove
+origin: mathlib-numbertheory
+title: Prove LiouvilleNumber.remainder_lt.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/Transcendental/Liouville/LiouvilleNumber.lean
+  decl: LiouvilleNumber.remainder_lt
+statement: |
+  theorem remainder_lt (n : ℕ) {m : ℝ} (m2 : 2 ≤ m) : remainder m n < 1 / (m ^ n !) ^ n := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/Transcendental/Liouville/LiouvilleNumber.lean
+  decl: LiouvilleNumber.remainder_lt
+  lines: [150, 151]
+  sha256: c7548bda10236b10943bdd314345cd9cfd90d31de954d818e66909f63383b045
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 1
+difficulty: easy

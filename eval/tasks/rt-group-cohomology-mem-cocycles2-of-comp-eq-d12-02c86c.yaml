@@ -1,0 +1,27 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: rt-group-cohomology-mem-cocycles2-of-comp-eq-d12-02c86c
+kind: prove
+origin: mathlib-representationtheory
+title: Prove groupCohomology.mem_cocycles₂_of_comp_eq_d₁₂.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Homological/GroupCohomology/LongExactSequence.lean
+  decl: groupCohomology.mem_cocycles₂_of_comp_eq_d₁₂
+statement: |
+  set_option backward.isDefEq.respectTransparency false in
+  /-- Stated for readability of `δ₁_apply`. -/
+  theorem mem_cocycles₂_of_comp_eq_d₁₂
+      {y : G → X.X₂} {x : G × G → X.X₁} (hx : X.f.hom ∘ x = d₁₂ X.X₂ y) :
+      x ∈ cocycles₂ X.X₁ := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Homological/GroupCohomology/LongExactSequence.lean
+  decl: groupCohomology.mem_cocycles₂_of_comp_eq_d₁₂
+  lines: [163, 170]
+  sha256: eedf387f4740516bf584c63c6260d3ca3a3f23f6a366e211732956c93e918f97
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 4
+difficulty: medium

@@ -1,0 +1,24 @@
+# A statement of spec 10.9, written by hand. A wrong statement is elaborated in place of the reviewed declaration, in its file, so it states each binder that it needs.
+id: modularity-elliptic-q
+title: The modularity of elliptic curves over Q
+informal: For each elliptic curve E over the rationals there is a cusp form f of weight 2 for Γ0(N), with N positive, whose n-th coefficient is the n-th coefficient of the L-function of E for each n at least 1.
+reviewed:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Statements/Modularity.lean
+  decl: Langlands.ModularityEllipticQ
+  lean: |
+    def ModularityEllipticQ : Prop :=
+      ∀ (E : WeierstrassCurve ℚ) [E.IsElliptic],
+        ∃ (N : ℕ) (f : CuspForm (CongruenceSubgroup.Gamma0 N : Subgroup (GL (Fin 2) ℝ)) 2),
+          0 < N ∧ ∀ n : ℕ, 1 ≤ n → qCoeff f n = (E.LFunction n : ℂ)
+checks: [build, equiv-reference]
+wrong:
+  - id: modularity-elliptic-q-primes
+    trap: quantifier
+    reason: It matches the coefficients only at the primes, and f is not required to be an eigenform, so the other coefficients of f are free.
+    lean: |
+      def ModularityEllipticQ : Prop :=
+        ∀ (E : WeierstrassCurve ℚ) [E.IsElliptic],
+          ∃ (N : ℕ) (f : CuspForm (CongruenceSubgroup.Gamma0 N : Subgroup (GL (Fin 2) ℝ)) 2),
+            0 < N ∧ ∀ p : ℕ, p.Prime → qCoeff f p = (E.LFunction p : ℂ)

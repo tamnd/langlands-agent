@@ -1,0 +1,23 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-nat-ne-zero-of-mem-divisors-043ce6
+kind: prove
+origin: mathlib-numbertheory
+title: Prove Nat.ne_zero_of_mem_divisors.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/Divisors.lean
+  decl: Nat.ne_zero_of_mem_divisors
+statement: |
+  theorem ne_zero_of_mem_divisors {m : ℕ} (h : n ∈ divisors m) : m ≠ 0 := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/Divisors.lean
+  decl: Nat.ne_zero_of_mem_divisors
+  lines: [116, 116]
+  sha256: 92a9155329aa892a9baa5c86965a063537fc44a45fb9b38231c98cd5f62e0246
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 1
+difficulty: easy

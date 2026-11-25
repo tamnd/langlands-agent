@@ -1,0 +1,19 @@
+# Made by lgl eval gen from https://github.com/n-yamaguchi-0729/ClassFieldTheory. Do not edit by hand.
+id: nyll-class-formation-z-hat-add-subgroup-eq-mul-nat-ra-00bfc7
+kind: state
+origin: nyll
+title: State ClassFormation.zHatAddSubgroup_eq_mulNat_range_of_finite_quotient in Lean from its docstring.
+source:
+  repo: nyll
+  commit: fc644f42dade5bdc7157fc3ef2eef4dbf2d6a565
+  path: Nyll/GaloisCohomology/ProfiniteIntegers/ProfiniteInteger.lean
+  decl: ClassFormation.zHatAddSubgroup_eq_mulNat_range_of_finite_quotient
+informal: A subgroup with finite quotient is the subgroup obtained by multiplying by its index.
+answer:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Ported/NYLL/GaloisCohomology/ProfiniteIntegers/ProfiniteInteger.lean
+  decl: ClassFormation.zHatAddSubgroup_eq_mulNat_range_of_finite_quotient
+  lines: [245, 249]
+  sha256: 0504580edf6027eb02c37b65b15b6012a5fac165e445b9f3c8e072a8523da757
+checks: [build, equiv-reference]

@@ -1,0 +1,24 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: rt-cont-intertwining-map-comp-sub-045a44
+kind: prove
+origin: mathlib-representationtheory
+title: Prove ContIntertwiningMap.comp_sub.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Continuous/Basic.lean
+  decl: ContIntertwiningMap.comp_sub
+statement: |
+  lemma comp_sub (f : π₂ →ⁱL π₃) (g h : π₁ →ⁱL π₂) :
+      f.comp (g - h) = f.comp g - f.comp h := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Continuous/Basic.lean
+  decl: ContIntertwiningMap.comp_sub
+  lines: [242, 244]
+  sha256: 5eb7dc5b9c20a3ac2c2d01a2715240d5604b056d4408dda7b532bcb932534a5e
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 2
+difficulty: medium

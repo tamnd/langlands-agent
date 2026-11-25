@@ -1,0 +1,25 @@
+# Made by lgl eval gen from https://github.com/tamnd/langlands-lean. Do not edit by hand.
+id: lgl-weil-group-map-degree-restrict-subgroup-011178
+kind: prove
+origin: project
+title: Prove Langlands.WeilGroup.map_degree_restrictSubgroup.
+source:
+  repo: langlands-lean
+  commit: 3a598fac062704528957d4f7c6c836ad56eeccbb
+  path: Langlands/WeilGroup/Restrict.lean
+  decl: Langlands.WeilGroup.map_degree_restrictSubgroup
+statement: |
+  theorem map_degree_restrictSubgroup :
+      (restrictSubgroup K L).map (degree K) =
+        Subgroup.zpowers (Multiplicative.ofAdd (residueDegree K L : ℤ)) := by
+    sorry
+answer:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/WeilGroup/Restrict.lean
+  decl: Langlands.WeilGroup.map_degree_restrictSubgroup
+  lines: [96, 99]
+  sha256: d204e4c72c6ca4d935df5be2f7136b13e68cc7a3b4c547426eda63460d42e14e
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 1
+difficulty: easy

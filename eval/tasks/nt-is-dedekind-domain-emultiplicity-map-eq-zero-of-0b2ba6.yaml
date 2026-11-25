@@ -1,0 +1,25 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-is-dedekind-domain-emultiplicity-map-eq-zero-of-0b2ba6
+kind: prove
+origin: mathlib-numbertheory
+title: Prove Ideal.IsDedekindDomain.emultiplicity_map_eq_zero_of_ne.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/RamificationInertia/Ramification.lean
+  decl: Ideal.IsDedekindDomain.emultiplicity_map_eq_zero_of_ne
+statement: |
+  theorem emultiplicity_map_eq_zero_of_ne [IsDedekindDomain R] {v : Ideal R}
+      {w : Ideal S} {p : Ideal R} (hv : Irreducible v) (hp : Prime p) (hvp : v ≠ p) [w.LiesOver v] :
+      emultiplicity w (p.map (algebraMap R S)) = 0 := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/RamificationInertia/Ramification.lean
+  decl: Ideal.IsDedekindDomain.emultiplicity_map_eq_zero_of_ne
+  lines: [342, 347]
+  sha256: fb04add4d07f03a08db1f68ce0fd140ec31aa94a248db7b9176dc34a74e7bc7a
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 4
+difficulty: medium

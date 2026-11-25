@@ -1,0 +1,27 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-cusp-form-class-sum-range-norm-sq-q-expansion-co-08a588
+kind: prove
+origin: mathlib-numbertheory
+title: Prove CuspFormClass.sum_range_norm_sq_qExpansion_coeff_isBigO.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/ModularForms/Bounds.lean
+  decl: CuspFormClass.sum_range_norm_sq_qExpansion_coeff_isBigO
+statement: |
+  lemma CuspFormClass.sum_range_norm_sq_qExpansion_coeff_isBigO
+      {k : ℕ} {Γ : Subgroup (GL (Fin 2) ℝ)} [Γ.IsArithmetic]
+      {F : Type*} [FunLike F ℍ ℂ] [CuspFormClass F Γ (k : ℤ)] (f : F) :
+      (fun M : ℕ ↦ ∑ n ∈ .range M, ‖(qExpansion Γ.strictWidthInfty f).coeff n‖ ^ 2)
+        =O[atTop] fun M ↦ (M : ℝ) ^ k := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/ModularForms/Bounds.lean
+  decl: CuspFormClass.sum_range_norm_sq_qExpansion_coeff_isBigO
+  lines: [394, 402]
+  sha256: f394d50ab1f783d02ac6e8a566ddcc2b3cd6c00dfc980498b964abcc950d34b6
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 5
+difficulty: hard

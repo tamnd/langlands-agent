@@ -1,0 +1,24 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-infinite-place-is-unramified-iff-04450a
+kind: prove
+origin: mathlib-numbertheory
+title: Prove NumberField.InfinitePlace.isUnramified_iff.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/NumberField/InfinitePlace/Ramification.lean
+  decl: NumberField.InfinitePlace.isUnramified_iff
+statement: |
+  lemma isUnramified_iff :
+      IsUnramified k w ↔ IsReal w ∨ IsComplex (w.comap (algebraMap k K)) := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/NumberField/InfinitePlace/Ramification.lean
+  decl: NumberField.InfinitePlace.isUnramified_iff
+  lines: [238, 241]
+  sha256: 41a7afb9484157ef5b97b443f3d4c403e02e888c4a998cc3d20f494d7000e3b2
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 3
+difficulty: medium

@@ -1,0 +1,24 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: rt-representation-left-regular-norm-eq-zero-iff-281f9d
+kind: prove
+origin: mathlib-representationtheory
+title: Prove Representation.leftRegular_norm_eq_zero_iff.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Basic.lean
+  decl: Representation.leftRegular_norm_eq_zero_iff
+statement: |
+  lemma leftRegular_norm_eq_zero_iff (x : k[G]) :
+      (leftRegular k G).norm x = 0 ↔ x.coeff.linearCombination k (fun _ => (1 : k)) = 0 := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Basic.lean
+  decl: Representation.leftRegular_norm_eq_zero_iff
+  lines: [532, 541]
+  sha256: c9d8821485ca9d9df550df4edb5fe17330cd73f83b7264dda3698844257107ef
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 9
+difficulty: hard

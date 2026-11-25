@@ -1,0 +1,19 @@
+# Made by lgl eval gen from https://github.com/n-yamaguchi-0729/ClassFieldTheory. Do not edit by hand.
+id: nyll-discrete-valuation-field-eval-map-quotient-mk-eq-01d83d
+kind: state
+origin: nyll
+title: State ValuationTheory.DiscreteValuationField.eval_map_quotient_mk_eq_zero_of_eval_mem in Lean from its docstring.
+source:
+  repo: nyll
+  commit: fc644f42dade5bdc7157fc3ef2eef4dbf2d6a565
+  path: Nyll/ValuedFieldTheory/Valuation/Henselian/Core.lean
+  decl: ValuationTheory.DiscreteValuationField.eval_map_quotient_mk_eq_zero_of_eval_mem
+informal: An approximate root becomes an actual root after reducing coefficients modulo the ideal.
+answer:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Ported/NYLL/ValuedFieldTheory/Valuation/Henselian/Core.lean
+  decl: ValuationTheory.DiscreteValuationField.eval_map_quotient_mk_eq_zero_of_eval_mem
+  lines: [76, 83]
+  sha256: 66dd4a04efc075f7c5b60a7ca2afd70563306fe8ed223752d02acb0a6e41ed53
+checks: [build, equiv-reference]

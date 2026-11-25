@@ -1,0 +1,35 @@
+# Made by lgl eval gen from https://github.com/n-yamaguchi-0729/ClassFieldTheory. Do not edit by hand.
+id: fix-lubin-tate-padic-changed-uniformizer-rotation-co-4a6e16
+kind: repair
+origin: nyll-port
+title: Repair LubinTate.padicChangedUniformizerRotation_coeff_zero_ne_zero for the Mathlib of the project pin.
+source:
+  repo: nyll
+  commit: fc644f42dade5bdc7157fc3ef2eef4dbf2d6a565
+  path: Nyll/ClassFieldTheory/LubinTate/Padic/ChangedUniformizerCoefficient.lean
+  decl: LubinTate.padicChangedUniformizerRotation_coeff_zero_ne_zero
+broken: |
+  theorem padicChangedUniformizerRotation_coeff_zero_ne_zero
+      (p : ℕ) [Fact p.Prime]
+      (u : (padicLocalField p).valuationSubringˣ) :
+      (WittVector.frobeniusRotation p
+        (completedUnramifiedWittUnit_coeff_zero_ne_zero p 1)
+        (completedUnramifiedWittUnit_coeff_zero_ne_zero p
+          (padicValuationUnitToCompletedUnramifiedWittUnit p u))).coeff 0 ≠ 0 := by
+    simpa only [WittVector.frobeniusRotation,
+      WittVector.coeff_mk, WittVector.frobeniusRotationCoeff] using
+      (WittVector.RecursionBase.solution_ne_zero p
+        (completedUnramifiedWittUnit_coeff_zero_ne_zero p 1)
+        (completedUnramifiedWittUnit_coeff_zero_ne_zero p
+          (padicValuationUnitToCompletedUnramifiedWittUnit p u)))
+error: 'The build fails at the project pin: WittVector.RecursionBase.solution_ne_zero is not a name in its Mathlib.'
+answer:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Ported/NYLL/ClassFieldTheory/LubinTate/Padic/ChangedUniformizerCoefficient.lean
+  decl: LubinTate.padicChangedUniformizerRotation_coeff_zero_ne_zero
+  lines: [137, 149]
+  sha256: de8bdbb1b86e38685cf18ac7087890b5f1ad112e04fc1c255be3c3b56576e23c
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 7
+difficulty: hard

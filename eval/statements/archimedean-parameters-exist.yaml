@@ -1,0 +1,22 @@
+# A statement of spec 10.9, written by hand. A wrong statement is elaborated in place of the reviewed declaration, in its file, so it states each binder that it needs.
+id: archimedean-parameters-exist
+title: The archimedean parameters of a Hecke character
+informal: For each Hecke character χ of a number field K and each infinite place v, the component χ_v sends z to (z/|z|)^n |z|^(m_v t) for some integer n and some complex number t, where m_v is 1 or 2.
+reviewed:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Statements/Hecke.lean
+  decl: Langlands.ArchimedeanParametersExist
+  lean: |
+    def ArchimedeanParametersExist : Prop :=
+      ∀ (K : Type u) [Field K] [NumberField K] (χ : HeckeCharacter K) (v : InfinitePlace K),
+        ∃ (n : ℤ) (t : ℂ), χ.IsArchimedeanParameter v n t
+checks: [build, equiv-reference]
+wrong:
+  - id: archimedean-parameters-exist-nat
+    trap: quantifier
+    reason: At a complex place the exponent n can be negative, so it is not always a natural number.
+    lean: |
+      def ArchimedeanParametersExist : Prop :=
+        ∀ (K : Type u) [Field K] [NumberField K] (χ : HeckeCharacter K) (v : InfinitePlace K),
+          ∃ (n : ℕ) (t : ℂ), χ.IsArchimedeanParameter v n t

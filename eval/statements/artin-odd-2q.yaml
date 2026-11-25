@@ -1,0 +1,33 @@
+# A statement of spec 10.9, written by hand. A wrong statement is elaborated in place of the reviewed declaration, in its file, so it states each binder that it needs.
+id: artin-odd-2q
+title: The Artin conjecture for odd two-dimensional representations
+informal: For each finite Galois extension L of the rationals and each irreducible two-dimensional complex representation ρ of Gal(L/Q) with determinant -1 at each complex conjugation, the Artin L-function of ρ is entire and is the L-function of a normalized eigenform of weight 1.
+reviewed:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Statements/Galois.lean
+  decl: Langlands.ArtinOdd2Q
+  lean: |
+    def ArtinOdd2Q : Prop :=
+      ∀ L : IntermediateField ℚ (AlgebraicClosure ℚ), FiniteDimensional ℚ L → IsGalois ℚ L →
+        ∀ ρ : Gal(L/ℚ) →* GL (Fin 2) ℂ, IsIrreducibleRep ρ →
+          (∀ c : Gal(L/ℚ), IsComplexConjugationOf c → (ρ c : Matrix (Fin 2) (Fin 2) ℂ).det = -1) →
+          (∃ F : ℂ → ℂ, Differentiable ℂ F ∧ ∀ s : ℂ, 1 < s.re → F s = artinLFunction ρ s) ∧
+          ∃ (N : ℕ) (χ : DirichletCharacter ℂ N)
+            (f : CuspForm (Gamma1 N : Subgroup (GL (Fin 2) ℝ)) 1),
+            0 < N ∧ IsNormalizedEigenformWithCharacter f χ ∧
+            ∀ s : ℂ, 1 < s.re → artinLFunction ρ s = LSeries (qCoeffGamma1 f) s
+checks: [build, equiv-reference]
+wrong:
+  - id: artin-odd-2q-even
+    trap: missing-condition
+    reason: An even representation comes from a Maass form and not from a holomorphic form of weight 1, so without the odd condition the statement is false.
+    lean: |
+      def ArtinOdd2Q : Prop :=
+        ∀ L : IntermediateField ℚ (AlgebraicClosure ℚ), FiniteDimensional ℚ L → IsGalois ℚ L →
+          ∀ ρ : Gal(L/ℚ) →* GL (Fin 2) ℂ, IsIrreducibleRep ρ →
+            (∃ F : ℂ → ℂ, Differentiable ℂ F ∧ ∀ s : ℂ, 1 < s.re → F s = artinLFunction ρ s) ∧
+            ∃ (N : ℕ) (χ : DirichletCharacter ℂ N)
+              (f : CuspForm (Gamma1 N : Subgroup (GL (Fin 2) ℝ)) 1),
+              0 < N ∧ IsNormalizedEigenformWithCharacter f χ ∧
+              ∀ s : ℂ, 1 < s.re → artinLFunction ρ s = LSeries (qCoeffGamma1 f) s

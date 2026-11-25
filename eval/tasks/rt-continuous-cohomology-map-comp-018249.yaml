@@ -1,0 +1,25 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: rt-continuous-cohomology-map-comp-018249
+kind: prove
+origin: mathlib-representationtheory
+title: Prove ContinuousCohomology.map_comp.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Homological/ContCohomology/Functoriality.lean
+  decl: ContinuousCohomology.map_comp
+statement: |
+  @[reassoc]
+  lemma map_comp (φ : H →ₜ* G) (ψ : K →ₜ* H) (f : res φ X ⟶ Y) (g : res ψ Y ⟶ Z) (n : ℕ) :
+      map (φ.comp ψ) (X := X) ((resFunctor (ψ : K →* H)).map f ≫ g) n = map φ f n ≫ map ψ g n := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Homological/ContCohomology/Functoriality.lean
+  decl: ContinuousCohomology.map_comp
+  lines: [162, 165]
+  sha256: 9f0f203a694332cef7944bd378de00c3aa1df7337006780f54830a0d55a2fa20
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 2
+difficulty: medium

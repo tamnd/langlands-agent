@@ -1,0 +1,24 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-dirichlet-character-lseries-eq-exp-lseries-003f02
+kind: prove
+origin: mathlib-numbertheory
+title: Prove DirichletCharacter.LSeries_eq_exp_LSeries.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/EulerProduct/DirichletLSeries.lean
+  decl: DirichletCharacter.LSeries_eq_exp_LSeries
+statement: |
+  theorem DirichletCharacter.LSeries_eq_exp_LSeries (hs : 1 < s.re) :
+      exp (LSeries (fun (n : ℕ) ↦ χ n * Λ n / Real.log n) s) = L ↗χ s := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/EulerProduct/DirichletLSeries.lean
+  decl: DirichletCharacter.LSeries_eq_exp_LSeries
+  lines: [260, 262]
+  sha256: 2bf18b62a691951ada3113706830ae16a9fb5b6fc6cbbdfc7094819af5dd1a05
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 2
+difficulty: medium

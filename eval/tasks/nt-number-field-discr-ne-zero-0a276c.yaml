@@ -1,0 +1,23 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-number-field-discr-ne-zero-0a276c
+kind: prove
+origin: mathlib-numbertheory
+title: Prove NumberField.discr_ne_zero.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/NumberField/Discriminant/Defs.lean
+  decl: NumberField.discr_ne_zero
+statement: |
+  theorem discr_ne_zero : discr K ≠ 0 := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/NumberField/Discriminant/Defs.lean
+  decl: NumberField.discr_ne_zero
+  lines: [41, 43]
+  sha256: f403e165214d6ec2003780634140788d76fbab9274764982c2344d35fb37838e
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 3
+difficulty: medium

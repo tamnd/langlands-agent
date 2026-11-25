@@ -1,0 +1,24 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-upper-half-plane-petersson-slash-sl-0c0197
+kind: prove
+origin: mathlib-numbertheory
+title: Prove UpperHalfPlane.petersson_slash_SL.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/ModularForms/Petersson.lean
+  decl: UpperHalfPlane.petersson_slash_SL
+statement: |
+  lemma petersson_slash_SL (k : ℤ) (f f' : ℍ → ℂ) (g : SL(2, ℤ)) (τ : ℍ) :
+      petersson k (f ∣[k] g) (f' ∣[k] g) τ = petersson k f f' (g • τ) := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/ModularForms/Petersson.lean
+  decl: UpperHalfPlane.petersson_slash_SL
+  lines: [58, 62]
+  sha256: a04174bd0054d98200dc859d77c8f37fbca78ac0877ad9e212242d48c82c1544
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 4
+difficulty: medium

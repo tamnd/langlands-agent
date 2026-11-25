@@ -1,0 +1,20 @@
+# A statement of spec 10.9, written by hand. A wrong statement is elaborated in place of the reviewed declaration, in its file, so it states each binder that it needs.
+id: dirichlet-primes-in-ap
+title: Dirichlet theorem on primes in arithmetic progressions
+informal: For a positive integer q and a unit a modulo q, for each n there is a prime p larger than n with p equal to a modulo q.
+reviewed:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/LSeries/PrimesInAP.lean
+  decl: Nat.forall_exists_prime_gt_and_eq_mod
+  lean: |
+    theorem forall_exists_prime_gt_and_eq_mod (ha : IsUnit a) (n : ℕ) :
+        ∃ p > n, p.Prime ∧ (p : ZMod q) = a
+checks: [build, equiv-reference]
+wrong:
+  - id: dirichlet-primes-in-ap-not-unit
+    trap: missing-condition
+    reason: For q = 4 and a = 2 the only prime that is 2 modulo 4 is 2, so without the unit condition the statement is false.
+    lean: |
+      theorem forall_exists_prime_gt_and_eq_mod (n : ℕ) :
+          ∃ p > n, p.Prime ∧ (p : ZMod q) = a

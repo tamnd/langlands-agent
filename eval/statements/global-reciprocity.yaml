@@ -1,0 +1,33 @@
+# A statement of spec 10.9, written by hand. A wrong statement is elaborated in place of the reviewed declaration, in its file, so it states each binder that it needs.
+id: global-reciprocity
+title: Global class field theory
+informal: For each number field K and each finite abelian extension L of K there is a continuous surjective homomorphism from the idele class group of K to Gal(L/K) that sends a uniformizer at each finite place v unramified in L to a geometric Frobenius, so that the inverse of its image is the arithmetic Frobenius at each prime of L above v.
+reviewed:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Statements/ClassField.lean
+  decl: Langlands.GlobalReciprocity
+  lean: |
+    def GlobalReciprocity : Prop :=
+      ∀ (K : Type u) [Field K] [NumberField K] (L : IntermediateField K (AlgebraicClosure K)),
+        FiniteDimensional K L → IsAbelianGalois K L →
+          ∃ art : IdeleClassGroup (𝓞 K) K →* Gal(L/K), IsArtinMap K L art
+checks: [build, equiv-reference]
+wrong:
+  - id: global-reciprocity-arithmetic
+    trap: normalization
+    reason: It sends a uniformizer to the arithmetic Frobenius and not to its inverse, which is the other normalization of the Artin map.
+    lean: |
+      def GlobalReciprocity : Prop :=
+        ∀ (K : Type u) [Field K] [NumberField K] (L : IntermediateField K (AlgebraicClosure K)),
+          FiniteDimensional K L → IsAbelianGalois K L →
+            ∃ art : IdeleClassGroup (𝓞 K) K →* Gal(L/K), Continuous art ∧ Function.Surjective art ∧
+              ∀ (v : HeightOneSpectrum (𝓞 K)) (w : Ideal (𝓞 L)) [w.IsMaximal],
+                w.LiesOver v.asIdeal → Algebra.IsUnramifiedAt (𝓞 K) w →
+                  ∀ ϖ : (v.adicCompletion K)ˣ, IsUniformizer (ϖ : v.adicCompletion K) →
+                    IsArithFrobAt (𝓞 K) (art (IdeleClassGroup.ofAdicCompletion (𝓞 K) K v ϖ)) w
+    ref:
+      repo: langlands-lean
+      commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+      path: Langlands/Fidelity/ClassField.lean
+      decl: Langlands.Fidelity.isArtinMap_iff_isArtinMapArith_invArt

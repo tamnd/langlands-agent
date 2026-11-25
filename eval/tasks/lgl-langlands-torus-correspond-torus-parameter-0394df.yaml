@@ -1,0 +1,25 @@
+# Made by lgl eval gen from https://github.com/tamnd/langlands-lean. Do not edit by hand.
+id: lgl-langlands-torus-correspond-torus-parameter-0394df
+kind: prove
+origin: project
+title: Prove Langlands.torusCorrespond_torusParameter.
+source:
+  repo: langlands-lean
+  commit: 4c7f13fedd395d42bac98de4f58b1e1a2fefd596
+  path: Langlands/Torus/Split.lean
+  decl: Langlands.torusCorrespond_torusParameter
+statement: |
+  theorem torusCorrespond_torusParameter {n : ℕ} (rec : Kˣ ≃ₜ* WeilGroup.Ab K)
+      (χ : ContinuousMonoidHom (Fin n → Kˣ) ℂˣ) :
+      TorusCorrespond K rec χ (torusParameter rec χ) := by
+    sorry
+answer:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Torus/Split.lean
+  decl: Langlands.torusCorrespond_torusParameter
+  lines: [72, 80]
+  sha256: 2efa3b9881751a2eaff288a987310160deb349544590d7c7136d8cfb1123b54a
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 7
+difficulty: hard

@@ -1,0 +1,25 @@
+# Made by lgl eval gen from https://github.com/tamnd/langlands-lean. Do not edit by hand.
+id: lgl-langlands-character-mem-coeff-ring-3bbc02
+kind: prove
+origin: project
+title: Prove Langlands.character_mem_coeffRing.
+source:
+  repo: langlands-lean
+  commit: f2b99c863b5129eec0f8f6dde1f3fda8e8ba4fbe
+  path: Langlands/Statements/Galois.lean
+  decl: Langlands.character_mem_coeffRing
+statement: |
+  theorem character_mem_coeffRing {N : ℕ} {k : ℤ}
+      (f : CuspForm (Gamma1 N : Subgroup (GL (Fin 2) ℝ)) k) (χ : DirichletCharacter ℂ N)
+      (x : ZMod N) : χ x ∈ coeffRing f χ := by
+    sorry
+answer:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Statements/Galois.lean
+  decl: Langlands.character_mem_coeffRing
+  lines: [151, 154]
+  sha256: a2ef9b298e8c2115a97a53ac10bbcf02cff63264cde60c89e366fdeaa1dcaf7a
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 1
+difficulty: easy

@@ -1,0 +1,23 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-fermat42-minimal-comm-02735f
+kind: prove
+origin: mathlib-numbertheory
+title: Prove Fermat42.minimal_comm.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/FLT/Four.lean
+  decl: Fermat42.minimal_comm
+statement: |
+  theorem minimal_comm {a b c : ℤ} : Minimal a b c → Minimal b a c := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/FLT/Four.lean
+  decl: Fermat42.minimal_comm
+  lines: [99, 100]
+  sha256: d17fb389be842b6f9ff51f0741274aeda0ae911d99caea4d79e72195025e38da
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 2
+difficulty: medium

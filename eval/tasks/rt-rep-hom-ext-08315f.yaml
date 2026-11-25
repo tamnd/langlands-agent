@@ -1,0 +1,24 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: rt-rep-hom-ext-08315f
+kind: prove
+origin: mathlib-representationtheory
+title: Prove Rep.hom_ext.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Rep/Basic.lean
+  decl: Rep.hom_ext
+statement: |
+  variable {A B} in
+  @[ext] lemma hom_ext {f g : A ⟶ B} (hf : f.hom = g.hom) : f = g := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Rep/Basic.lean
+  decl: Rep.hom_ext
+  lines: [115, 116]
+  sha256: 4140c595054dbdf43bd015fb165580307c3ee9a08f073c19d5f6d01ddab0eb7e
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 1
+difficulty: easy

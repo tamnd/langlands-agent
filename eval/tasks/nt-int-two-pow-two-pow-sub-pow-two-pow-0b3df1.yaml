@@ -1,0 +1,24 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-int-two-pow-two-pow-sub-pow-two-pow-0b3df1
+kind: prove
+origin: mathlib-numbertheory
+title: Prove Int.two_pow_two_pow_sub_pow_two_pow.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/Multiplicity.lean
+  decl: Int.two_pow_two_pow_sub_pow_two_pow
+statement: |
+  theorem Int.two_pow_two_pow_sub_pow_two_pow {x y : ℤ} (n : ℕ) (hxy : 4 ∣ x - y) (hx : ¬2 ∣ x) :
+      emultiplicity 2 (x ^ 2 ^ n - y ^ 2 ^ n) = emultiplicity 2 (x - y) + n := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/Multiplicity.lean
+  decl: Int.two_pow_two_pow_sub_pow_two_pow
+  lines: [271, 275]
+  sha256: ce9919fc41a1196cc144ed125ee2be3fc7c3b8aa8b6be7cd22970df0399c02a2
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 4
+difficulty: medium

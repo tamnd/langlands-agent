@@ -1,0 +1,25 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-is-multiplicative-iff-ne-zero-027df8
+kind: prove
+origin: mathlib-numbertheory
+title: Prove ArithmeticFunction.IsMultiplicative.iff_ne_zero.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/ArithmeticFunction/Defs.lean
+  decl: ArithmeticFunction.IsMultiplicative.iff_ne_zero
+statement: |
+  theorem iff_ne_zero [MonoidWithZero R] {f : ArithmeticFunction R} :
+      IsMultiplicative f ↔
+        f 1 = 1 ∧ ∀ {m n : ℕ}, m ≠ 0 → n ≠ 0 → m.Coprime n → f (m * n) = f m * f n := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/ArithmeticFunction/Defs.lean
+  decl: ArithmeticFunction.IsMultiplicative.iff_ne_zero
+  lines: [554, 562]
+  sha256: b76422769e7e61f93f3fb360446c19ad206a282e248670e76dbb6a69fa5839a2
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 7
+difficulty: hard

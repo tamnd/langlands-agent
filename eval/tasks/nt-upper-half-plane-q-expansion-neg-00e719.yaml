@@ -1,0 +1,24 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-upper-half-plane-q-expansion-neg-00e719
+kind: prove
+origin: mathlib-numbertheory
+title: Prove UpperHalfPlane.UpperHalfPlane.qExpansion_neg.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/ModularForms/QExpansion.lean
+  decl: UpperHalfPlane.UpperHalfPlane.qExpansion_neg
+statement: |
+  lemma qExpansion_neg {f : ℍ → ℂ} (hf : AnalyticAt ℂ (cuspFunction h f) 0) :
+      qExpansion h (-f) = -qExpansion h f := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/ModularForms/QExpansion.lean
+  decl: UpperHalfPlane.UpperHalfPlane.qExpansion_neg
+  lines: [521, 523]
+  sha256: a5df4cd01f1025a5d16a3984871071a60d12c8e62833bf5fdb9a4dfb34619e38
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 2
+difficulty: medium

@@ -1,0 +1,24 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-bernoulli-prime-spec-0181f2
+kind: prove
+origin: mathlib-numbertheory
+title: Prove bernoulli'_spec.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/Bernoulli.lean
+  decl: bernoulli'_spec
+statement: |
+  theorem bernoulli'_spec (n : ℕ) :
+      (∑ k ∈ range n.succ, (n.choose (n - k) : ℚ) / (n - k + 1) * bernoulli' k) = 1 := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/Bernoulli.lean
+  decl: bernoulli'_spec
+  lines: [94, 99]
+  sha256: a275f1b3d05b6104d49df889011b6b943f09e5ea66c48d970edb7ac712e24245
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 5
+difficulty: hard

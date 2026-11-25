@@ -1,0 +1,30 @@
+# A statement of spec 10.9, written by hand. A wrong statement is elaborated in place of the reviewed declaration, in its file, so it states each binder that it needs.
+id: is-maass-cusp-form
+title: A Maass cusp form
+informal: A Maass cusp form of level N, character χ and eigenvalue λ is an L^2 eigenfunction for Γ1(N) that transforms by χ(d) under Γ0(N) and whose constant term at each cusp is 0.
+reviewed:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Statements/Maass.lean
+  decl: Langlands.IsMaassCuspForm
+  lean: |
+    structure IsMaassCuspForm (N : ℕ) (χ : DirichletCharacter ℂ N) (f : ℍ → ℂ) (ev : ℝ) :
+        Prop where
+      eigenfunction : IsL2Eigenfunction (Gamma1 N) f ev
+      nebentypus : ∀ γ ∈ Gamma0 N, ∀ τ : ℍ,
+        f (γ • τ) = χ (((γ : Matrix (Fin 2) (Fin 2) ℤ) 1 1 : ℤ) : ZMod N) * f τ
+      cuspidal : ∀ (g : SL(2, ℤ)) (y : ℝ), 0 < y →
+        ∫ x in (0 : ℝ)..N, f (g • ofComplex (x + y * Complex.I)) = 0
+checks: [build, equiv-reference]
+wrong:
+  - id: is-maass-cusp-form-width
+    trap: constant
+    reason: At a cusp of width N the constant term is the integral over a full period from 0 to N, and the integral from 0 to 1 is a different condition.
+    lean: |
+      structure IsMaassCuspForm (N : ℕ) (χ : DirichletCharacter ℂ N) (f : ℍ → ℂ) (ev : ℝ) :
+          Prop where
+        eigenfunction : IsL2Eigenfunction (Gamma1 N) f ev
+        nebentypus : ∀ γ ∈ Gamma0 N, ∀ τ : ℍ,
+          f (γ • τ) = χ (((γ : Matrix (Fin 2) (Fin 2) ℤ) 1 1 : ℤ) : ZMod N) * f τ
+        cuspidal : ∀ (g : SL(2, ℤ)) (y : ℝ), 0 < y →
+          ∫ x in (0 : ℝ)..1, f (g • ofComplex (x + y * Complex.I)) = 0

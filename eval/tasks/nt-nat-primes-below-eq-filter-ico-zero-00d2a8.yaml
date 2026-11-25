@@ -1,0 +1,23 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-nat-primes-below-eq-filter-ico-zero-00d2a8
+kind: prove
+origin: mathlib-numbertheory
+title: Prove Nat.primesBelow_eq_filter_Ico_zero.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/PrimeCounting.lean
+  decl: Nat.primesBelow_eq_filter_Ico_zero
+statement: |
+  lemma primesBelow_eq_filter_Ico_zero (n : ℕ) : primesBelow n = filter Nat.Prime (Ico 0 n) := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/PrimeCounting.lean
+  decl: Nat.primesBelow_eq_filter_Ico_zero
+  lines: [188, 190]
+  sha256: 48dafa35085c7b80a1982e799a304b0a389b9caec5373a362a31d3e52b3fce77
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 3
+difficulty: medium

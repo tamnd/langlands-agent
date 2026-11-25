@@ -1,0 +1,23 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-modular-form-summable-eta-q-0dd9d2
+kind: prove
+origin: mathlib-numbertheory
+title: Prove ModularForm.summable_eta_q.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/ModularForms/DedekindEta.lean
+  decl: ModularForm.summable_eta_q
+statement: |
+  theorem summable_eta_q (z : ℍ) : Summable fun n ↦ ‖-eta_q n z‖ := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/ModularForms/DedekindEta.lean
+  decl: ModularForm.summable_eta_q
+  lines: [99, 101]
+  sha256: 1371679384e30b7ce4d411a1fad4db19dcf83591bac481514b56b3199c7e2eec
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 3
+difficulty: medium

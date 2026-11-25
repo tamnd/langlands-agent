@@ -1,0 +1,23 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-nat-abundant-iff-two-lt-abundancy-index-0cce92
+kind: prove
+origin: mathlib-numbertheory
+title: Prove Nat.abundant_iff_two_lt_abundancyIndex.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/FactorisationProperties.lean
+  decl: Nat.abundant_iff_two_lt_abundancyIndex
+statement: |
+  theorem abundant_iff_two_lt_abundancyIndex : Abundant n ↔ 2 < n.abundancyIndex := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/FactorisationProperties.lean
+  decl: Nat.abundant_iff_two_lt_abundancyIndex
+  lines: [198, 202]
+  sha256: b0f359f9cd45e19fe49ba7fd05cee98df214133f9f252bf5d9e4fef8a7d9ee7a
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 5
+difficulty: hard

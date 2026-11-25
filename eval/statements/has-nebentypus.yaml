@@ -1,0 +1,22 @@
+# A statement of spec 10.9, written by hand. A wrong statement is elaborated in place of the reviewed declaration, in its file, so it states each binder that it needs.
+id: has-nebentypus
+title: A cusp form with a nebentypus
+informal: A cusp form f for Γ1(N) has the nebentypus χ if f|γ = χ(d) f for each γ in Γ0(N), where d is the lower right entry of γ.
+reviewed:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Statements/Galois.lean
+  decl: Langlands.HasNebentypus
+  lean: |
+    def HasNebentypus {N : ℕ} {k : ℤ} (f : CuspForm (Gamma1 N : Subgroup (GL (Fin 2) ℝ)) k)
+        (χ : DirichletCharacter ℂ N) : Prop :=
+      ∀ γ ∈ Gamma0 N, (⇑f ∣[k] γ) = χ (((γ : Matrix (Fin 2) (Fin 2) ℤ) 1 1 : ℤ) : ZMod N) • ⇑f
+checks: [build, equiv-reference]
+wrong:
+  - id: has-nebentypus-upper-left
+    trap: wrong-object
+    reason: It uses the upper left entry a in place of d, and on Γ0(N) the value χ(a) is the inverse of χ(d).
+    lean: |
+      def HasNebentypus {N : ℕ} {k : ℤ} (f : CuspForm (Gamma1 N : Subgroup (GL (Fin 2) ℝ)) k)
+          (χ : DirichletCharacter ℂ N) : Prop :=
+        ∀ γ ∈ Gamma0 N, (⇑f ∣[k] γ) = χ (((γ : Matrix (Fin 2) (Fin 2) ℤ) 0 0 : ℤ) : ZMod N) • ⇑f

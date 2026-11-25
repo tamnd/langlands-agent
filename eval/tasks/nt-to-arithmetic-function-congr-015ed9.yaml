@@ -1,0 +1,25 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-to-arithmetic-function-congr-015ed9
+kind: prove
+origin: mathlib-numbertheory
+title: Prove toArithmeticFunction_congr.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/LSeries/Convolution.lean
+  decl: toArithmeticFunction_congr
+statement: |
+  lemma toArithmeticFunction_congr {R : Type*} [Zero R] {f f' : ℕ → R}
+      (h : ∀ {n}, n ≠ 0 → f n = f' n) :
+      toArithmeticFunction f = toArithmeticFunction f' := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/LSeries/Convolution.lean
+  decl: toArithmeticFunction_congr
+  lines: [44, 48]
+  sha256: 8d59f2f76d7abb073605a3128d374c35d0a9e92449bbb8879fb35e6e93a1a790
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 3
+difficulty: medium

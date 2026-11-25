@@ -1,0 +1,19 @@
+# Made by lgl eval gen from https://github.com/n-yamaguchi-0729/ClassFieldTheory. Do not edit by hand.
+id: nyll-local-class-field-theory-mem-range-algebra-map-i-018e43
+kind: state
+origin: nyll
+title: State LocalClassFieldTheory.mem_range_algebraMap_iff_frobenius_fixed in Lean from its docstring.
+source:
+  repo: nyll
+  commit: fc644f42dade5bdc7157fc3ef2eef4dbf2d6a565
+  path: Nyll/ClassFieldTheory/LocalClassFieldTheory/Finite/LocalReciprocity/ResidueAbsoluteDegree.lean
+  decl: LocalClassFieldTheory.mem_range_algebraMap_iff_frobenius_fixed
+informal: In an algebraic closure of a finite field, the fixed points of arithmetic Frobenius are exactly the elements of the base field.
+answer:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Ported/NYLL/ClassFieldTheory/LocalClassFieldTheory/Finite/LocalReciprocity/ResidueAbsoluteDegree.lean
+  decl: LocalClassFieldTheory.mem_range_algebraMap_iff_frobenius_fixed
+  lines: [135, 139]
+  sha256: 67bcafcb065cb50a3e2de68b988be43d478f9ed751d42a34f6f58f14dcdd86b8
+checks: [build, equiv-reference]

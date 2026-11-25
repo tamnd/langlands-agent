@@ -1,0 +1,23 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-mul-char-one-apply-0795a7
+kind: prove
+origin: mathlib-numbertheory
+title: Prove MulChar.one_apply.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/MulChar/Basic.lean
+  decl: MulChar.one_apply
+statement: |
+  lemma one_apply {x : R} (hx : IsUnit x) : (1 : MulChar R R') x = 1 := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/MulChar/Basic.lean
+  decl: MulChar.one_apply
+  lines: [262, 262]
+  sha256: c8d10b08a6717018a9d2a1f6b53e5ba036615c6a7d7068fe2df871a0b306f022
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 1
+difficulty: easy

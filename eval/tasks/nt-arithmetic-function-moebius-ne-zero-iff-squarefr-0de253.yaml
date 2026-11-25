@@ -1,0 +1,23 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-arithmetic-function-moebius-ne-zero-iff-squarefr-0de253
+kind: prove
+origin: mathlib-numbertheory
+title: Prove ArithmeticFunction.moebius_ne_zero_iff_squarefree.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/ArithmeticFunction/Moebius.lean
+  decl: ArithmeticFunction.moebius_ne_zero_iff_squarefree
+statement: |
+  theorem moebius_ne_zero_iff_squarefree {n : ℕ} : μ n ≠ 0 ↔ Squarefree n := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/ArithmeticFunction/Moebius.lean
+  decl: ArithmeticFunction.moebius_ne_zero_iff_squarefree
+  lines: [70, 74]
+  sha256: 6df6142578053f76462fa7ea85f1a6b401222a39a08d58880200b06a144c8001
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 5
+difficulty: hard

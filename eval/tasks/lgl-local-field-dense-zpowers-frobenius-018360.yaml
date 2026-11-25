@@ -1,0 +1,23 @@
+# Made by lgl eval gen from https://github.com/tamnd/langlands-lean. Do not edit by hand.
+id: lgl-local-field-dense-zpowers-frobenius-018360
+kind: prove
+origin: project
+title: Prove Langlands.LocalField.dense_zpowers_frobenius.
+source:
+  repo: langlands-lean
+  commit: eec9007cede3d4961a8e8a8e44952558fb4532e3
+  path: Langlands/WeilGroup/Dense.lean
+  decl: Langlands.LocalField.dense_zpowers_frobenius
+statement: |
+  theorem dense_zpowers_frobenius : Dense (Subgroup.zpowers (frobenius K) : Set Γ) := by
+    sorry
+answer:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/WeilGroup/Dense.lean
+  decl: Langlands.LocalField.dense_zpowers_frobenius
+  lines: [449, 453]
+  sha256: fe323bfee6222e1dfae157ede2790d73bcd6a1f3377325b72855db158923aa72
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 4
+difficulty: medium

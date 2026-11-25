@@ -1,0 +1,23 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-abstract-measure-mul-apply-098347
+kind: prove
+origin: mathlib-numbertheory
+title: Prove AbstractMeasure.mul_apply.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/Padics/Measure/Monoid.lean
+  decl: AbstractMeasure.mul_apply
+statement: |
+  lemma mul_apply (μ ν : D(G, R)) (f : C(G, R)) : (μ * ν) f = μ (convolveFunRight ν f) := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/Padics/Measure/Monoid.lean
+  decl: AbstractMeasure.mul_apply
+  lines: [94, 95]
+  sha256: 9b3a145a102641862921295add51c6a95fa2f94e179defa838ee05a1cdf1d4fe
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 2
+difficulty: medium

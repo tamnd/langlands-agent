@@ -1,0 +1,19 @@
+# Made by lgl eval gen from https://github.com/n-yamaguchi-0729/ClassFieldTheory. Do not edit by hand.
+id: nyll-local-class-field-theory-local-conductor-exponen-027ce2
+kind: state
+origin: nyll
+title: State LocalClassFieldTheory.localConductorExponent_eq_zero_iff in Lean from its docstring.
+source:
+  repo: nyll
+  commit: fc644f42dade5bdc7157fc3ef2eef4dbf2d6a565
+  path: Nyll/ClassFieldTheory/LocalClassFieldTheory/Finite/Conductor.lean
+  decl: LocalClassFieldTheory.localConductorExponent_eq_zero_iff
+informal: The conductor exponent is zero exactly when the whole unit group `U_K = U_K^(0)` is contained in the norm subgroup.
+answer:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Ported/NYLL/ClassFieldTheory/LocalClassFieldTheory/Finite/Conductor.lean
+  decl: LocalClassFieldTheory.localConductorExponent_eq_zero_iff
+  lines: [162, 169]
+  sha256: 3fe5f8d46d62636d9e01e50469a83a1e67eb25f4e9080a9f368cda08d828e972
+checks: [build, equiv-reference]

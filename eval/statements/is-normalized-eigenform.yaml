@@ -1,0 +1,30 @@
+# A statement of spec 10.9, written by hand. A wrong statement is elaborated in place of the reviewed declaration, in its file, so it states each binder that it needs.
+id: is-normalized-eigenform
+title: A normalized eigenform for Gamma0(N)
+informal: A cusp form f of weight k for Γ0(N) is a normalized eigenform if a_1 = 1, the coefficients are multiplicative, a_(p^(r+2)) = a_p a_(p^(r+1)) - p^(k-1) a_(p^r) for each prime p that does not divide N, and a_(p^(r+1)) = a_p a_(p^r) for each prime p that divides N.
+reviewed:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Statements/Modularity.lean
+  decl: Langlands.IsNormalizedEigenform
+  lean: |
+    structure IsNormalizedEigenform {N : ℕ} {k : ℤ}
+        (f : CuspForm (CongruenceSubgroup.Gamma0 N : Subgroup (GL (Fin 2) ℝ)) k) : Prop where
+      one : qCoeff f 1 = 1
+      mul : ∀ m n : ℕ, m.Coprime n → qCoeff f (m * n) = qCoeff f m * qCoeff f n
+      good : ∀ p r : ℕ, p.Prime → ¬ p ∣ N →
+        qCoeff f (p ^ (r + 2)) = qCoeff f p * qCoeff f (p ^ (r + 1)) - (p : ℂ) ^ (k - 1) * qCoeff f (p ^ r)
+      bad : ∀ p r : ℕ, p.Prime → p ∣ N → qCoeff f (p ^ (r + 1)) = qCoeff f p * qCoeff f (p ^ r)
+checks: [build, equiv-reference]
+wrong:
+  - id: is-normalized-eigenform-weight
+    trap: constant
+    reason: The Hecke recursion has the factor p^(k-1), not p^k.
+    lean: |
+      structure IsNormalizedEigenform {N : ℕ} {k : ℤ}
+          (f : CuspForm (CongruenceSubgroup.Gamma0 N : Subgroup (GL (Fin 2) ℝ)) k) : Prop where
+        one : qCoeff f 1 = 1
+        mul : ∀ m n : ℕ, m.Coprime n → qCoeff f (m * n) = qCoeff f m * qCoeff f n
+        good : ∀ p r : ℕ, p.Prime → ¬ p ∣ N →
+          qCoeff f (p ^ (r + 2)) = qCoeff f p * qCoeff f (p ^ (r + 1)) - (p : ℂ) ^ k * qCoeff f (p ^ r)
+        bad : ∀ p r : ℕ, p.Prime → p ∣ N → qCoeff f (p ^ (r + 1)) = qCoeff f p * qCoeff f (p ^ r)

@@ -1,0 +1,24 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: rt-group-homology-single-self-add-single-inv-mem-bo-01864f
+kind: prove
+origin: mathlib-representationtheory
+title: Prove groupHomology.single_ρ_self_add_single_inv_mem_boundaries₁.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Homological/GroupHomology/LowDegree.lean
+  decl: groupHomology.single_ρ_self_add_single_inv_mem_boundaries₁
+statement: |
+  theorem single_ρ_self_add_single_inv_mem_boundaries₁ (g : G) (a : A) :
+      single g (A.ρ g a) + single g⁻¹ a ∈ boundaries₁ A := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Homological/GroupHomology/LowDegree.lean
+  decl: groupHomology.single_ρ_self_add_single_inv_mem_boundaries₁
+  lines: [434, 437]
+  sha256: e7b243142071a3d130db8cdc186fc5db8a0542c2cde8358af20a6112bad0966a
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 3
+difficulty: medium

@@ -1,0 +1,60 @@
+# Made by lgl eval gen from https://github.com/n-yamaguchi-0729/ClassFieldTheory. Do not edit by hand.
+id: fix-global-class-fields-finite-abelian-extension-emb-d1be08
+kind: repair
+origin: nyll-port
+title: Repair GlobalClassFieldTheory.GlobalClassFields.finiteAbelianExtensionEmbeddingOfNormRangeLE for the Mathlib of the project pin.
+source:
+  repo: nyll
+  commit: fc644f42dade5bdc7157fc3ef2eef4dbf2d6a565
+  path: Nyll/ClassFieldTheory/GlobalClassFieldTheory/GlobalClassFields/FiniteAbelianClassFieldContainment.lean
+  decl: GlobalClassFieldTheory.GlobalClassFields.finiteAbelianExtensionEmbeddingOfNormRangeLE
+broken: |
+  noncomputable def finiteAbelianExtensionEmbeddingOfNormRangeLE
+      (L₁ : Type v) (L₂ : Type w)
+      [Field L₁] [NumberField L₁]
+      [Field L₂] [NumberField L₂]
+      [Algebra K L₁] [Algebra K L₂]
+      [FiniteDimensional K L₁] [FiniteDimensional K L₂]
+      [IsAbelianGalois K L₁] [IsAbelianGalois K L₂]
+      (h :
+        (_root_.ideleClassNorm K L₂).range ≤
+          (_root_.ideleClassNorm K L₁).range) :
+      L₁ →ₐ[K] L₂ := by
+    let i₁ := AlgebraicNumberTheory.separableEmbeddingIntoSeparableClosure K L₁
+    let i₂ := AlgebraicNumberTheory.separableEmbeddingIntoSeparableClosure K L₂
+    let J₁ := numberFieldAbelianSubextensionOfEmbedding L₁ i₁
+    let J₂ := numberFieldAbelianSubextensionOfEmbedding L₂ i₂
+    let e := ideleClassEquivBaseFixed K
+    have h₁ : J₁.normSubgroup (ideleClassRepresentation K) =
+        (_root_.ideleClassNorm K L₁).range.toAddSubgroup.map e.toAddMonoidHom :=
+      standardNumberFieldGaloisSubextensionOfEmbedding_normSubgroup K L₁ i₁
+    have h₂ : J₂.normSubgroup (ideleClassRepresentation K) =
+        (_root_.ideleClassNorm K L₂).range.toAddSubgroup.map e.toAddMonoidHom :=
+      standardNumberFieldGaloisSubextensionOfEmbedding_normSubgroup K L₂ i₂
+    have hNorm : J₂.normSubgroup (ideleClassRepresentation K) ≤
+        J₁.normSubgroup (ideleClassRepresentation K) := by
+      rw [h₂, h₁]
+      exact AddSubgroup.map_mono h
+    have hOrder : J₁ ≤ J₂ :=
+      (FiniteAbelianSubextension.le_iff_normSubgroup_le
+        (numberFieldCyclotomicIdeleClassValuationData K)
+        (ideleClassRepresentation_satisfiesClassFieldAxiom K)
+        (FiniteAbstractField.base Gal(SeparableClosure K/K)) J₁ J₂).2 hNorm
+    have hRange : i₁.fieldRange ≤ i₂.fieldRange := by
+      rw [← InfiniteGalois.fixedField_fixingSubgroup i₂.fieldRange]
+      apply (IntermediateField.le_fixedField_iff_le_fixingSubgroup
+        i₂.fieldRange.fixingSubgroup i₁.fieldRange).2
+      exact hOrder
+    exact i₂.equivFieldRange.symm.toAlgHom.comp
+      ((IntermediateField.inclusion hRange).comp i₁.equivFieldRange.toAlgHom)
+error: 'The build fails at the project pin: IntermediateField.le_fixedField_iff_le_fixingSubgroup is not a name in its Mathlib.'
+answer:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Ported/NYLL/ClassFieldTheory/GlobalClassFieldTheory/GlobalClassFields/FiniteAbelianClassFieldContainment.lean
+  decl: GlobalClassFieldTheory.GlobalClassFields.finiteAbelianExtensionEmbeddingOfNormRangeLE
+  lines: [89, 126]
+  sha256: 55218101142e19c5288416755d5808e6718807500e60fcfdeac26782a42aeecc
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 28
+difficulty: hard

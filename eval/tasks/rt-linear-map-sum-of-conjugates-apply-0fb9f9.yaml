@@ -1,0 +1,23 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: rt-linear-map-sum-of-conjugates-apply-0fb9f9
+kind: prove
+origin: mathlib-representationtheory
+title: Prove LinearMap.sumOfConjugates_apply.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Maschke.lean
+  decl: LinearMap.sumOfConjugates_apply
+statement: |
+  lemma sumOfConjugates_apply (v : W) : π.sumOfConjugates G v = ∑ g : G, π.conjugate g v := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Maschke.lean
+  decl: LinearMap.sumOfConjugates_apply
+  lines: [93, 94]
+  sha256: b367a8bae972a490a6b4bf93aaf92ff574a438d908fd2fa7a1d0575be814edb4
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 1
+difficulty: easy

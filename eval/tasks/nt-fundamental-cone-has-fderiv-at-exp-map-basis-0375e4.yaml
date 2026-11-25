@@ -1,0 +1,24 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-fundamental-cone-has-fderiv-at-exp-map-basis-0375e4
+kind: prove
+origin: mathlib-numbertheory
+title: Prove NumberField.mixedEmbedding.fundamentalCone.hasFDerivAt_expMapBasis.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/NumberField/CanonicalEmbedding/NormLeOne.lean
+  decl: NumberField.mixedEmbedding.fundamentalCone.hasFDerivAt_expMapBasis
+statement: |
+  theorem hasFDerivAt_expMapBasis (x : realSpace K) :
+      HasFDerivAt expMapBasis (fderiv_expMapBasis K x) x := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/NumberField/CanonicalEmbedding/NormLeOne.lean
+  decl: NumberField.mixedEmbedding.fundamentalCone.hasFDerivAt_expMapBasis
+  lines: [583, 586]
+  sha256: 1d3a571eb3261fdd2969f8b0c44782e60075e32eaff18307f1b4df8798882fb9
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 3
+difficulty: medium

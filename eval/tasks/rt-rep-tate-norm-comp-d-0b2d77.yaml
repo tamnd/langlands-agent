@@ -1,0 +1,23 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: rt-rep-tate-norm-comp-d-0b2d77
+kind: prove
+origin: mathlib-representationtheory
+title: Prove Rep.tateNorm_comp_d.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Homological/TateCohomology/Basic.lean
+  decl: Rep.tateNorm_comp_d
+statement: |
+  lemma Rep.tateNorm_comp_d : tateNorm M ≫ (inhomogeneousCochains M).d 0 1 = 0 := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Homological/TateCohomology/Basic.lean
+  decl: Rep.tateNorm_comp_d
+  lines: [77, 78]
+  sha256: ba8c832e8f06bc8ed2ad8ad67476ba395154393a83607bfe8a21c4aa4e8b22a9
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 2
+difficulty: medium

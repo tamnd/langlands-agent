@@ -1,0 +1,24 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-irrational-beatty-seq-prime-pos-eq-0d3d7c
+kind: prove
+origin: mathlib-numbertheory
+title: Prove Irrational.beattySeq'_pos_eq.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/Rayleigh.lean
+  decl: Irrational.beattySeq'_pos_eq
+statement: |
+  theorem Irrational.beattySeq'_pos_eq {r : ℝ} (hr : Irrational r) :
+      {beattySeq' r k | k > 0} = {beattySeq r k | k > 0} := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/Rayleigh.lean
+  decl: Irrational.beattySeq'_pos_eq
+  lines: [167, 173]
+  sha256: 1ad7edaa9e913649d65d67163353415160d6cb79646a285e20943a64a1145ebb
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 6
+difficulty: hard

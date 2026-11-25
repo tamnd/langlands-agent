@@ -1,0 +1,24 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: rt-group-cohomology-cocycles2-map-one-fst-022ea7
+kind: prove
+origin: mathlib-representationtheory
+title: Prove groupCohomology.cocycles₂_map_one_fst.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Homological/GroupCohomology/LowDegree.lean
+  decl: groupCohomology.cocycles₂_map_one_fst
+statement: |
+  theorem cocycles₂_map_one_fst (f : cocycles₂ A) (g : G) :
+      f (1, g) = f (1, 1) := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Homological/GroupCohomology/LowDegree.lean
+  decl: groupCohomology.cocycles₂_map_one_fst
+  lines: [379, 382]
+  sha256: 1db904ebb70046b62e4fd807ac8dfd7bc59fa22f06f354f0773fa36677e03312
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 3
+difficulty: medium

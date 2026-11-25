@@ -1,0 +1,27 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: rt-inhomogeneous-chains-d-eq-0ef04d
+kind: prove
+origin: mathlib-representationtheory
+title: Prove groupHomology.inhomogeneousChains.d_eq.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Homological/GroupHomology/Basic.lean
+  decl: groupHomology.inhomogeneousChains.d_eq
+statement: |
+  set_option backward.defeqAttrib.useBackward true in
+  theorem d_eq [DecidableEq G] :
+      d A n = (coinvariantsTensorFreeLEquiv A (Fin (n + 1) → G)).toModuleIso.inv ≫
+        ((barComplex k G).coinvariantsTensorObj A).d (n + 1) n ≫
+        (coinvariantsTensorFreeLEquiv A (Fin n → G)).toModuleIso.hom := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Homological/GroupHomology/Basic.lean
+  decl: groupHomology.inhomogeneousChains.d_eq
+  lines: [140, 147]
+  sha256: 1f2472edc4542d2645e8b3339fa2299a38f695ac8982164d81b4040fdbadb46f
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 4
+difficulty: medium

@@ -1,0 +1,25 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-arithmetic-function-pdiv-zeta-0692db
+kind: prove
+origin: mathlib-numbertheory
+title: Prove ArithmeticFunction.pdiv_zeta.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/ArithmeticFunction/Zeta.lean
+  decl: ArithmeticFunction.pdiv_zeta
+statement: |
+  @[simp]
+  theorem pdiv_zeta [DivisionSemiring R] (f : ArithmeticFunction R) :
+      pdiv f zeta = f := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/ArithmeticFunction/Zeta.lean
+  decl: ArithmeticFunction.pdiv_zeta
+  lines: [183, 187]
+  sha256: 844a3a02c70e3a3c1854ee230cc1e311b543571b03532f0b55db94e78dca938d
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 3
+difficulty: medium

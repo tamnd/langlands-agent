@@ -1,0 +1,23 @@
+# Made by lgl eval gen from https://github.com/tamnd/langlands-lean. Do not edit by hand.
+id: lgl-weil-group-is-compact-inertia-06cf16
+kind: prove
+origin: project
+title: Prove Langlands.WeilGroup.isCompact_inertia.
+source:
+  repo: langlands-lean
+  commit: 5c905c318e5ec25a39090659914a9ae43307acb5
+  path: Langlands/WeilGroup/Inertia.lean
+  decl: Langlands.WeilGroup.isCompact_inertia
+statement: |
+  theorem isCompact_inertia : IsCompact (inertia K : Set (WeilGroup K)) := by
+    sorry
+answer:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/WeilGroup/Inertia.lean
+  decl: Langlands.WeilGroup.isCompact_inertia
+  lines: [57, 65]
+  sha256: 24f657f5ae3a8c4296425ab406cc2789f1766c8c3fb5983450965400a4afe223
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 9
+difficulty: hard

@@ -1,0 +1,25 @@
+# Made by lgl eval gen from https://github.com/n-yamaguchi-0729/ClassFieldTheory. Do not edit by hand.
+id: fix-valuation-subring-char-p-391fa1
+kind: repair
+origin: nyll-port
+title: Repair ValuationTheory.ValuationSubring.charP for the Mathlib of the project pin.
+source:
+  repo: nyll
+  commit: fc644f42dade5bdc7157fc3ef2eef4dbf2d6a565
+  path: Nyll/ValuedFieldTheory/Valuation/DiscreteValuationField/Basic.lean
+  decl: ValuationTheory.ValuationSubring.charP
+broken: |
+  theorem charP {K : Type u} [Field K] (R : ValuationSubring K) (p : ℕ) [CharP K p] :
+      CharP R p :=
+    SubsemiringClass.charP_iff K p R.toSubring.toSubsemiring
+error: 'The build fails at the project pin: SubsemiringClass.charP_iff is not a name in its Mathlib.'
+answer:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Ported/NYLL/ValuedFieldTheory/Valuation/DiscreteValuationField/Basic.lean
+  decl: ValuationTheory.ValuationSubring.charP
+  lines: [34, 36]
+  sha256: 7456cf63fd0609dbec4bf6974041628dfbefb65b38e28c203a426e352d371674
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 1
+difficulty: easy

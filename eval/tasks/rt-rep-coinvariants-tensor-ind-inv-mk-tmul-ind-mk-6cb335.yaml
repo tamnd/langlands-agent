@@ -1,0 +1,28 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: rt-rep-coinvariants-tensor-ind-inv-mk-tmul-ind-mk-6cb335
+kind: prove
+origin: mathlib-representationtheory
+title: Prove Rep.coinvariantsTensorIndInv_mk_tmul_indMk.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Induced.lean
+  decl: Rep.coinvariantsTensorIndInv_mk_tmul_indMk
+statement: |
+  set_option backward.defeqAttrib.useBackward true in
+  variable {A B} in
+  lemma coinvariantsTensorIndInv_mk_tmul_indMk (x : A) (y : B) :
+      coinvariantsTensorIndInv φ A B (Coinvariants.mk
+        (A.ρ.tprod (Rep.ρ (res φ B))) <| x ⊗ₜ y) =
+        coinvariantsTensorMk _ _ (IndV.mk φ _ 1 x) y := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Induced.lean
+  decl: Rep.coinvariantsTensorIndInv_mk_tmul_indMk
+  lines: [218, 224]
+  sha256: 30ca9885439b41c3ef3a3014788109d8b10213f49fcea8030e0e02d60d95e066
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 2
+difficulty: medium

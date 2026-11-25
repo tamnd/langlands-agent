@@ -1,0 +1,23 @@
+# Made by lgl eval gen from https://github.com/tamnd/langlands-lean. Do not edit by hand.
+id: lgl-weil-group-is-open-inertia-118d68
+kind: prove
+origin: project
+title: Prove Langlands.WeilGroup.isOpen_inertia.
+source:
+  repo: langlands-lean
+  commit: b312c88bf8ef5dac84758b063410bcf41fd566a9
+  path: Langlands/Statements/Basic.lean
+  decl: Langlands.WeilGroup.isOpen_inertia
+statement: |
+  theorem isOpen_inertia : IsOpen (inertia K : Set (WeilGroup K)) := by
+    sorry
+answer:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Statements/Basic.lean
+  decl: Langlands.WeilGroup.isOpen_inertia
+  lines: [187, 188]
+  sha256: 3774651d0014ae0462133ce02fc6e9fc8e1ecdfb54fa55a579ee146f0756ef5d
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 1
+difficulty: easy

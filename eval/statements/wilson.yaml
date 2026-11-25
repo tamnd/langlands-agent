@@ -1,0 +1,19 @@
+# A statement of spec 10.9, written by hand. A wrong statement is elaborated in place of the reviewed declaration, in its file, so it states each binder that it needs.
+id: wilson
+title: The theorem of Wilson
+informal: For a prime p, (p - 1)! is -1 modulo p.
+reviewed:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/Wilson.lean
+  decl: ZMod.wilsons_lemma
+  lean: |
+    @[simp]
+    theorem wilsons_lemma : ((p - 1)! : ZMod p) = -1
+checks: [build, equiv-reference]
+wrong:
+  - id: wilson-not-prime
+    trap: missing-condition
+    reason: For n = 4 the factorial 3! = 6 is 2 modulo 4, so without the primality of n the statement is false.
+    lean: |
+      theorem wilsons_lemma (n : ℕ) : ((n - 1)! : ZMod n) = -1

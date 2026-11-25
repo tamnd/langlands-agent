@@ -1,0 +1,20 @@
+# A statement of spec 10.9, written by hand. A wrong statement is elaborated in place of the reviewed declaration, in its file, so it states each binder that it needs.
+id: is-complex-conjugation
+title: A complex conjugation in the Galois group of Q
+informal: An element c of the absolute Galois group of the rationals is a complex conjugation if there is an embedding j of the algebraic closure of the rationals into C such that j(c x) is the complex conjugate of j(x) for each x.
+reviewed:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Statements/Galois.lean
+  decl: Langlands.IsComplexConjugation
+  lean: |
+    def IsComplexConjugation (c : Field.absoluteGaloisGroup ℚ) : Prop :=
+      ∃ j : AlgebraicClosure ℚ →+* ℂ, ∀ x, j (c • x) = conj (j x)
+checks: [build, equiv-reference]
+wrong:
+  - id: is-complex-conjugation-identity
+    trap: wrong-object
+    reason: Since j is injective, this condition holds only for the identity, which is not a complex conjugation.
+    lean: |
+      def IsComplexConjugation (c : Field.absoluteGaloisGroup ℚ) : Prop :=
+        ∃ j : AlgebraicClosure ℚ →+* ℂ, ∀ x, j (c • x) = j x

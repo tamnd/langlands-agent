@@ -1,0 +1,24 @@
+# Made by lgl eval gen from https://github.com/tamnd/langlands-lean. Do not edit by hand.
+id: lgl-shapiro-restrict-hom-surjective-00b59e
+kind: prove
+origin: project
+title: Prove Langlands.Shapiro.restrictHom_surjective.
+source:
+  repo: langlands-lean
+  commit: 71d073873c40d4447b15030f07c22b9e756ed88e
+  path: Langlands/Cohomology/Shapiro.lean
+  decl: Langlands.Shapiro.restrictHom_surjective
+statement: |
+  lemma restrictHom_surjective (hH : IsOpen (H : Set G)) :
+      Function.Surjective (restrictHom (H := H) (A := A)) := by
+    sorry
+answer:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Cohomology/Shapiro.lean
+  decl: Langlands.Shapiro.restrictHom_surjective
+  lines: [234, 236]
+  sha256: 51fcec6d71f2ecd267e7d23c0bba447da2b3f1ccddcad481f718c663fbdc5065
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 1
+difficulty: easy

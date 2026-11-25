@@ -1,0 +1,24 @@
+# A statement of spec 10.9, written by hand. A wrong statement is elaborated in place of the reviewed declaration, in its file, so it states each binder that it needs.
+id: hecke-local-factor
+title: The local factor of a Hecke L-function
+informal: The local L-factor of a Hecke character χ at a finite place v is (1 - χ_v(ϖ_v) N(v)^(-s))^(-1) if χ is unramified at v, and 1 if χ is ramified at v.
+reviewed:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Statements/Hecke.lean
+  decl: Langlands.HeckeCharacter.localFactor
+  lean: |
+    noncomputable def localFactor (v : HeightOneSpectrum (𝓞 K)) (s : ℂ) : ℂ :=
+      if χ.IsUnramifiedAt v then
+        (1 - (χ.finiteComponent v (localUniformizer K v) : ℂ) *
+          (Ideal.absNorm v.asIdeal : ℂ) ^ (-s))⁻¹
+      else 1
+checks: [build, equiv-reference]
+wrong:
+  - id: hecke-local-factor-ramified
+    trap: missing-condition
+    reason: At a ramified place the value of χ_v at a uniformizer depends on the choice of the uniformizer, and the local factor must be 1.
+    lean: |
+      noncomputable def localFactor (v : HeightOneSpectrum (𝓞 K)) (s : ℂ) : ℂ :=
+        (1 - (χ.finiteComponent v (localUniformizer K v) : ℂ) *
+          (Ideal.absNorm v.asIdeal : ℂ) ^ (-s))⁻¹

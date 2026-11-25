@@ -1,0 +1,26 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-arithmetic-function-tends-to-euler-product-of-po-057659
+kind: prove
+origin: mathlib-numbertheory
+title: Prove ArithmeticFunction.tendsTo_eulerProduct_ofPowerSeries.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/ArithmeticFunction/LFunction.lean
+  decl: ArithmeticFunction.tendsTo_eulerProduct_ofPowerSeries
+statement: |
+  theorem tendsTo_eulerProduct_ofPowerSeries (q : ι → ℕ) [hq : Northcott q]
+      (f : ι → PowerSeries R) (hf : ∀ i, (f i).constantCoeff = 1) (n : ℕ) :
+      ∀ᶠ s in atTop, (∏ i ∈ s, ofPowerSeries (q i) (f i)) n =
+        eulerProduct (fun i ↦ ofPowerSeries (q i) (f i)) n := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/ArithmeticFunction/LFunction.lean
+  decl: ArithmeticFunction.tendsTo_eulerProduct_ofPowerSeries
+  lines: [331, 344]
+  sha256: eb6bfb632bdf3841b84dad8b33153d715914d00fdbeeac726a87ed0636caf2ed
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 11
+difficulty: hard

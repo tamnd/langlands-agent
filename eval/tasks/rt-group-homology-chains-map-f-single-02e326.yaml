@@ -1,0 +1,24 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: rt-group-homology-chains-map-f-single-02e326
+kind: prove
+origin: mathlib-representationtheory
+title: Prove groupHomology.chainsMap_f_single.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Homological/GroupHomology/Functoriality.lean
+  decl: groupHomology.chainsMap_f_single
+statement: |
+  lemma chainsMap_f_single (n : ℕ) (x : Fin n → G) (a : A) :
+      (chainsMap f φ).f n (single x a) = single (f ∘ x) (φ.hom a) := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Homological/GroupHomology/Functoriality.lean
+  decl: groupHomology.chainsMap_f_single
+  lines: [79, 81]
+  sha256: 8bd605406bc57a465ad92bf79851efc2065c573d5a07b6af74ebc7741b0eab2e
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 2
+difficulty: medium

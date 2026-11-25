@@ -1,0 +1,28 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: rt-rep-to-module-monoid-algebra-map-aux-a70d9e
+kind: prove
+origin: mathlib-representationtheory
+title: Prove Rep.to_Module_monoidAlgebra_map_aux.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Rep/Iso.lean
+  decl: Rep.to_Module_monoidAlgebra_map_aux
+statement: |
+  theorem to_Module_monoidAlgebra_map_aux {k G : Type*} [CommRing k] [Monoid G] (V W : Type*)
+      [AddCommGroup V] [AddCommGroup W] [Module k V] [Module k W] (ρ : G →* V →ₗ[k] V)
+      (σ : G →* W →ₗ[k] W) (f : V →ₗ[k] W) (w : ∀ g : G, f.comp (ρ g) = (σ g).comp f)
+      (r : k[G]) (x : V) :
+      f (MonoidAlgebra.lift k (V →ₗ[k] V) G ρ r x) =
+        MonoidAlgebra.lift k (W →ₗ[k] W) G σ r (f x) := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Rep/Iso.lean
+  decl: Rep.to_Module_monoidAlgebra_map_aux
+  lines: [73, 85]
+  sha256: 012a58d00c77d5693c38319c52af5ef49b2377b715787a21f9255c857185d4a6
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 8
+difficulty: hard

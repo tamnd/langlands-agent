@@ -1,0 +1,23 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-dirichlet-character-conductor-one-dvd-04707c
+kind: prove
+origin: mathlib-numbertheory
+title: Prove DirichletCharacter.conductor_one_dvd.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/DirichletCharacter/Basic.lean
+  decl: DirichletCharacter.conductor_one_dvd
+statement: |
+  lemma conductor_one_dvd (n : ℕ) : conductor (1 : DirichletCharacter R 1) ∣ n := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/DirichletCharacter/Basic.lean
+  decl: DirichletCharacter.conductor_one_dvd
+  lines: [301, 303]
+  sha256: 6ac0f2f2ae56fe4ccb39dddc68f1f7c6e9d702f760f5dad9e9ec48627f243c5f
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 3
+difficulty: medium

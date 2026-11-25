@@ -1,0 +1,25 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-finite-field-is-square-odd-prime-iff-02bc73
+kind: prove
+origin: mathlib-numbertheory
+title: Prove FiniteField.isSquare_odd_prime_iff.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/LegendreSymbol/QuadraticChar/GaussSum.lean
+  decl: FiniteField.isSquare_odd_prime_iff
+statement: |
+  theorem FiniteField.isSquare_odd_prime_iff (hF : ringChar F ≠ 2) {p : ℕ} [Fact p.Prime]
+      (hp : p ≠ 2) :
+      IsSquare (p : F) ↔ quadraticChar (ZMod p) (χ₄ (Fintype.card F) * Fintype.card F) ≠ -1 := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/LegendreSymbol/QuadraticChar/GaussSum.lean
+  decl: FiniteField.isSquare_odd_prime_iff
+  lines: [103, 110]
+  sha256: 62377a0fe1e88b54bb6e1226824cf8544b14336c1df8d67d960d6582abacfba4
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 6
+difficulty: hard

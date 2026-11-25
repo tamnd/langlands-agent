@@ -1,0 +1,23 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: rt-fdrep-char-iso-0fe675
+kind: prove
+origin: mathlib-representationtheory
+title: Prove FDRep.char_iso.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Character.lean
+  decl: FDRep.char_iso
+statement: |
+  theorem char_iso {V W : FDRep k G} (i : V ≅ W) : V.character = W.character := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Character.lean
+  decl: FDRep.char_iso
+  lines: [182, 185]
+  sha256: 6352546221da71d6d5e8daaf02d847e3509dcf38115f999f3cb68126df23bbf4
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 4
+difficulty: medium

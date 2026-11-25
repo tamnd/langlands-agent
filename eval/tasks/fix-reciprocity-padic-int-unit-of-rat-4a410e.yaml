@@ -1,0 +1,30 @@
+# Made by lgl eval gen from https://github.com/n-yamaguchi-0729/ClassFieldTheory. Do not edit by hand.
+id: fix-reciprocity-padic-int-unit-of-rat-4a410e
+kind: repair
+origin: nyll-port
+title: Repair GlobalClassFieldTheory.Reciprocity.padicIntUnitOfRat for the Mathlib of the project pin.
+source:
+  repo: nyll
+  commit: fc644f42dade5bdc7157fc3ef2eef4dbf2d6a565
+  path: Nyll/ClassFieldTheory/GlobalClassFieldTheory/Reciprocity/RationalPrimeFactorization.lean
+  decl: GlobalClassFieldTheory.Reciprocity.padicIntUnitOfRat
+broken: |
+  def padicIntUnitOfRat
+      (p : Nat.Primes) (y : ℚ)
+      (hy : y ≠ 0) (hval : padicValRat p.1 y = 0) :
+      ℤ_[p.1]ˣ :=
+    PadicInt.mkUnits (u := (y : ℚ_[p.1])) (by
+      rw [Padic.eq_padicNorm,
+        padicNorm.eq_zpow_of_ne_zero hy, hval]
+      simp only [neg_zero, zpow_zero, Rat.cast_one])
+error: 'The build fails at the project pin: padicNorm.eq_zpow_of_ne_zero is not a name in its Mathlib.'
+answer:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Ported/NYLL/ClassFieldTheory/GlobalClassFieldTheory/Reciprocity/RationalPrimeFactorization.lean
+  decl: GlobalClassFieldTheory.Reciprocity.padicIntUnitOfRat
+  lines: [247, 254]
+  sha256: f711fcb6420897c60a496799239b923eed63dc3d1de9ea7a0b169445f0060cc8
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 4
+difficulty: medium

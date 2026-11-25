@@ -1,0 +1,19 @@
+# Made by lgl eval gen from https://github.com/n-yamaguchi-0729/ClassFieldTheory. Do not edit by hand.
+id: nyll-equal-characteristic-mem-equal-characteristic-lu-018f71
+kind: state
+origin: nyll
+title: State LubinTate.EqualCharacteristic.mem_equalCharacteristicLubinTateHigherUnitSubgroup in Lean from its docstring.
+source:
+  repo: nyll
+  commit: fc644f42dade5bdc7157fc3ef2eef4dbf2d6a565
+  path: Nyll/ClassFieldTheory/LubinTate/EqualCharacteristic/FormalModule/DivisionModuleEndomorphisms.lean
+  decl: LubinTate.EqualCharacteristic.mem_equalCharacteristicLubinTateHigherUnitSubgroup
+informal: A unit is in the higher-unit kernel exactly when it is one modulo `X ^ (n + 1)`.
+answer:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Ported/NYLL/ClassFieldTheory/LubinTate/EqualCharacteristic/FormalModule/DivisionModuleEndomorphisms.lean
+  decl: LubinTate.EqualCharacteristic.mem_equalCharacteristicLubinTateHigherUnitSubgroup
+  lines: [182, 202]
+  sha256: a2cb068270ef2752aabfa3a5b3bda85dd290dcdbebb62e247e4dd192cbcb3330
+checks: [build, equiv-reference]

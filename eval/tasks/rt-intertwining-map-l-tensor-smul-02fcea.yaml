@@ -1,0 +1,25 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: rt-intertwining-map-l-tensor-smul-02fcea
+kind: prove
+origin: mathlib-representationtheory
+title: Prove Representation.IntertwiningMap.lTensor_smul.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Intertwining.lean
+  decl: Representation.IntertwiningMap.lTensor_smul
+statement: |
+  @[simp]
+  lemma lTensor_smul (a : A) (f : IntertwiningMap σ τ) :
+      lTensor ρ (a • f) = a • lTensor ρ f := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Intertwining.lean
+  decl: Representation.IntertwiningMap.lTensor_smul
+  lines: [737, 739]
+  sha256: 597ee2c63b204860b4328389e400b82efeebefa1bc5025e7f680712942e591a5
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 1
+difficulty: easy

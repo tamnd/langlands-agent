@@ -1,0 +1,23 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-ring-of-integers-exponent-eq-one-iff-0955aa
+kind: prove
+origin: mathlib-numbertheory
+title: Prove RingOfIntegers.exponent_eq_one_iff.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/NumberField/Ideal/KummerDedekind.lean
+  decl: RingOfIntegers.exponent_eq_one_iff
+statement: |
+  theorem exponent_eq_one_iff : exponent θ = 1 ↔ Algebra.adjoin ℤ {θ} = ⊤ := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/NumberField/Ideal/KummerDedekind.lean
+  decl: RingOfIntegers.exponent_eq_one_iff
+  lines: [69, 70]
+  sha256: 8459ecefd3864a209d7b0b725233168bdd4448a9a14aca838e76e4589ab7d424
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 2
+difficulty: medium

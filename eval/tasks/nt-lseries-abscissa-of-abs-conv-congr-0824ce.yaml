@@ -1,0 +1,24 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-lseries-abscissa-of-abs-conv-congr-0824ce
+kind: prove
+origin: mathlib-numbertheory
+title: Prove LSeries.abscissaOfAbsConv_congr.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/LSeries/Convergence.lean
+  decl: LSeries.abscissaOfAbsConv_congr
+statement: |
+  lemma LSeries.abscissaOfAbsConv_congr {f g : ℕ → ℂ} (h : ∀ {n}, n ≠ 0 → f n = g n) :
+      abscissaOfAbsConv f = abscissaOfAbsConv g := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/LSeries/Convergence.lean
+  decl: LSeries.abscissaOfAbsConv_congr
+  lines: [32, 34]
+  sha256: 906e946d5d4a1ce0b079b14ce659c49893f94b2562333ea1b257f6ac2074d0be
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 1
+difficulty: easy

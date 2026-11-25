@@ -1,0 +1,29 @@
+# Made by lgl eval gen from https://github.com/n-yamaguchi-0729/ClassFieldTheory. Do not edit by hand.
+id: fix-fractional-ideal-factorization-count-coe-ideal-e-4be704
+kind: repair
+origin: nyll-port
+title: Repair ClassFieldTheory.FractionalIdealFactorization.count_coeIdeal_eq_multiplicity for the Mathlib of the project pin.
+source:
+  repo: nyll
+  commit: fc644f42dade5bdc7157fc3ef2eef4dbf2d6a565
+  path: Nyll/ClassFieldTheory/Algebra/FractionalIdealFactorization.lean
+  decl: ClassFieldTheory.FractionalIdealFactorization.count_coeIdeal_eq_multiplicity
+broken: |
+  theorem count_coeIdeal_eq_multiplicity (v : HeightOneSpectrum R) {I : Ideal R}
+      (hI : I ≠ ⊥) :
+      FractionalIdeal.count F v (I : FractionalIdeal R⁰ F) = (multiplicity v.asIdeal I : ℤ) := by
+    classical
+    rw [FractionalIdeal.count_coeIdeal F v hI,
+      Ideal.count_associates_factors_eq hI v.isPrime v.ne_bot,
+      v.count_normalizedFactors_eq_multiplicity hI]
+error: 'The build fails at the project pin: FractionalIdeal.count_coeIdeal is not a name in its Mathlib.'
+answer:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Ported/NYLL/ClassFieldTheory/Algebra/FractionalIdealFactorization.lean
+  decl: ClassFieldTheory.FractionalIdealFactorization.count_coeIdeal_eq_multiplicity
+  lines: [82, 88]
+  sha256: faf7d54fb6f1173d2ac490aea608c5ed671bcea8c3c76fe3a4e26cc0d9e5b000
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 5
+difficulty: hard

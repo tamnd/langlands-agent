@@ -1,0 +1,23 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-padic-norm-padic-norm-p-07762a
+kind: prove
+origin: mathlib-numbertheory
+title: Prove padicNorm.padicNorm_p.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/Padics/PadicNorm.lean
+  decl: padicNorm.padicNorm_p
+statement: |
+  theorem padicNorm_p (hp : 1 < p) : padicNorm p p = (p : ℚ)⁻¹ := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/Padics/PadicNorm.lean
+  decl: padicNorm.padicNorm_p
+  lines: [79, 80]
+  sha256: 5a62843d0189e6720785806e725efe600ce456ae03a4fe8c316933964ea915d9
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 2
+difficulty: medium

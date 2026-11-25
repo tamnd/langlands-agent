@@ -1,0 +1,24 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-closure-fund-system-sup-torsion-eq-top-063ad7
+kind: prove
+origin: mathlib-numbertheory
+title: Prove closure_fundSystem_sup_torsion_eq_top.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean
+  decl: closure_fundSystem_sup_torsion_eq_top
+statement: |
+  theorem closure_fundSystem_sup_torsion_eq_top :
+      Subgroup.closure (Set.range (fundSystem K)) ⊔ torsion K = ⊤ := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean
+  decl: closure_fundSystem_sup_torsion_eq_top
+  lines: [525, 531]
+  sha256: 808bce98376a303301c6dfd078955fa2af156700a18ad7b51df99cf5074d8da1
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 6
+difficulty: hard

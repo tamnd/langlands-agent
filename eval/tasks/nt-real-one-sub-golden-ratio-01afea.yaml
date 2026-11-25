@@ -1,0 +1,23 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-real-one-sub-golden-ratio-01afea
+kind: prove
+origin: mathlib-numbertheory
+title: Prove Real.one_sub_goldenRatio.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/Real/GoldenRatio.lean
+  decl: Real.one_sub_goldenRatio
+statement: |
+  theorem one_sub_goldenRatio : 1 - ψ = φ := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/Real/GoldenRatio.lean
+  decl: Real.one_sub_goldenRatio
+  lines: [71, 72]
+  sha256: 04f6a53fc30d96de4ce67d75f76bc84ce3ca805154517e41a5ae563d7c3335bb
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 2
+difficulty: medium

@@ -1,0 +1,54 @@
+# Made by lgl eval gen from https://github.com/n-yamaguchi-0729/ClassFieldTheory. Do not edit by hand.
+id: fix-equal-characteristic-equal-characteristic-change-0bf97e
+kind: repair
+origin: nyll-port
+title: Repair LubinTate.EqualCharacteristic.equalCharacteristicChangedCompletedIntegralPrimitivePolynomial_isEisensteinAt for the Mathlib of the project pin.
+source:
+  repo: nyll
+  commit: fc644f42dade5bdc7157fc3ef2eef4dbf2d6a565
+  path: Nyll/ClassFieldTheory/LubinTate/EqualCharacteristic/CompletedLevel/ChangedCompletedPrimitiveAction.lean
+  decl: LubinTate.EqualCharacteristic.equalCharacteristicChangedCompletedIntegralPrimitivePolynomial_isEisensteinAt
+broken: |
+  theorem equalCharacteristicChangedCompletedIntegralPrimitivePolynomial_isEisensteinAt
+      (F : LocalField.{u, v} K) (u : F.residueField⟦X⟧ˣ) (n : ℕ) :
+      (equalCharacteristicChangedCompletedIntegralPrimitivePolynomial F u n).IsEisensteinAt
+        (Ideal.span
+          ({PowerSeries.X} :
+            Set (AlgebraicClosure F.residueField)⟦X⟧)) := by
+    let Q := equalCharacteristicChangedCompletedIntegralPrimitivePolynomial F u n
+    let d := (Nat.card F.residueField - 1) * Nat.card F.residueField ^ n
+    have hmonic : Q.Monic :=
+      equalCharacteristicChangedCompletedIntegralPrimitivePolynomial_monic F u n
+    refine hmonic.isEisensteinAt_of_mem_of_notMem
+      (Ideal.isPrime_span_singleton_of_prime PowerSeries.prime_X).ne_top ?_ ?_
+    · intro i hi
+      rw [Ideal.mem_span_singleton, PowerSeries.X_dvd_iff]
+      have hcoeff :
+          PowerSeries.constantCoeff
+              ((equalCharacteristicChangedCompletedIntegralPrimitivePolynomial
+                F u n).coeff i) =
+            (Polynomial.X ^ d :
+              Polynomial (AlgebraicClosure F.residueField)).coeff i := by
+        simpa only [Polynomial.coeff_map, d] using
+          congrArg
+            (fun p : Polynomial (AlgebraicClosure F.residueField) ↦ p.coeff i)
+            (equalCharacteristicChangedCompletedIntegralPrimitivePolynomial_map_constantCoeff
+              F u n)
+      have hid : i < d := by
+        simpa [Q, d,
+          equalCharacteristicChangedCompletedIntegralPrimitivePolynomial_natDegree]
+          using hi
+      simpa [d, Polynomial.coeff_X_pow, ne_of_lt hid] using hcoeff
+    · rw [equalCharacteristicChangedCompletedIntegralPrimitivePolynomial_coeff_zero]
+      exact equalCharacteristicChangedCompletedIntegralUniformizer_notMem_span_X_sq F u
+error: 'The build fails at the project pin: PowerSeries.prime_X is not a name in its Mathlib.'
+answer:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Ported/NYLL/ClassFieldTheory/LubinTate/EqualCharacteristic/CompletedLevel/ChangedCompletedPrimitiveAction.lean
+  decl: LubinTate.EqualCharacteristic.equalCharacteristicChangedCompletedIntegralPrimitivePolynomial_isEisensteinAt
+  lines: [169, 200]
+  sha256: dd0a6b8cefc9f61d7b74dc7836ce0fbf2e18601e02922d8a1983424c8c250af0
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 27
+difficulty: hard

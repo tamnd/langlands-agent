@@ -1,0 +1,34 @@
+# A statement of spec 10.9, written by hand. A wrong statement is elaborated in place of the reviewed declaration, in its file, so it states each binder that it needs.
+id: selberg-eigenvalue
+title: The Selberg eigenvalue conjecture
+informal: For a congruence subgroup Γ of SL(2, Z), each nonzero L^2 eigenfunction for Γ with a nonzero eigenvalue λ has λ at least 1/4.
+reviewed:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Statements/Maass.lean
+  decl: Langlands.SelbergEigenvalue
+  lean: |
+    def SelbergEigenvalue : Prop :=
+      ∀ (Γ : Subgroup SL(2, ℤ)) (f : ℍ → ℂ) (ev : ℝ), IsCongruenceSubgroup Γ → f ≠ 0 →
+        IsL2Eigenfunction Γ f ev → ev ≠ 0 → 1 / 4 ≤ ev
+checks: [build, equiv-reference]
+wrong:
+  - id: selberg-eigenvalue-zero
+    trap: missing-condition
+    reason: The constant functions have the eigenvalue 0, so without the condition that the eigenvalue is not 0 the statement is false.
+    lean: |
+      def SelbergEigenvalue : Prop :=
+        ∀ (Γ : Subgroup SL(2, ℤ)) (f : ℍ → ℂ) (ev : ℝ), IsCongruenceSubgroup Γ → f ≠ 0 →
+          IsL2Eigenfunction Γ f ev → 1 / 4 ≤ ev
+    ref:
+      repo: langlands-lean
+      commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+      path: Langlands/Fidelity/Maass.lean
+      decl: Langlands.Fidelity.not_selbergEigenvalue_of_eigenvalue_zero
+  - id: selberg-eigenvalue-noncongruence
+    trap: missing-condition
+    reason: Selberg found subgroups of finite index that are not congruence subgroups and have eigenvalues below 1/4, so without the congruence condition the statement is false.
+    lean: |
+      def SelbergEigenvalue : Prop :=
+        ∀ (Γ : Subgroup SL(2, ℤ)) (f : ℍ → ℂ) (ev : ℝ), f ≠ 0 →
+          IsL2Eigenfunction Γ f ev → ev ≠ 0 → 1 / 4 ≤ ev

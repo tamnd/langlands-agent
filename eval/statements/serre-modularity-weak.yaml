@@ -1,0 +1,44 @@
+# A statement of spec 10.9, written by hand. A wrong statement is elaborated in place of the reviewed declaration, in its file, so it states each binder that it needs.
+id: serre-modularity-weak
+title: The weak form of the Serre modularity conjecture
+informal: Each continuous, irreducible and odd two-dimensional representation of the absolute Galois group of the rationals over the algebraic closure of F_p comes from a normalized eigenform of some level N, some weight k at least 2 and some character, at the primes q that do not divide Np.
+reviewed:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Statements/Galois.lean
+  decl: Langlands.SerreModularityWeak
+  lean: |
+    def SerreModularityWeak : Prop :=
+      ∀ (p : ℕ) [Fact p.Prime]
+        (ρ : Field.absoluteGaloisGroup ℚ →* GL (Fin 2) (AlgebraicClosure (ZMod p))),
+        IsOpen (ρ.ker : Set (Field.absoluteGaloisGroup ℚ)) → IsIrreducibleRep ρ → IsOddRep ρ →
+        ∃ (N : ℕ) (k : ℤ) (χ : DirichletCharacter ℂ N)
+          (f : CuspForm (Gamma1 N : Subgroup (GL (Fin 2) ℝ)) k)
+          (θ : coeffRing f χ →+* AlgebraicClosure (ZMod p)),
+          0 < N ∧ 2 ≤ k ∧ IsNormalizedEigenformWithCharacter f χ ∧
+          ∀ q : ℕ, q.Prime → ¬ q ∣ N * p → ∀ σ, IsFrobeniusAt q σ →
+            (ρ σ : Matrix (Fin 2) (Fin 2) (AlgebraicClosure (ZMod p))).trace =
+              θ ⟨qCoeffGamma1 f q, qCoeffGamma1_mem_coeffRing f χ q⟩ ∧
+            (ρ σ : Matrix (Fin 2) (Fin 2) (AlgebraicClosure (ZMod p))).det =
+              θ ⟨χ (q : ZMod N), character_mem_coeffRing f χ q⟩ *
+                (q : AlgebraicClosure (ZMod p)) ^ (k - 1)
+checks: [build, equiv-reference]
+wrong:
+  - id: serre-modularity-weak-even
+    trap: missing-condition
+    reason: An even representation does not come from a modular form, so without the odd condition the statement is false.
+    lean: |
+      def SerreModularityWeak : Prop :=
+        ∀ (p : ℕ) [Fact p.Prime]
+          (ρ : Field.absoluteGaloisGroup ℚ →* GL (Fin 2) (AlgebraicClosure (ZMod p))),
+          IsOpen (ρ.ker : Set (Field.absoluteGaloisGroup ℚ)) → IsIrreducibleRep ρ →
+          ∃ (N : ℕ) (k : ℤ) (χ : DirichletCharacter ℂ N)
+            (f : CuspForm (Gamma1 N : Subgroup (GL (Fin 2) ℝ)) k)
+            (θ : coeffRing f χ →+* AlgebraicClosure (ZMod p)),
+            0 < N ∧ 2 ≤ k ∧ IsNormalizedEigenformWithCharacter f χ ∧
+            ∀ q : ℕ, q.Prime → ¬ q ∣ N * p → ∀ σ, IsFrobeniusAt q σ →
+              (ρ σ : Matrix (Fin 2) (Fin 2) (AlgebraicClosure (ZMod p))).trace =
+                θ ⟨qCoeffGamma1 f q, qCoeffGamma1_mem_coeffRing f χ q⟩ ∧
+              (ρ σ : Matrix (Fin 2) (Fin 2) (AlgebraicClosure (ZMod p))).det =
+                θ ⟨χ (q : ZMod N), character_mem_coeffRing f χ q⟩ *
+                  (q : AlgebraicClosure (ZMod p)) ^ (k - 1)

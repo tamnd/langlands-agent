@@ -1,0 +1,27 @@
+# A statement of spec 10.9, written by hand. A wrong statement is elaborated in place of the reviewed declaration, in its file, so it states each binder that it needs.
+id: char-orthonormal
+title: The orthogonality of characters
+informal: For a finite group G and an algebraically closed field k whose characteristic does not divide the order of G, and two irreducible representations V and W of G over k, the sum of χ_V(g) χ_W(g^(-1)) over G divided by the order of G is 1 if V and W are isomorphic and 0 if they are not.
+reviewed:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Character.lean
+  decl: FDRep.char_orthonormal
+  lean: |
+    open scoped Classical in
+    /-- Orthogonality of characters for irreducible representations of finite group over an
+    algebraically closed field whose characteristic doesn't divide the order of the group. -/
+    theorem char_orthonormal (V W : FDRep k G) [Simple V] [Simple W] :
+        (Nat.card G : k)⁻¹ * ∑ g : G, V.character g * W.character g⁻¹ =
+          if Nonempty (V ≅ W) then ↑1 else ↑0
+checks: [build, equiv-reference]
+wrong:
+  - id: char-orthonormal-not-closed
+    trap: field-class
+    reason: Over the rationals the rotation by a quarter turn gives an irreducible representation of the cyclic group of order 4 whose character has the value 2 for this sum, so without an algebraically closed field the statement is false.
+    lean: |
+      open scoped Classical in
+      theorem char_orthonormal {k' : Type u} [Field k'] {G' : Type v} [Group G'] [Fintype G']
+          [Invertible (Nat.card G' : k')] (V W : FDRep k' G') [Simple V] [Simple W] :
+          (Nat.card G' : k')⁻¹ * ∑ g : G', V.character g * W.character g⁻¹ =
+            if Nonempty (V ≅ W) then ↑1 else ↑0

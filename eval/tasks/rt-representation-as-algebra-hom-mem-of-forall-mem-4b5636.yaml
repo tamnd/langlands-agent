@@ -1,0 +1,25 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: rt-representation-as-algebra-hom-mem-of-forall-mem-4b5636
+kind: prove
+origin: mathlib-representationtheory
+title: Prove Representation.asAlgebraHom_mem_of_forall_mem.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Submodule.lean
+  decl: Representation.asAlgebraHom_mem_of_forall_mem
+statement: |
+  lemma asAlgebraHom_mem_of_forall_mem (p : Submodule k V) (hp : ∀ g, ∀ v ∈ p, ρ g v ∈ p)
+      (v : V) (hv : v ∈ p) (x : k[G]) :
+      ρ.asAlgebraHom x v ∈ p := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Submodule.lean
+  decl: Representation.asAlgebraHom_mem_of_forall_mem
+  lines: [62, 65]
+  sha256: 6338ef97021b17a15b3f952965899f72e2f13611d5b350bb5fca233e5114241b
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 2
+difficulty: medium

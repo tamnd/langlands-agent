@@ -1,0 +1,28 @@
+# A statement of spec 10.9, written by hand. A wrong statement is elaborated in place of the reviewed declaration, in its file, so it states each binder that it needs.
+id: local-langlands-torus-induced
+title: Local Langlands for an induced torus
+informal: For a finite extension L of a nonarchimedean local field K and a reciprocity map of L with the conditions of local class field theory, each continuous character of L^× corresponds to exactly one class in the first cohomology of the Weil group of K with coefficients in the coinduced module of C^×, and each class corresponds to some character.
+reviewed:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Statements/TorusInduced.lean
+  decl: Langlands.LocalLanglandsTorusInduced
+  lean: |
+    def LocalLanglandsTorusInduced : Prop :=
+      ∀ (K : Type u) [Field K] [ValuativeRel K] [TopologicalSpace K] [IsNonarchimedeanLocalField K]
+        (L : IntermediateField K (AlgebraicClosure K)) [FiniteDimensional K L]
+        (recL : Lˣ ≃ₜ* WeilGroup.Ab L), IsLocalArtinMap L recL →
+          (∀ χ : ContinuousMonoidHom Lˣ ℂˣ, ∃! c, InducedTorusCorrespond K L recL χ c) ∧
+            ∀ c, ∃ χ : ContinuousMonoidHom Lˣ ℂˣ, InducedTorusCorrespond K L recL χ c
+checks: [build, equiv-reference]
+wrong:
+  - id: local-langlands-torus-induced-any-rec
+    trap: missing-condition
+    reason: Without the conditions on recL the correspondence uses an arbitrary isomorphism, so the normalization of the reciprocity map is lost.
+    lean: |
+      def LocalLanglandsTorusInduced : Prop :=
+        ∀ (K : Type u) [Field K] [ValuativeRel K] [TopologicalSpace K] [IsNonarchimedeanLocalField K]
+          (L : IntermediateField K (AlgebraicClosure K)) [FiniteDimensional K L]
+          (recL : Lˣ ≃ₜ* WeilGroup.Ab L),
+            (∀ χ : ContinuousMonoidHom Lˣ ℂˣ, ∃! c, InducedTorusCorrespond K L recL χ c) ∧
+              ∀ c, ∃ χ : ContinuousMonoidHom Lˣ ℂˣ, InducedTorusCorrespond K L recL χ c

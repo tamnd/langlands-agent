@@ -1,0 +1,24 @@
+# A statement of spec 10.9, written by hand. A wrong statement is elaborated in place of the reviewed declaration, in its file, so it states each binder that it needs.
+id: hecke-gamma-factor
+title: The gamma factor of a Hecke L-function
+informal: The gamma factor of a Hecke character with archimedean parameters n and t is the product over the infinite places v of Γ_R(s + t_v + n_v) at a real place and Γ_C(s + t_v + |n_v|/2) at a complex place.
+reviewed:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Statements/Hecke.lean
+  decl: Langlands.gammaFactor
+  lean: |
+    noncomputable def gammaFactor (n : InfinitePlace K → ℤ) (t : InfinitePlace K → ℂ) (s : ℂ) : ℂ :=
+      ∏ v : InfinitePlace K,
+        if v.IsReal then Complex.Gammaℝ (s + t v + n v)
+        else Complex.Gammaℂ (s + t v + ((|n v| : ℤ) : ℂ) / 2)
+checks: [build, equiv-reference]
+wrong:
+  - id: hecke-gamma-factor-no-half
+    trap: constant
+    reason: At a complex place the shift is |n_v|/2 and not |n_v|.
+    lean: |
+      noncomputable def gammaFactor (n : InfinitePlace K → ℤ) (t : InfinitePlace K → ℂ) (s : ℂ) : ℂ :=
+        ∏ v : InfinitePlace K,
+          if v.IsReal then Complex.Gammaℝ (s + t v + n v)
+          else Complex.Gammaℂ (s + t v + ((|n v| : ℤ) : ℂ))

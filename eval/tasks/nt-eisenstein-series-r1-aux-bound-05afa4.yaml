@@ -1,0 +1,24 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-eisenstein-series-r1-aux-bound-05afa4
+kind: prove
+origin: mathlib-numbertheory
+title: Prove EisensteinSeries.r1_aux_bound.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/ModularForms/EisensteinSeries/Summable.lean
+  decl: EisensteinSeries.r1_aux_bound
+statement: |
+  lemma r1_aux_bound (c : ℝ) {d : ℝ} (hd : 1 ≤ d ^ 2) :
+      r1 z ≤ (c * z.re + d) ^ 2 + (c * z.im) ^ 2 := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/ModularForms/EisensteinSeries/Summable.lean
+  decl: EisensteinSeries.r1_aux_bound
+  lines: [77, 84]
+  sha256: cdbd2ac070928169a2476559273d7573dcbb96080bb45389fe8412f62cd290d3
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 7
+difficulty: hard

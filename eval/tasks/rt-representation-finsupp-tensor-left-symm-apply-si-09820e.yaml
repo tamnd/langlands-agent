@@ -1,0 +1,25 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: rt-representation-finsupp-tensor-left-symm-apply-si-09820e
+kind: prove
+origin: mathlib-representationtheory
+title: Prove Representation.finsuppTensorLeft_symm_apply_single.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Equiv.lean
+  decl: Representation.finsuppTensorLeft_symm_apply_single
+statement: |
+  @[simp]
+  lemma finsuppTensorLeft_symm_apply_single {α : Type*} [DecidableEq α] (i : α) (v : V) (w : W) :
+      (finsuppTensorLeft σ ρ α).symm (Finsupp.single i (v ⊗ₜ w)) = Finsupp.single i v ⊗ₜ w := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Equiv.lean
+  decl: Representation.finsuppTensorLeft_symm_apply_single
+  lines: [112, 115]
+  sha256: 6dc058761802dc466a3b69888c0f6a08b7de849d0774062c498474638c795ef7
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 2
+difficulty: medium

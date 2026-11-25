@@ -1,0 +1,23 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-dioph-ext-0a8225
+kind: prove
+origin: mathlib-numbertheory
+title: Prove Dioph.ext.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/Dioph.lean
+  decl: Dioph.ext
+statement: |
+  theorem ext (d : Dioph S) (H : ∀ v, v ∈ S ↔ v ∈ S') : Dioph S' := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/Dioph.lean
+  decl: Dioph.ext
+  lines: [254, 254]
+  sha256: b97e628a0dfabed838b2410975ab5cbd57056645df0a792411d82a844ad02aad
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 1
+difficulty: easy

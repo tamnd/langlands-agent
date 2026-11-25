@@ -1,0 +1,23 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-number-field-house-pow-033827
+kind: prove
+origin: mathlib-numbertheory
+title: Prove NumberField.house_pow.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/NumberField/House.lean
+  decl: NumberField.house_pow
+statement: |
+  theorem house_pow (α : K) (i : ℕ) : house (α ^ i) = house α ^ i := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/NumberField/House.lean
+  decl: NumberField.house_pow
+  lines: [60, 64]
+  sha256: 4fdbdf8bb833d061c10f32a1c714ff44672e0a01980e0dfe6a804de5a933aec4
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 5
+difficulty: hard

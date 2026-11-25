@@ -1,0 +1,25 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-congruence-subgroup-exists-gamma-le-conj-prime-0b4a4c
+kind: prove
+origin: mathlib-numbertheory
+title: Prove CongruenceSubgroup.exists_Gamma_le_conj'.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/ModularForms/CongruenceSubgroups.lean
+  decl: CongruenceSubgroup.exists_Gamma_le_conj'
+statement: |
+  theorem exists_Gamma_le_conj' (g : GL (Fin 2) ℚ) (M : ℕ) [NeZero M] :
+      ∃ N ≠ 0, (toConjAct <| g.map (Rat.castHom ℝ)) • (Gamma N).map (mapGL ℝ)
+        ≤ (Gamma M).map (mapGL ℝ) := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/ModularForms/CongruenceSubgroups.lean
+  decl: CongruenceSubgroup.exists_Gamma_le_conj'
+  lines: [280, 291]
+  sha256: 55f70d49fbe6dda6fcf4db16cc409aa17a3c2437e9026a7da873496d465d34cd
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 10
+difficulty: hard

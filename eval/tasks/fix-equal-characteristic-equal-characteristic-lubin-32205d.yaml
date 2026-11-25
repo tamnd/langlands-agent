@@ -1,0 +1,33 @@
+# Made by lgl eval gen from https://github.com/n-yamaguchi-0729/ClassFieldTheory. Do not edit by hand.
+id: fix-equal-characteristic-equal-characteristic-lubin-32205d
+kind: repair
+origin: nyll-port
+title: Repair LubinTate.EqualCharacteristic.equalCharacteristicLubinTateIntegralPrimitivePolynomial_irreducible for the Mathlib of the project pin.
+source:
+  repo: nyll
+  commit: fc644f42dade5bdc7157fc3ef2eef4dbf2d6a565
+  path: Nyll/ClassFieldTheory/LubinTate/EqualCharacteristic/FiniteLevel/PrimitiveIrreducible.lean
+  decl: LubinTate.EqualCharacteristic.equalCharacteristicLubinTateIntegralPrimitivePolynomial_irreducible
+broken: |
+  theorem equalCharacteristicLubinTateIntegralPrimitivePolynomial_irreducible
+      (F : LocalField.{u, v} K) (n : ℕ) :
+      Irreducible (equalCharacteristicLubinTateIntegralPrimitivePolynomial F n) := by
+    apply (equalCharacteristicLubinTateIntegralPrimitivePolynomial_isEisensteinAt F n).irreducible
+      (Ideal.isPrime_span_singleton_of_prime PowerSeries.prime_X)
+      (equalCharacteristicLubinTateIntegralPrimitivePolynomial_monic F n).isPrimitive
+    rw [equalCharacteristicLubinTateIntegralPrimitivePolynomial_natDegree]
+    exact Nat.mul_pos
+      (Nat.sub_pos_of_lt
+        (Finite.one_lt_card : 1 < Nat.card F.residueField))
+      (Nat.pow_pos Nat.card_pos)
+error: 'The build fails at the project pin: PowerSeries.prime_X is not a name in its Mathlib.'
+answer:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Ported/NYLL/ClassFieldTheory/LubinTate/EqualCharacteristic/FiniteLevel/PrimitiveIrreducible.lean
+  decl: LubinTate.EqualCharacteristic.equalCharacteristicLubinTateIntegralPrimitivePolynomial_irreducible
+  lines: [301, 311]
+  sha256: 14925e512f677f44f9311f2dd6e7b3969c3f8f43aca9701fe5b6ee129adf7ce0
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 9
+difficulty: hard

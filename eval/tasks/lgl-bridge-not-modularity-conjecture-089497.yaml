@@ -1,0 +1,24 @@
+# Made by lgl eval gen from https://github.com/tamnd/langlands-lean. Do not edit by hand.
+id: lgl-bridge-not-modularity-conjecture-089497
+kind: prove
+origin: project
+title: Prove Langlands.Bridge.not_modularityConjecture.
+source:
+  repo: langlands-lean
+  commit: 04c3fdfce8e66b8837da531f21098cab794a5da5
+  path: Langlands/Bridge/FormalConjectures.lean
+  decl: Langlands.Bridge.not_modularityConjecture
+statement: |
+  theorem not_modularityConjecture (E : WeierstrassCurve ℚ) [E.IsElliptic] :
+      ¬ Ported.FormalConjectures.ModularityConjecture.modularityConjecture E := by
+    sorry
+answer:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Bridge/FormalConjectures.lean
+  decl: Langlands.Bridge.not_modularityConjecture
+  lines: [159, 163]
+  sha256: 66ef04c327a4aaf94fd3cc9f426a7f4585ff752213422ddabc996e34bae1e1f4
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 4
+difficulty: medium

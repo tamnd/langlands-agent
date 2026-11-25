@@ -1,0 +1,23 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-eisenstein-series-mem-gamma-set-one-0c5464
+kind: prove
+origin: mathlib-numbertheory
+title: Prove EisensteinSeries.mem_gammaSet_one.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/ModularForms/EisensteinSeries/Defs.lean
+  decl: EisensteinSeries.mem_gammaSet_one
+statement: |
+  lemma mem_gammaSet_one (v : Fin 2 → ℤ) : v ∈ gammaSet 1 1 0 ↔ IsCoprime (v 0) (v 1) := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/ModularForms/EisensteinSeries/Defs.lean
+  decl: EisensteinSeries.mem_gammaSet_one
+  lines: [85, 86]
+  sha256: 043975af63a315449c004e28c66f8aa64e08b29167b5c8619bbf9933dbc8fcd4
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 2
+difficulty: medium

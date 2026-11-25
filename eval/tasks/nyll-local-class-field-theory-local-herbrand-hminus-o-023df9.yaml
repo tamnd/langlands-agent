@@ -1,0 +1,19 @@
+# Made by lgl eval gen from https://github.com/n-yamaguchi-0729/ClassFieldTheory. Do not edit by hand.
+id: nyll-local-class-field-theory-local-herbrand-hminus-o-023df9
+kind: state
+origin: nyll
+title: State LocalClassFieldTheory.localHerbrandHMinusOne_subsingleton in Lean from its docstring.
+source:
+  repo: nyll
+  commit: fc644f42dade5bdc7157fc3ef2eef4dbf2d6a565
+  path: Nyll/ClassFieldTheory/LocalClassFieldTheory/ClassFormation/ArchimedeanHilbert90.lean
+  decl: LocalClassFieldTheory.localHerbrandHMinusOne_subsingleton
+informal: Hilbert 90 makes the local `H⁻¹` group trivial for an arbitrary nontrivial absolute value, including an infinite place.
+answer:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Ported/NYLL/ClassFieldTheory/LocalClassFieldTheory/ClassFormation/ArchimedeanHilbert90.lean
+  decl: LocalClassFieldTheory.localHerbrandHMinusOne_subsingleton
+  lines: [51, 108]
+  sha256: 83033944de1d36260c016430c15f21f4e1b4481d9a4f53371502a06014b68ac1
+checks: [build, equiv-reference]

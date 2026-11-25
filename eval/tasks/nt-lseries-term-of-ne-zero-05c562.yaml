@@ -1,0 +1,25 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-lseries-term-of-ne-zero-05c562
+kind: prove
+origin: mathlib-numbertheory
+title: Prove LSeries.term_of_ne_zero.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/LSeries/Basic.lean
+  decl: LSeries.term_of_ne_zero
+statement: |
+  @[simp]
+  lemma term_of_ne_zero {n : ℕ} (hn : n ≠ 0) (f : ℕ → ℂ) (s : ℂ) :
+      term f s n = f n / n ^ s := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/LSeries/Basic.lean
+  decl: LSeries.term_of_ne_zero
+  lines: [91, 94]
+  sha256: 6535854b557b5959cb5d11861ca2ba26e097a529e9f3febf155c234fc23144b2
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 1
+difficulty: easy

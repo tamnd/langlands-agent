@@ -1,0 +1,24 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: rt-representation-le-stabilizer-sum-105bd4
+kind: prove
+origin: mathlib-representationtheory
+title: Prove Representation.le_stabilizer_sum.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Stabilizer.lean
+  decl: Representation.le_stabilizer_sum
+statement: |
+  lemma le_stabilizer_sum {ι : Type*} [Fintype ι] (ρ : Representation k G V) (v : ι → V) :
+      ⨅ i, (stabilizer ρ (v i)) ≤ stabilizer ρ (∑ i, v i) := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/RepresentationTheory/Stabilizer.lean
+  decl: Representation.le_stabilizer_sum
+  lines: [51, 53]
+  sha256: 6a31b2d2a57e8b5956d41bb310cb935e08d739d50dec623bab335e68a21fd8e5
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 2
+difficulty: medium

@@ -1,0 +1,19 @@
+# Made by lgl eval gen from https://github.com/n-yamaguchi-0729/ClassFieldTheory. Do not edit by hand.
+id: nyll-reciprocity-rational-prime-finite-place-field-un-0233e2
+kind: state
+origin: nyll
+title: State GlobalClassFieldTheory.Reciprocity.rationalPrimeFinitePlaceFieldUnit_valuationMap in Lean from its docstring.
+source:
+  repo: nyll
+  commit: fc644f42dade5bdc7157fc3ef2eef4dbf2d6a565
+  path: Nyll/ClassFieldTheory/GlobalClassFieldTheory/Reciprocity/RationalCyclotomicCompletionComparison.lean
+  decl: GlobalClassFieldTheory.Reciprocity.rationalPrimeFinitePlaceFieldUnit_valuationMap
+informal: In the inverse-standard local reciprocity normalization, the rational prime itself has normalized additive value `-1`.
+answer:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Ported/NYLL/ClassFieldTheory/GlobalClassFieldTheory/Reciprocity/RationalCyclotomicCompletionComparison.lean
+  decl: GlobalClassFieldTheory.Reciprocity.rationalPrimeFinitePlaceFieldUnit_valuationMap
+  lines: [548, 562]
+  sha256: f526be52739803c5a3b10d8c10f5b525108ed50f2389b1c6435ca841627a2bb4
+checks: [build, equiv-reference]

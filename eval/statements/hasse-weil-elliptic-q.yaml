@@ -1,0 +1,28 @@
+# A statement of spec 10.9, written by hand. A wrong statement is elaborated in place of the reviewed declaration, in its file, so it states each binder that it needs.
+id: hasse-weil-elliptic-q
+title: The functional equation of an elliptic curve over Q
+informal: For each elliptic curve E over the rationals the completed L-function Λ(s) = N^(s/2) (2π)^(-s) Γ(s) L(E, s) extends to an entire function with Λ(2 - s) = ε Λ(s), where ε is 1 or -1.
+reviewed:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Statements/Modularity.lean
+  decl: Langlands.HasseWeilEllipticQ
+  lean: |
+    def HasseWeilEllipticQ : Prop :=
+      ∀ (E : WeierstrassCurve ℚ) [E.IsElliptic],
+        ∃ (N : ℕ) (ε : ℤ) (Λ : ℂ → ℂ), 0 < N ∧ (ε = 1 ∨ ε = -1) ∧ Differentiable ℂ Λ ∧
+          (∀ s : ℂ, 3 / 2 < s.re →
+            Λ s = (N : ℂ) ^ (s / 2) * (2 * π : ℂ) ^ (-s) * Complex.Gamma s * E.LSeries s) ∧
+          ∀ s : ℂ, Λ (2 - s) = ε * Λ s
+checks: [build, equiv-reference]
+wrong:
+  - id: hasse-weil-elliptic-q-center
+    trap: constant
+    reason: The functional equation of an elliptic curve relates s and 2 - s, with the center at 1, not s and 1 - s.
+    lean: |
+      def HasseWeilEllipticQ : Prop :=
+        ∀ (E : WeierstrassCurve ℚ) [E.IsElliptic],
+          ∃ (N : ℕ) (ε : ℤ) (Λ : ℂ → ℂ), 0 < N ∧ (ε = 1 ∨ ε = -1) ∧ Differentiable ℂ Λ ∧
+            (∀ s : ℂ, 3 / 2 < s.re →
+              Λ s = (N : ℂ) ^ (s / 2) * (2 * π : ℂ) ^ (-s) * Complex.Gamma s * E.LSeries s) ∧
+            ∀ s : ℂ, Λ (1 - s) = ε * Λ s

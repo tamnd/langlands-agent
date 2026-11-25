@@ -1,0 +1,25 @@
+# Made by lgl eval gen from https://github.com/n-yamaguchi-0729/ClassFieldTheory. Do not edit by hand.
+id: fix-nnnorm-unit-hom-367dcc
+kind: repair
+origin: nyll-port
+title: Repair nnnormUnitHom for the Mathlib of the project pin.
+source:
+  repo: nyll
+  commit: fc644f42dade5bdc7157fc3ef2eef4dbf2d6a565
+  path: Nyll/ClassFieldTheory/AlgebraicNumberTheory/Idele/AbsoluteNormCore.lean
+  decl: nnnormUnitHom
+broken: |
+  def nnnormUnitHom (F : Type*) [NormedField F] :
+      Fˣ →* ℝ≥0ˣ :=
+    Units.map (nnNormHom : F →*₀ ℝ≥0).toMonoidHom
+error: 'The build fails at the project pin: nnNormHom is not a name in its Mathlib.'
+answer:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Ported/NYLL/ClassFieldTheory/AlgebraicNumberTheory/Idele/AbsoluteNormCore.lean
+  decl: nnnormUnitHom
+  lines: [31, 33]
+  sha256: aab23458b1dbed2e5d2b70f45a5e2f7ebe8cab609c080e33a9dd323417af900f
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 1
+difficulty: easy

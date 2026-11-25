@@ -1,0 +1,23 @@
+# Made by lgl eval gen from https://github.com/leanprover-community/mathlib4. Do not edit by hand.
+id: nt-exists-rat-of-not-irrational-00182f
+kind: prove
+origin: mathlib-numbertheory
+title: Prove exists_rat_of_not_irrational.
+source:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/Real/Irrational.lean
+  decl: exists_rat_of_not_irrational
+statement: |
+  theorem exists_rat_of_not_irrational {x : ℝ} (hx : ¬ Irrational x) : ∃ (q : ℚ), x = q := by
+    sorry
+answer:
+  repo: mathlib
+  commit: 56a005855ea17e0b0958f73ec801ae140b0a1679
+  path: Mathlib/NumberTheory/Real/Irrational.lean
+  decl: exists_rat_of_not_irrational
+  lines: [43, 44]
+  sha256: a949c25332240a2fe8947eb454558394a77e55fc4621583be681766ddfde73f8
+checks: [build, no-sorry, standard-axioms, same-statement]
+proof_lines: 2
+difficulty: medium

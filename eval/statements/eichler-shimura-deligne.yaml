@@ -1,0 +1,40 @@
+# A statement of spec 10.9, written by hand. A wrong statement is elaborated in place of the reviewed declaration, in its file, so it states each binder that it needs.
+id: eichler-shimura-deligne
+title: The Galois representation of an eigenform
+informal: For a normalized eigenform f of weight k at least 2, level N and character χ, and a prime ℓ, there is a continuous representation of the absolute Galois group of the rationals over the algebraic closure of Q_ℓ that is unramified at each prime p that does not divide Nℓ, with trace a_p and determinant χ(p) p^(k-1) at an arithmetic Frobenius at p.
+reviewed:
+  repo: langlands-lean
+  commit: 7154bc1a0d3c81483d82ffdf25957e123617f1aa
+  path: Langlands/Statements/Galois.lean
+  decl: Langlands.EichlerShimuraDeligne
+  lean: |
+    def EichlerShimuraDeligne : Prop :=
+      ∀ (N : ℕ) (k : ℤ) (χ : DirichletCharacter ℂ N)
+        (f : CuspForm (Gamma1 N : Subgroup (GL (Fin 2) ℝ)) k),
+        0 < N → 2 ≤ k → IsNormalizedEigenformWithCharacter f χ →
+        ∀ (ℓ : ℕ) [Fact ℓ.Prime] (ι : PadicAlgCl ℓ ≃+* ℂ),
+          ∃ ρ : Field.absoluteGaloisGroup ℚ →* GL (Fin 2) (PadicAlgCl ℓ), Continuous ρ ∧
+            ∀ p : ℕ, p.Prime → ¬ p ∣ N * ℓ →
+              IsUnramifiedAt ρ p ∧
+              ∀ σ, IsFrobeniusAt p σ →
+                ι (ρ σ : Matrix (Fin 2) (Fin 2) (PadicAlgCl ℓ)).trace = qCoeffGamma1 f p ∧
+                ι (ρ σ : Matrix (Fin 2) (Fin 2) (PadicAlgCl ℓ)).det =
+                  χ (p : ZMod N) * (p : ℂ) ^ (k - 1)
+checks: [build, equiv-reference]
+wrong:
+  - id: eichler-shimura-deligne-det
+    trap: constant
+    reason: The determinant at a Frobenius is χ(p) p^(k-1), not χ(p) p^k.
+    lean: |
+      def EichlerShimuraDeligne : Prop :=
+        ∀ (N : ℕ) (k : ℤ) (χ : DirichletCharacter ℂ N)
+          (f : CuspForm (Gamma1 N : Subgroup (GL (Fin 2) ℝ)) k),
+          0 < N → 2 ≤ k → IsNormalizedEigenformWithCharacter f χ →
+          ∀ (ℓ : ℕ) [Fact ℓ.Prime] (ι : PadicAlgCl ℓ ≃+* ℂ),
+            ∃ ρ : Field.absoluteGaloisGroup ℚ →* GL (Fin 2) (PadicAlgCl ℓ), Continuous ρ ∧
+              ∀ p : ℕ, p.Prime → ¬ p ∣ N * ℓ →
+                IsUnramifiedAt ρ p ∧
+                ∀ σ, IsFrobeniusAt p σ →
+                  ι (ρ σ : Matrix (Fin 2) (Fin 2) (PadicAlgCl ℓ)).trace = qCoeffGamma1 f p ∧
+                  ι (ρ σ : Matrix (Fin 2) (Fin 2) (PadicAlgCl ℓ)).det =
+                    χ (p : ZMod N) * (p : ℂ) ^ k
