@@ -595,7 +595,7 @@ func (b *builder) paperViews() error {
 				return fmt.Errorf("site: %s: %w", p.File, err)
 			}
 		}
-		for _, a := range p.Arxiv {
+		if a := p.Arxiv; a != "" {
 			d.Links = append(d.Links, SourceLink{Title: "arXiv:" + a, URL: "https://arxiv.org/abs/" + a})
 		}
 		if p.DOI != "" {

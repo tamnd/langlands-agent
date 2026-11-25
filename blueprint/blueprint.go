@@ -53,10 +53,17 @@ const (
 	Claimed   = "claimed"    // a fresh claim of route R1; it is never a hypothesis of a node
 )
 
-// Uses are the ways in which the project uses a paper. A "reuse" paper has a
-// Lean proof that the project can depend on. A "bridge" paper connects two
-// forms of the same statement.
-var Uses = []string{"prove", "state", "ex", "read", "reuse", "bridge"}
+// LeanUses are the ways in which the project uses a formalization in another project, spec 07.13. A "port" copies the files, a "bridge" proves that two statements agree, and a "read" only reads the code.
+var LeanUses = []string{"port", "bridge", "read"}
+
+// ExpertStatuses are the values of expert_status in a paper record, spec 07.13. A person sets the value.
+var ExpertStatuses = []string{"accepted", "claimed", "announced", "withdrawn", "disputed"}
+
+// LeanStatuses are the values of lean_status in a paper record, spec 07.13.
+var LeanStatuses = []string{"none", "stated", "port-available", "proved"}
+
+// ResultKinds are the kinds of a numbered result of a paper, spec 07.13.
+var ResultKinds = []string{"theorem", "definition", "conjecture", "claim", "example"}
 
 // Statuses lists the status values in the order of the site.
 var Statuses = []string{Proved, ProvedMod, Defined, Faithful, Stated, Open, Claimed, Refuted, Planned}
@@ -67,6 +74,7 @@ var StandardAxioms = map[string]bool{"propext": true, "Classical.choice": true, 
 var tagRE = regexp.MustCompile(`^LG[0-9A-HJKMNP-TV-Z]{8}$`)
 var routeRE = regexp.MustCompile(`^R[1-9]$`)
 var keyRE = regexp.MustCompile(`^[A-Za-z][A-Za-z0-9-]*$`)
+var idRE = regexp.MustCompile(`^T([0-9]|10)-[0-9]{2}$`)
 
 // Source is a place in a paper.
 type Source struct {
@@ -114,23 +122,61 @@ type Route struct {
 	First       string  `yaml:"first" json:"first"`
 }
 
-// Paper is one file of papers/.
+// Read records who read a paper, which version, and on which date. Tag is P (proved in the paper), S (stated with a reference) or U (unchecked), spec 01.
+type Read struct {
+	Version string `yaml:"version" json:"version"`
+	By      string `yaml:"by" json:"by"`
+	Date    string `yaml:"date" json:"date"`
+	Tag     string `yaml:"tag" json:"tag"`
+}
+
+// Result is one numbered result of a paper that the project needs.
+type Result struct {
+	ID        string `yaml:"id" json:"id"`               // the number in the paper, for example "Chapter VI, Theorem 2"
+	Statement string `yaml:"statement" json:"statement"` // the name in Langlands/Statements, spec 06.2
+	Node      string `yaml:"node" json:"node,omitempty"` // the node of the map, when there is one
+	Kind      string `yaml:"kind" json:"kind"`
+	Status    string `yaml:"status" json:"status"` // copied from the node by lgl; it is not a source of truth
+}
+
+// LeanElsewhere is a formalization of a result of the paper in another project.
+type LeanElsewhere struct {
+	Repo    string `yaml:"repo" json:"repo"`
+	Commit  string `yaml:"commit" json:"commit,omitempty"`
+	Licence string `yaml:"licence" json:"licence"`
+	What    string `yaml:"what" json:"what"`
+	Use     string `yaml:"use" json:"use"`
+}
+
+// HandbookRef is the place of a paper in the handbook, spec 11.
+type HandbookRef struct {
+	Volume  int `yaml:"volume" json:"volume"`
+	Chapter int `yaml:"chapter" json:"chapter,omitempty"` // 0 when the chapter is not fixed yet
+}
+
+// Paper is one file of papers/, in the schema of spec 07.13.
 type Paper struct {
-	Key          string   `yaml:"key" json:"key"`
-	Title        string   `yaml:"title" json:"title"`
-	Authors      []string `yaml:"authors,omitempty" json:"authors,omitempty"`
-	Where        string   `yaml:"where,omitempty" json:"where,omitempty"`
-	Year         int      `yaml:"year,omitempty" json:"year,omitempty"`
-	DOI          string   `yaml:"doi,omitempty" json:"doi,omitempty"`
-	Arxiv        []string `yaml:"arxiv,omitempty" json:"arxiv,omitempty"`
-	Tag          string   `yaml:"tag" json:"tag"` // P, S or U, spec 01
-	Tier         string   `yaml:"tier" json:"tier"`
-	Why          string   `yaml:"why" json:"why"`
-	Lean         string   `yaml:"lean,omitempty" json:"lean,omitempty"` // what exists in Lean elsewhere
-	Use          []string `yaml:"use,omitempty" json:"use,omitempty"`   // prove, state, ex, read
-	Route        []string `yaml:"route,omitempty" json:"route,omitempty"`
-	ExpertStatus string   `yaml:"expert_status,omitempty" json:"expert_status,omitempty"`
-	Notes        string   `yaml:"notes,omitempty" json:"notes,omitempty"`
+	ID            string          `yaml:"id" json:"id"` // the corpus id of spec 07, for example T3-04
+	Key           string          `yaml:"key" json:"key"`
+	Title         string          `yaml:"title" json:"title"`
+	Authors       []string        `yaml:"authors,omitempty" json:"authors,omitempty"`
+	Where         string          `yaml:"where,omitempty" json:"where,omitempty"`
+	Year          int             `yaml:"year,omitempty" json:"year,omitempty"`
+	DOI           string          `yaml:"doi" json:"doi,omitempty"`
+	Arxiv         string          `yaml:"arxiv" json:"arxiv,omitempty"`
+	Also          []string        `yaml:"also,omitempty" json:"also,omitempty"` // the corpus ids of related records
+	Read          Read            `yaml:"read" json:"read"`
+	Tier          string          `yaml:"tier" json:"tier"`
+	Why           string          `yaml:"why" json:"why"`
+	ExpertStatus  string          `yaml:"expert_status" json:"expert_status"`
+	Uses          []string        `yaml:"uses,omitempty" json:"uses,omitempty"` // the corpus ids of the papers that this paper uses
+	Results       []Result        `yaml:"results,omitempty" json:"results,omitempty"`
+	LeanElsewhere []LeanElsewhere `yaml:"lean_elsewhere,omitempty" json:"lean_elsewhere,omitempty"`
+	LeanStatus    string          `yaml:"lean_status" json:"lean_status"`
+	CodeLicence   string          `yaml:"code_licence" json:"code_licence,omitempty"`
+	Handbook      *HandbookRef    `yaml:"handbook,omitempty" json:"handbook,omitempty"`
+	Route         []string        `yaml:"route,omitempty" json:"route,omitempty"`
+	Notes         string          `yaml:"notes,omitempty" json:"notes,omitempty"`
 
 	File  string   `yaml:"-" json:"-"`
 	Nodes []string `yaml:"-" json:"nodes,omitempty"` // the nodes that cite the paper
@@ -443,6 +489,7 @@ func (p *Project) Check() []string {
 		out = append(out, "blueprint/nodes: the uses have a cycle: "+strings.Join(c, " -> "))
 	}
 	keys := map[string]string{}
+	corpus := map[string]string{}
 	for _, pp := range p.Papers {
 		if !keyRE.MatchString(pp.Key) {
 			bad(pp.File, "the key %q has a character that is not a letter, a digit or a hyphen", pp.Key)
@@ -454,8 +501,15 @@ func (p *Project) Check() []string {
 		if want := pp.Key + ".yaml"; filepath.Base(pp.File) != want {
 			bad(pp.File, "the file name must be %s", want)
 		}
-		if !contains([]string{"P", "S", "U"}, pp.Tag) {
-			bad(pp.File, "the tag %q is not P, S or U", pp.Tag)
+		if !idRE.MatchString(pp.ID) {
+			bad(pp.File, "the id %q is not a corpus id of spec 07, for example T3-04", pp.ID)
+		}
+		if f, dup := corpus[pp.ID]; dup && pp.ID != "" {
+			bad(pp.File, "the id %s is also in %s", pp.ID, f)
+		}
+		corpus[pp.ID] = pp.File
+		if !contains([]string{"P", "S", "U"}, pp.Read.Tag) {
+			bad(pp.File, "the read tag %q is not P, S or U", pp.Read.Tag)
 		}
 		if !contains(Tiers, pp.Tier) {
 			bad(pp.File, "the tier %q is not one of %s", pp.Tier, strings.Join(Tiers, ", "))
@@ -463,9 +517,32 @@ func (p *Project) Check() []string {
 		if strings.TrimSpace(pp.Title) == "" || strings.TrimSpace(pp.Why) == "" {
 			bad(pp.File, "the record needs a title and a reason")
 		}
-		for _, u := range pp.Use {
-			if !contains(Uses, u) {
-				bad(pp.File, "the use %q is not one of %s", u, strings.Join(Uses, ", "))
+		if !contains(ExpertStatuses, pp.ExpertStatus) {
+			bad(pp.File, "the expert status %q is not one of %s", pp.ExpertStatus, strings.Join(ExpertStatuses, ", "))
+		}
+		if !contains(LeanStatuses, pp.LeanStatus) {
+			bad(pp.File, "the lean status %q is not one of %s", pp.LeanStatus, strings.Join(LeanStatuses, ", "))
+		}
+		for _, r := range pp.Results {
+			if !contains(ResultKinds, r.Kind) {
+				bad(pp.File, "the result %q has the kind %q, which is not one of %s", r.ID, r.Kind, strings.Join(ResultKinds, ", "))
+			}
+			if r.Node != "" && p.byTag[r.Node] == nil {
+				bad(pp.File, "the result %q names the node %s, which is not a node", r.ID, r.Node)
+			}
+		}
+		for _, l := range pp.LeanElsewhere {
+			if !contains(LeanUses, l.Use) {
+				bad(pp.File, "the use %q of %s is not one of %s", l.Use, l.Repo, strings.Join(LeanUses, ", "))
+			}
+		}
+	}
+	for _, pp := range p.Papers {
+		for _, list := range [][]string{pp.Also, pp.Uses} {
+			for _, id := range list {
+				if !idRE.MatchString(id) {
+					bad(pp.File, "names the paper %q, which is not a corpus id of spec 07", id)
+				}
 			}
 		}
 	}

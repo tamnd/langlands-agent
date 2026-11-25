@@ -27,7 +27,7 @@ func fixture(t *testing.T) string {
 	write(t, root, "blueprint/nodes/LG00000003.yaml", "tag: LG00000003\nkind: theorem\ntitle: Local GL(1)\nstatement: Local class field theory.\ntier: T5\nuses: [LG00000004]\nroute: [R1]\nlean:\n  statement: Langlands.LocalReciprocityGL1\n  proof: Langlands.localReciprocityGL1\n")
 	write(t, root, "blueprint/nodes/LG00000004.yaml", "tag: LG00000004\nkind: hypothesis\ntitle: Normalization\nstatement: Finite.\ntier: T1\nlean:\n  statement: Langlands.Normalization\n")
 	write(t, root, "blueprint/nodes/LG00000005.yaml", "tag: LG00000005\nkind: conjecture\ntitle: Dimension 4\nstatement: Open.\ntier: S\nlean:\n  statement: Langlands.ResolutionDimFourCharP\n")
-	write(t, root, "papers/Ser67.yaml", "key: Ser67\ntitle: Local class field theory\ntag: P\ntier: T3\nwhy: local CFT\nuse: [read]\n")
+	write(t, root, "papers/Ser67.yaml", "id: T0-04\nkey: Ser67\ntitle: Local class field theory\nread: {version: book, by: owner, date: 2026-11-25, tag: S}\ntier: T3\nwhy: local CFT\nexpert_status: accepted\nlean_status: port-available\n")
 	write(t, root, "records/lean.json", `{"commit":"abc","decls":{
 "Langlands.IsRegularScheme":{"kind":"def","axioms":["propext"]},
 "Langlands.LocalReciprocityGL1":{"kind":"def","axioms":[]},
@@ -105,7 +105,7 @@ func TestCheckFindsFaults(t *testing.T) {
 
 func TestUnknownFieldIsAnError(t *testing.T) {
 	root := fixture(t)
-	write(t, root, "papers/Bad.yaml", "key: Bad\ntitle: t\ntag: P\ntier: T1\nwhy: w\nstatus: proved\n")
+	write(t, root, "papers/Bad.yaml", "id: T1-01\nkey: Bad\ntitle: t\ntier: T1\nwhy: w\nstatus: proved\n")
 	if _, err := Load(root); err == nil {
 		t.Fatal("a paper record with an unknown field loads with no error")
 	}
@@ -115,7 +115,7 @@ func TestPlannedNameIsNotAFault(t *testing.T) {
 	root := fixture(t)
 	write(t, root, "blueprint/nodes/LG00000006.yaml", "tag: LG00000006\nkind: theorem\ntitle: Local GL(2)\nstatement: LLC for GL(2).\ntier: T5\nlean:\n  statement: Langlands.LocalReciprocityGL1\n  proof: Langlands.localLanglandsGL2\n")
 	write(t, root, "blueprint/nodes/LG00000007.yaml", "tag: LG00000007\nkind: lemma\ntitle: Open locus\nstatement: Open.\ntier: T1\nlean:\n  statement: Langlands.regularLocus_isOpen\n")
-	write(t, root, "papers/Tat67.yaml", "key: Tat67\ntitle: Fourier analysis in number fields and Hecke zeta functions\ntag: P\ntier: T3\nwhy: Tate thesis\nuse: [reuse, bridge]\n")
+	write(t, root, "papers/Tat67.yaml", "id: T3-02\nkey: Tat67\ntitle: Fourier analysis in number fields and Hecke zeta functions\nread: {version: book, by: owner, date: 2026-11-25, tag: P}\ntier: T3\nwhy: Tate thesis\nexpert_status: accepted\nlean_status: none\nlean_elsewhere:\n  - {repo: someone/riemann-lean, licence: none, what: Tate thesis, use: read}\n")
 	p, err := Load(root)
 	if err != nil {
 		t.Fatal(err)
@@ -128,5 +128,38 @@ func TestPlannedNameIsNotAFault(t *testing.T) {
 	}
 	if got := p.Node("LG00000007").Status; got != Planned {
 		t.Errorf("a name that is not in the records has status %s", got)
+	}
+}
+
+func TestPaperRecordFaults(t *testing.T) {
+	root := fixture(t)
+	write(t, root, "papers/Bad1.yaml", "id: X-1\nkey: Bad1\ntitle: t\nread: {version: v1, by: reader, date: 2026-11-25, tag: Q}\ntier: T1\nwhy: w\nexpert_status: maybe\nlean_status: some\nalso: [T99]\nresults:\n  - {id: \"Theorem 1\", statement: X, node: LG0000000Z, kind: lemma, status: stated}\nlean_elsewhere:\n  - {repo: a/b, licence: MIT, what: all, use: depend}\n")
+	p, err := Load(root)
+	if err != nil {
+		t.Fatal(err)
+	}
+	probs := strings.Join(p.Check(), "\n")
+	for _, want := range []string{"the id \"X-1\"", "read tag \"Q\"", "expert status \"maybe\"", "lean status \"some\"", "\"T99\"", "kind \"lemma\"", "node LG0000000Z", "use \"depend\""} {
+		if !strings.Contains(probs, want) {
+			t.Errorf("the check does not report %q:\n%s", want, probs)
+		}
+	}
+}
+
+func TestFaithfulStatus(t *testing.T) {
+	root := fixture(t)
+	write(t, root, "blueprint/nodes/LG00000006.yaml", "tag: LG00000006\nkind: theorem\ntitle: Modularity\nstatement: Modularity over Q.\ntier: T8\nlean:\n  statement: Langlands.ModularityEllipticQ\n")
+	write(t, root, "blueprint/nodes/LG00000007.yaml", "tag: LG00000007\nkind: conjecture\ntitle: Open\nstatement: Open.\ntier: T8\nlean:\n  statement: Langlands.ResolutionDimFourCharP\n")
+	write(t, root, "records/lean.json", `{"commit":"abc","decls":{"Langlands.ModularityEllipticQ":{"kind":"def","axioms":[]},"Langlands.ResolutionDimFourCharP":{"kind":"def","axioms":[]}}}`)
+	write(t, root, "records/fidelity.json", `{"Langlands.ModularityEllipticQ":{"class":"theorem","checks":{"F1":true,"F2":true,"F3":true},"pass":true},"Langlands.ResolutionDimFourCharP":{"class":"conjecture","checks":{"F1":true},"pass":true}}`)
+	p, err := Load(root)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if got := p.Node("LG00000006").Status; got != Faithful {
+		t.Errorf("a statement that passed the fidelity checks has status %s", got)
+	}
+	if got := p.Node("LG00000007").Status; got != Open {
+		t.Errorf("a conjecture that passed the fidelity checks has status %s, not open", got)
 	}
 }
