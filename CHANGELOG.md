@@ -4,6 +4,11 @@ All changes that a user can see are in this file. The format follows Keep a Chan
 
 ## Unreleased
 
+### Added
+
+- `lgl port check`, which checks the licence header and the provenance line of each ported Lean file against `manifests/ported.yaml` of langlands-lean.
+- The status `faithful` of spec 08.3, for a statement that passed the fidelity checks of its class in `records/fidelity.json`.
+
 ## v0.0.1 (2026-11-25)
 
 ### Added

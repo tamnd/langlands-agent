@@ -44,6 +44,7 @@ var TierNames = map[string]string{
 const (
 	Planned   = "unstated"   // no Lean statement yet
 	Stated    = "stated"     // the Lean statement builds
+	Faithful  = "faithful"   // the statement passed the fidelity checks of its class, spec 06.3
 	Defined   = "defined"    // a definition that builds with no sorry
 	Proved    = "proved"     // a proof with the standard axioms only, and each node it uses is proved
 	ProvedMod = "proved-mod" // a proof that takes named nodes as hypotheses
@@ -58,7 +59,7 @@ const (
 var Uses = []string{"prove", "state", "ex", "read", "reuse", "bridge"}
 
 // Statuses lists the status values in the order of the site.
-var Statuses = []string{Proved, ProvedMod, Defined, Stated, Open, Claimed, Refuted, Planned}
+var Statuses = []string{Proved, ProvedMod, Defined, Faithful, Stated, Open, Claimed, Refuted, Planned}
 
 // StandardAxioms are the axioms that a proof may use.
 var StandardAxioms = map[string]bool{"propext": true, "Classical.choice": true, "Quot.sound": true}
@@ -164,6 +165,13 @@ func (d Decl) Clean() bool {
 	return true
 }
 
+// Fidelity is one entry of records/fidelity.json: the result of the fidelity checks F1 to F5 of spec 06.3 for one Lean statement.
+type Fidelity struct {
+	Class  string          `json:"class"`  // the class of the statement, which sets the checks it needs
+	Checks map[string]bool `json:"checks"` // the result of each check, for example "F1": true
+	Pass   bool            `json:"pass"`   // all the checks of the class passed
+}
+
 // LeanRecord is records/lean.json: what the build of langlands-lean found.
 type LeanRecord struct {
 	Repository string          `json:"repository"`
@@ -181,6 +189,8 @@ type Project struct {
 	Routes []*Route
 	Papers []*Paper
 	Lean   *LeanRecord
+	// Fidelity is records/fidelity.json, keyed by the Lean name of a statement.
+	Fidelity map[string]Fidelity
 
 	byTag   map[string]*Node
 	byPaper map[string]*Paper
@@ -230,6 +240,15 @@ func Load(root string) (*Project, error) {
 			return nil, fmt.Errorf("records/lean.json: %w", err)
 		}
 		p.Lean = &l
+	case !errors.Is(err, fs.ErrNotExist):
+		return nil, err
+	}
+	data, err = os.ReadFile(filepath.Join(root, "records", "fidelity.json")) // #nosec G304 -- a file of the content repository
+	switch {
+	case err == nil:
+		if err := json.Unmarshal(data, &p.Fidelity); err != nil {
+			return nil, fmt.Errorf("records/fidelity.json: %w", err)
+		}
 	case !errors.Is(err, fs.ErrNotExist):
 		return nil, err
 	}
@@ -347,6 +366,9 @@ func (p *Project) own(n *Node) (string, string) {
 	}
 	if n.Kind == "conjecture" {
 		return Open, "an open problem; no proof is claimed"
+	}
+	if f, ok := p.Fidelity[n.Lean.Statement]; ok && f.Pass {
+		return Faithful, "the statement builds and passed the fidelity checks of the class " + f.Class + "; there is no proof yet"
 	}
 	if n.Kind == "hypothesis" {
 		return Stated, "a published result, stated as a named Prop and not proved yet"
