@@ -36,7 +36,7 @@ func commands() []command {
 		{name: "site", summary: "build, check or serve the site", run: runSite},
 		{name: "trust", summary: "run the axiom check and the kernel replay, and write the trust report", milestone: "S1"},
 		{name: "fidelity", summary: "run the fidelity checks F1 to F5 of a statement and write records/fidelity.json", milestone: "S1"},
-		{name: "port", summary: "copy licensed Lean files with their provenance, or check the ports", milestone: "S1"},
+		{name: "port", summary: "check the ported Lean files against manifests/ported.yaml (add and diff come in milestone S1)", run: runPort},
 		{name: "paper", summary: "add, list or show a paper record", milestone: "S1"},
 		{name: "claim", summary: "add, list, show or plan a fresh claim of route R1", milestone: "S2"},
 		{name: "lab", summary: "run an experiment of the computation lab", milestone: "S1"},

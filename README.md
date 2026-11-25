@@ -23,20 +23,22 @@ lgl check                      # check the map: tags, links, papers, routes and 
 lgl status                     # print the status of each node
 lgl status -only stated        # print only the stated nodes
 lgl index -lean lean.json      # copy the record of the Lean build to records/lean.json
+lgl port check -lean ../langlands-lean   # check the ported Lean files against manifests/ported.yaml
 lgl site build -content . -out public
 lgl site serve -dir public     # serve the site at http://127.0.0.1:8080/
 ```
 
-The exit codes are 0 for success, 1 for a failed check, 2 for a usage error and 3 for a command that is not written yet. The help text gives the milestone of each command that is not written yet: `trust`, `fidelity`, `port`, `paper` and `lab` come in S1, and `claim`, `queue` and `agent` come in S2.
+The exit codes are 0 for success, 1 for a failed check, 2 for a usage error and 3 for a command that is not written yet. The help text gives the milestone of each command that is not written yet: `trust`, `fidelity`, `port add`, `paper` and `lab` come in S1, and `claim`, `queue` and `agent` come in S2.
 
 ## The status rules
 
-The status of a node comes from `records/lean.json` and from the nodes that it uses. The rules are in `blueprint/blueprint.go`.
+The status of a node comes from `records/lean.json`, from `records/fidelity.json` and from the nodes that it uses. The rules are in `blueprint/blueprint.go`.
 
 | Status | When |
 |---|---|
 | unstated | The node has no Lean statement in the build. |
 | stated | The statement builds, but the proof uses `sorry` or an axiom that is not standard. |
+| faithful | The statement builds and passed the fidelity checks of its class in `records/fidelity.json` (spec 06.3). There is no proof yet. |
 | defined | A definition that builds with no `sorry`. |
 | proved | The proof uses only `propext`, `Classical.choice` and `Quot.sound`, and each node that it uses is proved or defined. |
 | proved-mod | The proof is clean but it takes named hypotheses, or a node that it uses is not proved. |
@@ -59,3 +61,12 @@ Read [CONTRIBUTING.md](CONTRIBUTING.md) before you open a pull request.
 ## Licence
 
 MIT. See [LICENSE](LICENSE). The files in `site/assets/` come from Math 2.0. See [site/assets/UPSTREAM.md](site/assets/UPSTREAM.md) for their sources and licences.
+
+## The port check
+
+`lgl port check` reads `manifests/ported.yaml` of langlands-lean and the files of `Langlands/Ported/`. It finds these problems:
+
+- an entry with no source, a repository that is not on GitHub, a commit that is not 40 hex digits, a licence that is not Apache-2.0, MIT or BSD-3-Clause, or a date that is not `YYYY-MM-DD`;
+- a ported Lean file that does not start with the licence header of its source;
+- a ported Lean file with no provenance line `Ported from <owner>/<repo> at commit <commit>` in its first 40 lines;
+- a Lean file of `Langlands/Ported/` that is in no entry, or in two entries.
