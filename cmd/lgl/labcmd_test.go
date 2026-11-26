@@ -54,12 +54,14 @@ func TestLabCommands(t *testing.T) {
 		{name: "unknown subcommand", args: []string{"frob"}, code: 2},
 		{name: "list with nothing", args: []string{"list"}, code: 0, out: "runs in lab/runs: 0"},
 		{name: "list a spec", spec: true, node: "LG00000001", args: []string{"list"}, code: 0, out: "e1-small.yaml  E1  LG00000001"},
-		{name: "list a spec with no code", spec: true, node: "LG00000001", args: []string{"list"}, code: 0, out: "E2  no code yet"},
+		{name: "list a spec with no code", spec: true, node: "LG00000001", args: []string{"list"}, code: 0, out: "E3  no code yet"},
 		{name: "spec E1", args: []string{"spec", "E1"}, code: 0, out: "experiment: E1"},
-		{name: "spec E2", args: []string{"spec", "E2"}, code: 1},
+		{name: "spec E2", args: []string{"spec", "E2"}, code: 0, out: "experiment: E2"},
+		{name: "spec E3", args: []string{"spec", "E3"}, code: 1},
 		{name: "spec E10", args: []string{"spec", "E10"}, code: 2},
 		{name: "run E1 with no spec", args: []string{"run", "E1"}, code: 1},
-		{name: "run E2", args: []string{"run", "E2"}, code: 1},
+		{name: "run E2 with no spec", args: []string{"run", "E2"}, code: 1},
+		{name: "run E3", args: []string{"run", "E3"}, code: 1},
 		{name: "run E1", spec: true, node: "LG00000001", args: []string{"run", "-host", "test", "E1"}, code: 0, out: "agrees: in 14 fields", check: func(t *testing.T, root string) {
 			id := onlyRun(t, root)
 			data, err := os.ReadFile(filepath.Join(root, "lab", "runs", id, "record.json"))
