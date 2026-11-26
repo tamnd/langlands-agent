@@ -106,7 +106,7 @@ func resolveSpec(content, arg string) (string, error) {
 		if e := lab.FindExperiment(arg); !e.Runnable {
 			return "", fmt.Errorf("lgl has no code for experiment %s yet", arg)
 		}
-		return "", fmt.Errorf("lab/specs has no spec of %s; write one with: lgl lab spec %s > %s", arg, arg, filepath.Join(content, "lab", "specs", "e1-local-reciprocity-small.yaml"))
+		return "", fmt.Errorf("lab/specs has no spec of %s; write one with: lgl lab spec %s > %s", arg, arg, filepath.Join(content, "lab", "specs", specFile(arg)))
 	}
 	return "", fmt.Errorf("lab/specs has %d specs of %s (%s); name the file", len(paths), arg, strings.Join(paths, ", "))
 }
@@ -178,8 +178,14 @@ func labSpec(args []string, stdout, stderr io.Writer) error {
 	case !e.Runnable:
 		return fmt.Errorf("lgl has no code for experiment %s yet", e.ID)
 	}
-	_, err := io.WriteString(stdout, lab.SpecE1)
+	_, err := io.WriteString(stdout, lab.SpecText(fs.Arg(0)))
 	return err
+}
+
+// specFile is the file name of the spec that lgl lab spec prints for the experiment: its name with .yaml.
+func specFile(id string) string {
+	first, _, _ := strings.Cut(lab.SpecText(id), "\n")
+	return strings.TrimPrefix(first, "name: ") + ".yaml"
 }
 
 func labShow(args []string, stdout, stderr io.Writer) error {

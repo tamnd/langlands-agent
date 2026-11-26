@@ -174,7 +174,7 @@ func TestParseSpec(t *testing.T) {
 		{"the spec of E1", func(s string) string { return s }, ""},
 		{"a bad name", func(s string) string { return strings.Replace(s, "name: e1-local", "name: E1 local", 1) }, "the name"},
 		{"an unknown experiment", func(s string) string { return strings.Replace(s, "experiment: E1", "experiment: E10", 1) }, "E1 to E9"},
-		{"an experiment with no code", func(s string) string { return strings.Replace(s, "experiment: E1", "experiment: E2", 1) }, "no code for experiment E2"},
+		{"an experiment with no code", func(s string) string { return strings.Replace(s, "experiment: E1", "experiment: E3", 1) }, "no code for experiment E3"},
 		{"another tool", func(s string) string { return strings.Replace(s, "tool: lgl", "tool: lgl-lab", 1) }, "the tool"},
 		{"no node", func(s string) string {
 			return strings.Replace(s, "node: LGAV7YV6K6 # LocalReciprocityGL1", "node: \"\"", 1)
@@ -186,7 +186,7 @@ func TestParseSpec(t *testing.T) {
 		if tc.want == "" {
 			if err != nil {
 				t.Errorf("%s: %v", tc.name, err)
-			} else if s.Inputs.MaxConductor != 49 || len(s.Hash) != 64 {
+			} else if s.E1.MaxConductor != 49 || len(s.Hash) != 64 {
 				t.Errorf("%s: the spec is %+v", tc.name, s)
 			}
 			continue
