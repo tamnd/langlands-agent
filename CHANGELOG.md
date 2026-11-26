@@ -4,6 +4,8 @@ All changes that a user can see are in this file. The format follows Keep a Chan
 
 ## Unreleased
 
+## v0.1.3 (2026-11-27)
+
 ### Added
 
 - Lab experiment E2 in `lab/e2.go`: the explicit local Langlands correspondence for $GL_2(\mathbb{Q}_p)$ with $p$ in 3, 5 and 7, for the principal series, the twisted Steinberg representations and the depth-zero supercuspidal representations. It compares the L-factors and the ε-factors of the pairs with characters of conductor exponent at most 2, in exact cyclotomic arithmetic. `lgl lab spec` prints the spec of each experiment.
