@@ -4,6 +4,10 @@ All changes that a user can see are in this file. The format follows Keep a Chan
 
 ## Unreleased
 
+### Added
+
+- Lab experiment E5 compares the a_p of each elliptic curve of conductor N ≤ 1000 with the newform data in Cremona's ecdata, and lists the classes that reach the Sturm bound and the Livne prime sets.
+
 ## v0.4.0 (2026-11-27)
 
 ### Changed

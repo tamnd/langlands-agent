@@ -118,8 +118,9 @@ func labRun(args []string, stdout, stderr io.Writer) error {
 	runs := fs.String("runs", "", "the directory of the runs (default: lab/runs next to the lab/specs of the spec)")
 	force := fs.Bool("force", false, "replace a run with the same id")
 	host := fs.String("host", "", "the name of the host in the record (default: the host name)")
+	data := fs.String("data", "", "the directory of the downloaded input data, for E5")
 	fs.Usage = func() {
-		fmt.Fprintln(stderr, "Usage: lgl lab run [flags] <spec.yaml | E1>")
+		fmt.Fprintln(stderr, "Usage: lgl lab run [flags] <spec.yaml | E1 | E2 | E5>")
 		fs.PrintDefaults()
 	}
 	if err := fs.Parse(args); err != nil {
@@ -152,7 +153,7 @@ func labRun(args []string, stdout, stderr io.Writer) error {
 		*host, _ = os.Hostname()
 	}
 	commit, modified := toolInfo()
-	rec, err := lab.Run(spec, lab.Options{Runs: *runs, Force: *force, Host: *host, ToolVersion: Version, Commit: commit, Modified: modified, Go: runtime.Version()})
+	rec, err := lab.Run(spec, lab.Options{Runs: *runs, Force: *force, Data: *data, Host: *host, ToolVersion: Version, Commit: commit, Modified: modified, Go: runtime.Version()})
 	if err != nil {
 		return err
 	}

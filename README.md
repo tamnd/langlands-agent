@@ -167,7 +167,7 @@ The replay record is JSON: `{"commit": "...", "date": "YYYY-MM-DD", "run": "<lin
 
 ## The lab
 
-`lgl lab run` runs a spec of `lab/specs/` and writes `lab/runs/<id>/` with `record.json`, `summary.md` and the outputs. The id is the date, the name of the spec and the first 8 characters of the sha256 of the spec. The record has the hash of each file, the commit of lgl, the seed and the wall time, so a run is reproducible. The command does not replace a run unless you give `-force`, and it exits with 1 when the outputs contradict the prediction.
+`lgl lab run` runs a spec of `lab/specs/` and writes `lab/runs/<id>/` with `record.json`, `summary.md` and the outputs. The id is the date, the name of the spec and the first 8 characters of the sha256 of the spec. The record has the hash of each file, the commit of lgl, the seed and the wall time, so a run is reproducible. The command does not replace a run unless you give `-force`, and it exits with 1 when the outputs contradict the prediction. A spec of E5 reads files of the Cremona database (github.com/JohnCremona/ecdata) that were downloaded before the run; `-data <dir>` names their directory, and the run checks the sha256 of each file against the spec and writes these sha256 to the record.
 
 Only E1 has code yet. It is a small version that runs in the lgl binary, in Go, with no container and no network. For each quadratic extension of Q_p and each field Q_p(zeta_{p^n}) of the spec, it computes norms and checks that each one is in the kernel of the Artin map that Lubin-Tate theory with the uniformizer p predicts. It also checks that each class of that kernel has a norm. What it does not do yet:
 
