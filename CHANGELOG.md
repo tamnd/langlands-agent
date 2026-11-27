@@ -4,6 +4,12 @@ All changes that a user can see are in this file. The format follows Keep a Chan
 
 ## Unreleased
 
+## v0.2.0 (2026-11-27)
+
+### Changed
+
+- This release closes milestone S1, Local GL(1). It has no other change since the last patch release.
+
 ## v0.1.3 (2026-11-27)
 
 ### Added
