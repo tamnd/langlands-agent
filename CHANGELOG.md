@@ -4,6 +4,12 @@ All changes that a user can see are in this file. The format follows Keep a Chan
 
 ## Unreleased
 
+## v0.5.0 (2026-11-27)
+
+### Changed
+
+- This release closes milestone S4, Modularity and Galois representations.
+
 ## v0.4.1 (2026-11-27)
 
 ### Added
